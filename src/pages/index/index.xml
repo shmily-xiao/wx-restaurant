@@ -1,0 +1,7 @@
+<view class="container">
+  <text class="title">{{ title }}</text>
+  <view class="info">
+    <image src="{{userInfo.avatarUrl}}"/>
+    <text>模拟登陆用户：{{ userInfo.nickName }}</text>
+  </view>
+</view>

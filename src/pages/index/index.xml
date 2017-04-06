@@ -1,20 +1,13 @@
+<import src="../template/template" />
 <view class="container">
   <!--顶部搜索栏-->
   <view class="search">
     <!--当前位置-->
-    <view class="search-site triangle">广州</view>
+    <view class="search-site triangle">{{ userSite }}</view>
     <input class="search-in iconfont icon-sousuo_sousuo" placeholder="请输入餐厅、 菜系、 商圈" />
   </view>
   <!--carousel-->
-  <view class="swiper">
-    <swiper indicator-dots="true" indicator-active-color="#fff" indicator-color="#ed4d30" autoplay="true" interval="5000" duration="500" circular="true" >
-      <block wx:for="{{ imgUrls }}" wx:key="unique">
-        <swiper-item>
-          <image src="{{ item }}" class="slide-image"/>
-        </swiper-item>
-      </block>
-    </swiper>
-  </view>
+  <template is="carousel" data="{{ imgUrls }}"></template>
   <!--nav-->
   <view class="nav">
     <navigator hover-class="none" class="{{ item.navIcon }}" wx:for="{{ navList }}" wx:key="unique">
@@ -25,7 +18,7 @@
   <view class="hot-shop">
     <view class="slide">热门商家</view>
     <view class="hot-shop-wrap">
-      <navigator hover-class="none" class="hot-shop-content" wx:for="{{ hotShop }}" wx:key="unique">
+      <navigator url="../detail/detail?kind={{ index }}" hover-class="none" class="hot-shop-content" wx:for="{{ hotShop }}" wx:key="unique">
         <image class="hot-shop-img" src="{{ item.shopImg }}"></image>
         {{ item.shopName }}
       </navigator>

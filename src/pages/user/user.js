@@ -1,5 +1,5 @@
 // 获取全局应用程序实例对象
-// const app = getApp()
+const app = getApp()
 
 // 创建页面实例对象
 Page({
@@ -7,13 +7,45 @@ Page({
    * 页面的初始数据
    */
   data: {
-    title: 'user'
+    title: 'user',
+    userInfo: null,
+    userDetail: [
+      {
+        title: '正在排队',
+        number: 1
+      },
+      {
+        title: '优惠券',
+        number: 4
+      },
+      {
+        title: '积分',
+        number: 20
+      }
+    ],
+    userList: [
+      {
+        icon: 'iconfont icon-xiaoxi',
+        title: '我的排单号'
+      },
+      {
+        icon: 'iconfont icon-lingdang',
+        title: '消息'
+      },
+      {
+        icon: 'iconfont icon-fapiao',
+        title: '积分兑换'
+      }
+    ]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad () {
+    this.setData({
+      userInfo: app.data.userInfo
+    })
     // TODO: onLoad
   },
 

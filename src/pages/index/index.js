@@ -7,8 +7,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    title: 'Index page',
-    userInfo: {},
+    title: 'index',
+    userInfo: null,
+    userSite: '定位中',
     navList: [
       {
         navTitle: '排队取号',
@@ -86,6 +87,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad () {
+    wx.getLocation({
+      success (res) {
+        console.log(res)
+      }
+    })
     console.log(' ---------- onLoad ----------')
     // console.dir(app.data)
     app.getUserInfo()

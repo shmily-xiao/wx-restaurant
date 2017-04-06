@@ -1,4 +1,19 @@
 <!-- 可用组件：https://mp.weixin.qq.com/debug/wxadoc/dev/component/ -->
-<view class="container">
-  <text class="title">{{ title }}</text>
+<view class="user">
+  <!--user-info-->
+  <view class="user-info">
+    <image class="user-avatural" src="{{ userInfo.avatarUrl }}"></image>
+    <text class="user-name">{{ userInfo.nickName }}</text>
+  </view>
+  <!--user-score-->
+  <view class="user-score">
+    <navigator hover-class="none" class="u-s-content" wx:for="{{ userDetail }}" wx:key="unique">
+      <text>{{ item.title }}</text>
+      <text>{{ item.number }}</text>
+    </navigator>
+  </view>
+  <!--user-list-->
+  <view class="user-list">
+    <navigator hover-class="none" class="triangle {{ item.icon }}" wx:for="{{ userList }}" wx:key="unique">  {{ item.title }}</navigator>
+  </view>
 </view>

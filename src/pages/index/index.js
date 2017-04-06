@@ -10,44 +10,44 @@ Page({
     title: 'Index page',
     userInfo: {},
     navList: [
-    {
-      navTitle: '排队取号',
-      navIcon: 'iconfont icon-shalou'
-    },
-    {
-      navTitle: '排队取号',
-      navIcon: 'iconfont icon-shalou'
-    },
-    {
-      navTitle: '排队取号',
-      navIcon: 'iconfont icon-shalou'
-    }
+      {
+        navTitle: '排队取号',
+        navIcon: 'iconfont icon-shalou'
+      },
+      {
+        navTitle: '预约订座',
+        navIcon: 'iconfont icon-chuliyuyue'
+      },
+      {
+        navTitle: '扫描单号',
+        navIcon: 'iconfont icon-erweima'
+      }
     ],
     hotShop: [
-    {
-      shopImg: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      shopName: '青花椒砂锅鱼'
-    },
-    {
-      shopImg: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      shopName: '青花椒砂锅鱼'
-    },
-    {
-      shopImg: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      shopName: '青花椒砂锅鱼'
-    },
-    {
-      shopImg: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      shopName: '青花椒砂锅鱼'
-    },
-    {
-      shopImg: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      shopName: '青花椒砂锅鱼'
-    },
-    {
-      shopImg: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      shopName: '青花椒砂锅鱼'
-    }
+      {
+        shopImg: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+        shopName: '青花椒砂锅鱼'
+      },
+      {
+        shopImg: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+        shopName: '青花椒砂锅鱼'
+      },
+      {
+        shopImg: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+        shopName: '青花椒砂锅鱼'
+      },
+      {
+        shopImg: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+        shopName: '青花椒砂锅鱼'
+      },
+      {
+        shopImg: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+        shopName: '青花椒砂锅鱼'
+      },
+      {
+        shopImg: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+        shopName: '青花椒砂锅鱼'
+      }
     ],
     nearShop: [
       {

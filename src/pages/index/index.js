@@ -9,10 +9,7 @@ Page({
   data: {
     title: 'Index page',
     userInfo: {},
-    navList: [{
-      navTitle: '排队取号',
-      navIcon: 'iconfont icon-shalou'
-    },
+    navList: [
     {
       navTitle: '排队取号',
       navIcon: 'iconfont icon-shalou'
@@ -20,7 +17,65 @@ Page({
     {
       navTitle: '排队取号',
       navIcon: 'iconfont icon-shalou'
-    }],
+    },
+    {
+      navTitle: '排队取号',
+      navIcon: 'iconfont icon-shalou'
+    }
+    ],
+    hotShop: [
+    {
+      shopImg: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+      shopName: '青花椒砂锅鱼'
+    },
+    {
+      shopImg: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+      shopName: '青花椒砂锅鱼'
+    },
+    {
+      shopImg: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+      shopName: '青花椒砂锅鱼'
+    },
+    {
+      shopImg: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+      shopName: '青花椒砂锅鱼'
+    },
+    {
+      shopImg: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+      shopName: '青花椒砂锅鱼'
+    },
+    {
+      shopImg: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+      shopName: '青花椒砂锅鱼'
+    }
+    ],
+    nearShop: [
+      {
+        img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+        name: '青花椒砂锅鱼',
+        price: '30',
+        kind: '中国菜',
+        distance: '8.6km',
+        status: '无需排队',
+        grade: 'five-star'
+      },
+      {
+        img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+        name: '青花椒砂锅鱼',
+        price: '30',
+        kind: '中国菜',
+        status: '无需排队',
+        grade: 'four-star'
+      },
+      {
+        img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+        name: '青花椒砂锅鱼',
+        price: '128',
+        kind: '中国菜',
+        status: '无需排队',
+        grade: 'one-star'
+      }
+    ],
     imgUrls: [
       'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
       'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',

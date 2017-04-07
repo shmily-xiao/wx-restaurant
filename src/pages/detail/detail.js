@@ -43,10 +43,17 @@ Page({
       img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
       name: '人马科技大饭堂',
       distance: '100',
-      grade: 'four-star'
+      grade: 'four-star',
+      address: '汇德商业大厦501',
+      tel: '1361234567895',
+      time: '10:00-22:00'
     }
   },
-
+  callPhone () {
+    wx.makePhoneCall({
+      phoneNumber: this.data.restaurant.tel
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

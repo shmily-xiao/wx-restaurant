@@ -30,5 +30,9 @@
       </view>
       <view class="distance">距离{{ restaurant.distance }}m</view>
     </view>
+    <view class="r-i-address iconfont icon-icglobaltitlebar48iconfontmap">{{ restaurant.address }}</view>
+    <view bindtap="callPhone" class="r-i-tel iconfont icon-dianhua triangle">{{ restaurant.tel }}</view>
+    <view class="r-i-time iconfont icon-shijian">营业时间：{{ restaurant.time }}</view>
   </view>
 </view>
+<view class="take-number">立即取号</view>

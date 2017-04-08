@@ -3,8 +3,9 @@
   // First is default to view
   // https://mp.weixin.qq.com/debug/wxadoc/dev/framework/config.html#pages
   "pages": [
-    "pages/detail/detail",
+    "pages/ordering/ordering",
     "pages/index/index",
+    "pages/detail/detail",
     "pages/user/user"
     // Dont remove this comment
   ],
@@ -16,7 +17,7 @@
     "navigationBarBackgroundColor": "#ed4d30",
     // 类型：String；默认值：white
     // 导航栏标题颜色，仅支持 black/white
-    "navigationBarTextStyle": "black",
+    "navigationBarTextStyle": "white",
     // 类型：String；默认值：无
     // 导航栏标题文字内容
     "navigationBarTitleText": "WeApp Boilerplate",

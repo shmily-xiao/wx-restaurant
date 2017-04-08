@@ -49,6 +49,9 @@ Page({
       time: '10:00-22:00'
     }
   },
+  /**
+   * 拨打电话
+   */
   callPhone () {
     wx.makePhoneCall({
       phoneNumber: this.data.restaurant.tel

@@ -1,0 +1,230 @@
+//顶部样式
+.o-top {
+  height: 181rpx;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid #e5e5e5;
+  padding: 33rpx 20rpx 20rpx;
+  display: flex;
+  .o-top-img {
+    width: 110rpx;
+    height: 110rpx;
+    border-radius: 50%;
+    margin-right: 70rpx;
+  }
+  .o-top-name {
+    display: flex;
+    flex-direction: column;
+    font-size: 28rpx;
+    color: #333;
+    text {
+      margin-top: 18rpx;
+      font-size: 24rpx;
+      color: #999;
+    }
+    text::before {
+      content: '满';
+      color: #fff;
+      background-color: #f00;
+      padding: 2rpx 5rpx;
+      margin-right: 10rpx;
+    }
+  }
+  .o-top-number {
+    background-color: #f00;
+    color: #fff;
+    font-size: 24rpx;
+    height: 47rpx;
+    line-height: 47rpx;
+    padding: 5rpx 15rpx;
+    border-radius: 30rpx;
+    text-align: center;
+    transform: translate(200rpx,80rpx);
+  }
+}
+//中间导航栏
+.o-center {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: 1rpx solid #e5e5e5;
+  view {
+    text-align: center;
+    box-sizing: border-box;
+    width: 33.33%;
+    line-height: 54rpx;
+    font-size: 26rpx;
+  }
+  .active {
+    border-bottom: 6rpx solid #f00;
+    font-weight: 700;
+    text-shadow: 2rpx 2rpx 2rpx #eee;
+  }
+}
+// 导航内容1
+.menu1 {
+  border-top: 10rpx solid #dfdfdf;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  view {
+    width: 33.33%;
+    height: 288rpx;
+    box-sizing: border-box;
+    font-size: 36rpx;
+    line-height: 450rpx;
+    //background-color: #f00;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .iconfont::before {
+    display: block;
+    position: absolute;
+    top: -100rpx;
+    left: 100rpx;
+    transform: scale(3);
+  }
+  .iconfont:nth-child(1)::before {
+    color: #f15a24;
+  }
+  .iconfont:nth-child(2)::before {
+    color: #ff9839;
+  }
+  .iconfont:nth-child(3)::before {
+    color: #8cc63f;
+  }
+  .iconfont:nth-child(4)::before {
+    color: #29abe2;
+  }
+}
+// 导航内容2
+.menu2 {
+  border-top: 10rpx solid #dfdfdf;
+  .menu2-top {
+    display: flex;
+    padding-left: 66rpx;
+    line-height: 130rpx;
+    border-bottom: 1rpx solid #eee;
+    view:nth-child(2) {
+      //border-left: 1rpx solid #eee;
+      width: 113rpx;
+      text-align: center;
+    }
+    .menu2-top-left {
+      flex: 1;
+      position: relative;
+      font-size: 30rpx;
+    }
+    .menu2-top-left::before {
+      display: inline-block;
+      font-size: 40rpx;
+      transform: translateX(-30rpx);
+    }
+    .menu2-top-left::after {
+      content: '';
+      display: inline-block;
+      height: 95rpx;
+      width: 2rpx;
+      //background-color: #f00;
+      position: absolute;
+      top: 25rpx;
+      right: 0;
+      background-color: #efefef;
+    }
+  }
+  .menu2-grade {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 130rpx;
+    margin: 0 28rpx;
+    border-bottom: 3rpx solid #dfdfdf;
+    .menu2-grade-star {
+      flex: 1;
+      margin-left: 200rpx;
+    }
+    .menu2-grade-star::before {
+      color: #ccc;
+    }
+    .menu2-grade-star::after {
+      color: #faee00;
+    }
+    .posr {
+      width: 233rpx;
+      height: 130rpx;
+      box-sizing: border-box;
+      padding: 20rpx 0;
+      display: flex;
+      flex-direction: column;
+      text {
+        display: block;
+        text-align: center;
+        line-height: 50rpx;
+      }
+      text:nth-child(1) {
+        font-size: 40rpx;
+        font-weight: 700;
+      }
+      text:nth-child(2) {
+        color: #acacac;
+        font-size: 30rpx;
+      }
+    }
+    .posr::before {
+      content: '';
+      display: inline-block;
+      height: 95rpx;
+      width: 2rpx;
+      position: absolute;
+      top: 25rpx;
+      left: -20rpx;
+      background-color: #efefef;
+    }
+  }
+  .menu2-comment {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    border-bottom: 1rpx solid #dfdfdf;
+    .menu2-comment-item {
+      font-size: 24rpx;
+      padding: 10rpx 30rpx;
+      border-radius: 30rpx;
+      background-color: #fdf899;
+      margin: 5rpx;
+    }
+  }
+  .m-u-c-top {
+    display: flex;
+    padding: 20rpx 20rpx 0 20rpx;
+    align-items: center;
+    view:nth-child(2) {
+      font-size: 24rpx;
+      font-weight: 700;
+      margin-left: 20rpx;
+    }
+    .iconfont {
+      overflow: hidden;
+      margin-left: 20rpx;
+    }
+    .iconfont::before {
+      color: #ccc;
+    }
+    .iconfont::after {
+      color: #faee00;
+    }
+    view:nth-child(4) {
+      flex: 1;
+      text-align: right;
+      font-size: 24rpx;
+      color: #969696;
+    }
+  }
+  .menu2-user-comment {
+    image {
+      width: 40rpx;
+      height: 40rpx;
+      border-radius: 50%;
+    }
+  }
+}

@@ -45,9 +45,341 @@ Page({
           content: '三个字',
           number: '9132'
         }
-      ]
+      ],
+      menuList: [
+        {
+          title: '热销',
+          list: [
+            {
+              img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+              name: '红烧牛肉1',
+              count: '1805',
+              good: '173',
+              price: '23.5'
+            },
+            {
+              name: '红烧牛肉2',
+              count: '1805',
+              good: '173',
+              price: '23.5'
+            },
+            {
+              name: '红烧牛肉3',
+              count: '1805',
+              good: '173',
+              price: '23.5'
+            },
+            {
+              name: '红烧牛肉4',
+              count: '1805',
+              good: '173',
+              price: '23.5'
+            }
+          ]
+        },
+        {
+          title: '热销2',
+          list: [
+            {
+              name: '红烧牛肉1',
+              count: '1805',
+              good: '173',
+              price: '23.5'
+            },
+            {
+              name: '红烧牛肉2',
+              count: '1805',
+              good: '173',
+              price: '23.5'
+            },
+            {
+              name: '红烧牛肉3',
+              count: '1805',
+              good: '173',
+              price: '23.5'
+            },
+            {
+              name: '红烧牛肉4',
+              count: '1805',
+              good: '173',
+              price: '23.5'
+            }
+          ]
+        },
+        {
+          title: '热销3',
+          list: [
+            {
+              name: '红烧牛肉1',
+              count: '1805',
+              good: '173',
+              price: '23.5'
+            },
+            {
+              name: '红烧牛肉2',
+              count: '1805',
+              good: '173',
+              price: '23.5'
+            },
+            {
+              name: '红烧牛肉3',
+              count: '1805',
+              good: '173',
+              price: '23.5'
+            },
+            {
+              name: '红烧牛肉4',
+              count: '1805',
+              good: '173',
+              price: '23.5'
+            }
+          ]
+        },
+        {
+          title: '热销4',
+          list: [
+            {
+              name: '红烧牛肉1',
+              count: '1805',
+              good: '173',
+              price: '23.5'
+            },
+            {
+              name: '红烧牛肉2',
+              count: '1805',
+              good: '173',
+              price: '23.5'
+            },
+            {
+              name: '红烧牛肉3',
+              count: '1805',
+              good: '173',
+              price: '23.5'
+            },
+            {
+              name: '红烧牛肉4',
+              count: '1805',
+              good: '173',
+              price: '23.5'
+            }
+          ]
+        },
+        {
+          title: '热销4',
+          list: [
+            {
+              name: '红烧牛肉1',
+              count: '1805',
+              good: '173',
+              price: '23.5'
+            },
+            {
+              name: '红烧牛肉2',
+              count: '1805',
+              good: '173',
+              price: '23.5'
+            },
+            {
+              name: '红烧牛肉3',
+              count: '1805',
+              good: '173',
+              price: '23.5'
+            },
+            {
+              name: '红烧牛肉4',
+              count: '1805',
+              good: '173',
+              price: '23.5'
+            }
+          ]
+        },
+        {
+          title: '热销4',
+          list: [
+            {
+              name: '红烧牛肉1',
+              count: '1805',
+              good: '173',
+              price: '23.5'
+            },
+            {
+              name: '红烧牛肉2',
+              count: '1805',
+              good: '173',
+              price: '23.5'
+            },
+            {
+              name: '红烧牛肉3',
+              count: '1805',
+              good: '173',
+              price: '23.5'
+            },
+            {
+              name: '红烧牛肉4',
+              count: '1805',
+              good: '173',
+              price: '23.5'
+            }
+          ]
+        },
+        {
+          title: '热销4',
+          list: [
+            {
+              name: '红烧牛肉1',
+              count: '1805',
+              good: '173',
+              price: '23.5'
+            },
+            {
+              name: '红烧牛肉2',
+              count: '1805',
+              good: '173',
+              price: '23.5'
+            },
+            {
+              name: '红烧牛肉3',
+              count: '1805',
+              good: '173',
+              price: '23.5'
+            },
+            {
+              name: '红烧牛肉4',
+              count: '1805',
+              good: '173',
+              price: '23.5'
+            }
+          ]
+        },
+        {
+          title: '热销4',
+          list: [
+            {
+              name: '红烧牛肉1',
+              count: '1805',
+              good: '173',
+              price: '23.5'
+            },
+            {
+              name: '红烧牛肉2',
+              count: '1805',
+              good: '173',
+              price: '23.5'
+            },
+            {
+              name: '红烧牛肉3',
+              count: '1805',
+              good: '173',
+              price: '23.5'
+            },
+            {
+              name: '红烧牛肉4',
+              count: '1805',
+              good: '173',
+              price: '23.5'
+            }
+          ]
+        },
+        {
+          title: '热销4',
+          list: [
+            {
+              name: '红烧牛肉1',
+              count: '1805',
+              good: '173',
+              price: '23.5'
+            },
+            {
+              name: '红烧牛肉2',
+              count: '1805',
+              good: '173',
+              price: '23.5'
+            },
+            {
+              name: '红烧牛肉3',
+              count: '1805',
+              good: '173',
+              price: '23.5'
+            },
+            {
+              name: '红烧牛肉4',
+              count: '1805',
+              good: '173',
+              price: '23.5'
+            }
+          ]
+        },
+        {
+          title: '热销4',
+          list: [
+            {
+              name: '红烧牛肉1',
+              count: '1805',
+              good: '173',
+              price: '23.5'
+            },
+            {
+              name: '红烧牛肉2',
+              count: '1805',
+              good: '173',
+              price: '23.5'
+            },
+            {
+              name: '红烧牛肉3',
+              count: '1805',
+              good: '173',
+              price: '23.5'
+            },
+            {
+              name: '红烧牛肉4',
+              count: '1805',
+              good: '173',
+              price: '23.5'
+            }
+          ]
+        },
+        {
+          title: '热销4',
+          list: [
+            {
+              name: '红烧牛肉1',
+              count: '1805',
+              good: '173',
+              price: '23.5'
+            },
+            {
+              name: '红烧牛肉2',
+              count: '1805',
+              good: '173',
+              price: '23.5'
+            },
+            {
+              name: '红烧牛肉3',
+              count: '1805',
+              good: '173',
+              price: '23.5'
+            },
+            {
+              name: '红烧牛肉4',
+              count: '1805',
+              good: '173',
+              price: '23.5'
+            }
+          ]
+        }
+      ],
+      coupon: {
+        delmoney: 10,
+        condition: 100,
+        time: '2017-12-12'
+      }
     },
-    currentmenu: 2,
+    // 当前的tab
+    currentmenu: 0,
+    // 当前的left栏
+    currentleftmenu: 0,
+    // 设置scroll-view的高度
+    scrollHeight: 1000,
     menu1content: [
       {
         icon: 'iconfont icon-canshi',
@@ -72,35 +404,35 @@ Page({
         img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
         grade: 'five-star',
         time: '2016-5-5',
-        userComment: ['一二三四','一','一二三四','一二','一二三','一二三四']
+        userComment: ['一二三四', '一', '一二三四', '一二', '一二三', '一二三四']
       },
       {
         username: '186****1234',
         img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
         grade: 'one-star',
         time: '2016-5-5',
-        userComment: ['一','一二','一二三','一二三四']
+        userComment: ['一', '一二', '一二三', '一二三四']
       },
       {
         username: '186****1234',
         img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
         grade: 'two-star',
         time: '2016-5-5',
-        userComment: ['一','一二','一二三','一二三四']
+        userComment: ['一', '一二', '一二三', '一二三四']
       },
       {
         username: '186****1234',
         img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
         grade: 'four-star',
         time: '2016-5-5',
-        userComment: ['一二三四','一','一二三四','一二','一二三','一二三四']
+        userComment: ['一二三四', '一', '一二三四', '一二', '一二三', '一二三四']
       },
       {
         username: '186****1234',
         img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
         grade: 'three-star',
         time: '2016-5-5',
-        userComment: ['一二三四','一','一二三四','一二','一二三','一二三四']
+        userComment: ['一二三四', '一', '一二三四', '一二', '一二三', '一二三四']
       }
     ]
   },
@@ -109,9 +441,18 @@ Page({
    * @param e
    */
   choose (e) {
-    console.log(e)
+    // console.log(e)
     this.setData({
       currentmenu: e.currentTarget.dataset.tab
+    })
+  },
+  /**
+   * 改变left menu选择
+   * @param e
+   */
+  leftChoose (e) {
+    this.setData({
+      currentleftmenu: e.currentTarget.dataset.menu
     })
   },
   /**

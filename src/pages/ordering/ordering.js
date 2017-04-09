@@ -48,7 +48,40 @@ Page({
       ],
       menuList: [
         {
-          title: '热销',
+          title: '热销1',
+          id: 'list1',
+          list: [
+            {
+              img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+              name: '红烧牛肉1',
+              count: '1805',
+              good: '173',
+              price: '23.5',
+              id: 'list1-1'
+            },
+            {
+              name: '红烧牛肉2',
+              count: '1805',
+              good: '173',
+              price: '23.5'
+            },
+            {
+              name: '红烧牛肉3',
+              count: '1805',
+              good: '173',
+              price: '23.5'
+            },
+            {
+              name: '红烧牛肉4',
+              count: '1805',
+              good: '173',
+              price: '23.5'
+            }
+          ]
+        },
+        {
+          title: '热销2',
+          id: 'list2',
           list: [
             {
               img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
@@ -78,38 +111,11 @@ Page({
           ]
         },
         {
-          title: '热销2',
-          list: [
-            {
-              name: '红烧牛肉1',
-              count: '1805',
-              good: '173',
-              price: '23.5'
-            },
-            {
-              name: '红烧牛肉2',
-              count: '1805',
-              good: '173',
-              price: '23.5'
-            },
-            {
-              name: '红烧牛肉3',
-              count: '1805',
-              good: '173',
-              price: '23.5'
-            },
-            {
-              name: '红烧牛肉4',
-              count: '1805',
-              good: '173',
-              price: '23.5'
-            }
-          ]
-        },
-        {
           title: '热销3',
+          id: 'list3',
           list: [
             {
+              img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
               name: '红烧牛肉1',
               count: '1805',
               good: '173',
@@ -137,8 +143,10 @@ Page({
         },
         {
           title: '热销4',
+          id: 'list4',
           list: [
             {
+              img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
               name: '红烧牛肉1',
               count: '1805',
               good: '173',
@@ -165,9 +173,11 @@ Page({
           ]
         },
         {
-          title: '热销4',
+          title: '热销5',
+          id: 'list5',
           list: [
             {
+              img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
               name: '红烧牛肉1',
               count: '1805',
               good: '173',
@@ -194,9 +204,11 @@ Page({
           ]
         },
         {
-          title: '热销4',
+          title: '热销6',
+          id: 'list6',
           list: [
             {
+              img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
               name: '红烧牛肉1',
               count: '1805',
               good: '173',
@@ -223,125 +235,11 @@ Page({
           ]
         },
         {
-          title: '热销4',
+          title: '热销7',
+          id: 'list7',
           list: [
             {
-              name: '红烧牛肉1',
-              count: '1805',
-              good: '173',
-              price: '23.5'
-            },
-            {
-              name: '红烧牛肉2',
-              count: '1805',
-              good: '173',
-              price: '23.5'
-            },
-            {
-              name: '红烧牛肉3',
-              count: '1805',
-              good: '173',
-              price: '23.5'
-            },
-            {
-              name: '红烧牛肉4',
-              count: '1805',
-              good: '173',
-              price: '23.5'
-            }
-          ]
-        },
-        {
-          title: '热销4',
-          list: [
-            {
-              name: '红烧牛肉1',
-              count: '1805',
-              good: '173',
-              price: '23.5'
-            },
-            {
-              name: '红烧牛肉2',
-              count: '1805',
-              good: '173',
-              price: '23.5'
-            },
-            {
-              name: '红烧牛肉3',
-              count: '1805',
-              good: '173',
-              price: '23.5'
-            },
-            {
-              name: '红烧牛肉4',
-              count: '1805',
-              good: '173',
-              price: '23.5'
-            }
-          ]
-        },
-        {
-          title: '热销4',
-          list: [
-            {
-              name: '红烧牛肉1',
-              count: '1805',
-              good: '173',
-              price: '23.5'
-            },
-            {
-              name: '红烧牛肉2',
-              count: '1805',
-              good: '173',
-              price: '23.5'
-            },
-            {
-              name: '红烧牛肉3',
-              count: '1805',
-              good: '173',
-              price: '23.5'
-            },
-            {
-              name: '红烧牛肉4',
-              count: '1805',
-              good: '173',
-              price: '23.5'
-            }
-          ]
-        },
-        {
-          title: '热销4',
-          list: [
-            {
-              name: '红烧牛肉1',
-              count: '1805',
-              good: '173',
-              price: '23.5'
-            },
-            {
-              name: '红烧牛肉2',
-              count: '1805',
-              good: '173',
-              price: '23.5'
-            },
-            {
-              name: '红烧牛肉3',
-              count: '1805',
-              good: '173',
-              price: '23.5'
-            },
-            {
-              name: '红烧牛肉4',
-              count: '1805',
-              good: '173',
-              price: '23.5'
-            }
-          ]
-        },
-        {
-          title: '热销4',
-          list: [
-            {
+              img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
               name: '红烧牛肉1',
               count: '1805',
               good: '173',
@@ -378,6 +276,8 @@ Page({
     currentmenu: 0,
     // 当前的left栏
     currentleftmenu: 0,
+    // 侧边栏联动当前值
+    currentmenuid: 'list1',
     // 设置scroll-view的高度
     scrollHeight: 1000,
     menu1content: [
@@ -452,7 +352,8 @@ Page({
    */
   leftChoose (e) {
     this.setData({
-      currentleftmenu: e.currentTarget.dataset.menu
+      currentleftmenu: e.currentTarget.dataset.menu,
+      currentmenuid: e.currentTarget.dataset.menulistid
     })
   },
   /**

@@ -20,7 +20,7 @@
     <!--左侧导航选项-->
     <view class="menu0-left">
       <scroll-view scroll-y="true" style="height: {{ scrollHeight }}rpx">
-        <view bindtap="leftChoose" class="{{ index == 0 ? 'iconfont icon-huo' : '' }} menu0-l-item {{ currentleftmenu == index ? 'active' : '' }}" data-menu="{{ index }}" wx:for="{{ restaurant.menuList }}" wx:key="unique">
+        <view bindtap="leftChoose" data-menulistid="{{ item.id }}" class="{{ index == 0 ? 'iconfont icon-huo' : '' }} menu0-l-item {{ currentleftmenu == index ? 'active' : '' }}" data-menu="{{ index }}" wx:for="{{ restaurant.menuList }}" wx:key="unique">
           {{ item.title }}
         </view>
       </scroll-view>
@@ -44,10 +44,10 @@
           <view class="get-coupon">点击领取</view>
         </view>
       </view>
-      <scroll-view scroll-y="true" style="height: {{ scrollHeight - 142 }}rpx">
+      <scroll-view scroll-y="true" scroll-with-animation="true"  scroll-into-view="{{ currentmenuid }}" style="height: {{ scrollHeight - 142 }}rpx">
         <block wx:for="{{ restaurant.menuList }}" wx:for-item="menu0List">
           <!--商品分类标题-->
-          <view class="menu0-r-title">{{ menu0List.title }}</view>
+          <view class="menu0-r-title" id="{{ menu0List.id }}">{{ menu0List.title }}</view>
           <!--循环商品信息-->
           <view bindtap="leftChoose" class="menu0-r-goods" data-menus="{{ index }}" wx:for="{{ menu0List.list }}" wx:key="unique">
             <image src="{{ item.img }}"></image>

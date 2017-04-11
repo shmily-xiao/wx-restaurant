@@ -28,7 +28,7 @@
   <view class="near-shop">
     <view class="slide ">附近商家</view>
     <view class="near-shop-wrap">
-      <navigator hover-class="none" class="near-shop-content" wx:for="{{ nearShop }}" wx:key="unique">
+      <navigator url="../ordering/ordering?shopId={{ item.id }}" hover-class="none" class="near-shop-content" wx:for="{{ nearShop }}" wx:key="unique">
         <image class="near-shop-img" src="{{ item.img }}"></image>
         <view class="near-shop-detail">
           <veiw class="n-s-c-name">{{ item.name }}</veiw>

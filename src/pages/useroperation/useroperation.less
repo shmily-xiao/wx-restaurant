@@ -1,0 +1,229 @@
+page {
+  background-color: #eee;
+}
+//我的排单
+.number {
+  background-color: #fff;
+  padding: 35rpx 20rpx 27rpx 20rpx;
+  .number-top {
+    display: flex;
+    border-bottom: 1rpx solid #eee;
+    padding-bottom: 27rpx;
+    image {
+      width: 110rpx;
+      height: 110rpx;
+      border-radius: 50%;
+    }
+    .n-t-center {
+      margin-left: 70rpx;
+      color: #666;
+      display: flex;
+      justify-content: space-around;
+      flex-direction: column;
+      text:nth-child(1) {
+        color: #333;
+        font-size: 24rpx;
+      }
+      text:nth-child(2) {
+        font-size: 20rpx;
+        color: #666;
+      }
+    }
+  }
+  .number-bottom {
+    display: flex;
+    line-height: 76rpx;
+    border-bottom: 2rpx solid #eee;
+    .iconfont {
+      font-size: 24rpx;
+      color: #333;
+      text {
+        font-size: 36rpx;
+        margin: 0 27rpx 23rpx;
+      }
+    }
+    .iconfont::before {
+      font-size: 40rpx;
+      color: #ed4d30;
+    }
+    text:nth-child(2) {
+      color: #999;
+      font-size: 20rpx;
+      flex: 1;
+      text-align: right;
+    }
+  }
+}
+//我的消息
+.message {
+  padding: 26rpx 20rpx 0;
+  .message-wrap {
+    background-color: #fff;
+    padding: 0 20rpx;
+    border-radius: 10rpx;
+    margin-bottom: 25rpx;
+    .m-w-top {
+      font-size: 40rpx;
+      line-height: 107rpx;
+      border-bottom: 3rpx solid #eee;
+    }
+    .m-w-top::before {
+      color: #be8e59;
+    }
+    .triangle::after {
+      color: #999;
+      right: 10rpx;
+    }
+    .m-w-content {
+      display: flex;
+      flex-direction: column;
+      line-height: 50rpx;
+      font-size: 30rpx;
+      color: #999;
+    }
+  }
+}
+//积分兑换
+.integral {
+  .integral-wrap {
+    margin-top: 15rpx;
+    height: 262rpx;
+    box-sizing: border-box;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 25rpx;
+    position: relative;
+    image {
+      width: 192rpx;
+      height: 192rpx;
+      border-radius: 50%;
+    }
+    .i-w-center {
+      display: flex;
+      justify-content: space-between;
+      margin-left: 20rpx;
+      flex-direction: column;
+      text {
+        margin: 10rpx 0;
+      }
+      text:nth-child(1) {
+        font-size: 28rpx;
+        color: #333;
+      }
+      text:nth-child(2) {
+        font-size: 24rpx;
+        color: #999;
+      }
+      text:nth-child(3) {
+        width: 123rpx;
+        background-color: #ff9400;
+        line-height: 40rpx;
+        text-align: center;
+        border-radius: 10rpx;
+        font-size: 16rpx;
+        color: #fff;
+      }
+      text:nth-child(4) {
+        font-size: 24rpx;
+        color: #999;
+      }
+    }
+    .integral-change {
+      position: absolute;
+      right: 20rpx;
+      bottom: 20rpx;
+      width: 170rpx;
+      text-align: center;
+      line-height: 55rpx;
+      font-size: 24rpx;
+      color: #ed4d30;
+      border: 2rpx solid #f73;
+      border-radius: 10rpx;
+    }
+  }
+}
+//优惠券
+.coupon {
+  //顶部
+  .coupon-top {
+    display: flex;
+    background-color: #fff;
+  }
+  .coupon-top-item {
+    text-align: center;
+    width: 33.33%;
+    line-height: 95rpx;
+    font-size: 28rpx;
+    box-sizing: border-box;
+  }
+  .active {
+    color: #f23030;
+    font-weight: 700;
+    border-bottom: 1rpx solid #f23030;
+  }
+  //未使用优惠券
+  .coupon-no-use, .coupon-use, .coupon-use-finish {
+    padding: 20rpx;
+  }
+  .coupon-list {
+    width: 100%;
+    height: 184rpx;
+    background-color: #fff;
+    border-radius: 20rpx;
+    margin-bottom: 20rpx;
+    overflow: hidden;
+    .coupon-list-top {
+      padding: 0 40rpx;
+      line-height: 123rpx;
+      background-image: linear-gradient(#fd9251, #fc7308);
+      display: flex;
+      color: #fff;
+      .c-l-t-left {
+        font-size: 45rpx;
+        .c-l-t-left-one {
+          font-weight: 700;
+          text {
+            font-weight: 400;
+            font-size: 28rpx;
+          }
+        }
+      }
+    }
+    .c-l-t-center {
+      margin-left: 50rpx;
+      font-size: 24rpx;
+    }
+    .c-l-t-right {
+      flex: 1;
+      text-align: right;
+      font-weight: 700;
+      font-size: 34rpx;
+      position: relative;
+    }
+    .icon-youhuiquan::before {
+      font-size: 80rpx;
+      position: absolute;
+      font-weight: 500;
+      color: rgba(248, 133, 13, 0.76);
+      right: -60rpx;
+    }
+    .circle {
+      display: flex;
+      margin-top: -7rpx;
+      .circle-item {
+        width: 15rpx;
+        height: 15rpx;
+        margin-right: 5rpx;
+        border-radius: 50%;
+        background-color: #fff;
+      }
+    }
+    .time {
+      padding-left: 20rpx;
+      padding-top: 10rpx;
+      font-size: 24rpx;
+      color: #999;
+    }
+  }
+}

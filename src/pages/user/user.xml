@@ -7,13 +7,13 @@
   </view>
   <!--user-score-->
   <view class="user-score">
-    <navigator hover-class="none" class="u-s-content" wx:for="{{ userDetail }}" wx:key="unique">
+    <navigator url="{{ item.title == '优惠券' ? '../useroperation/useroperation?operation=coupon' : '' }}" hover-class="none" class="u-s-content" wx:for="{{ userDetail }}" wx:key="unique">
       <text>{{ item.title }}</text>
       <text>{{ item.number }}</text>
     </navigator>
   </view>
   <!--user-list-->
   <view class="user-list">
-    <navigator hover-class="none" class="triangle {{ item.icon }}" wx:for="{{ userList }}" wx:key="unique">  {{ item.title }}</navigator>
+    <navigator url="../useroperation/useroperation?operation={{ item.id }}" hover-class="none" class="triangle {{ item.icon }}" wx:for="{{ userList }}" wx:key="unique">  {{ item.title }}</navigator>
   </view>
 </view>

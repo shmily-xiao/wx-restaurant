@@ -26,15 +26,18 @@ Page({
     userList: [
       {
         icon: 'iconfont icon-xiaoxi',
-        title: '我的排单号'
+        title: '我的排单号',
+        id: 'number'
       },
       {
         icon: 'iconfont icon-lingdang',
-        title: '消息'
+        title: '消息',
+        id: 'message'
       },
       {
         icon: 'iconfont icon-fapiao',
-        title: '积分兑换'
+        title: '积分兑换',
+        id: 'integral'
       }
     ]
   },

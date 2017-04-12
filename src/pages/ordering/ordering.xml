@@ -11,12 +11,19 @@
   </view>
   <!--中间导航-->
   <view class="o-center">
-    <view bindtap="choose" data-tab="0" class="o-c-menu {{ currentmenu == 0 ? 'active' : ''}}">点菜</view>
-    <view bindtap="choose" data-tab="1" class="o-c-call {{ currentmenu == 1 ? 'active' : ''}}">呼叫</view>
-    <view bindtap="choose" data-tab="2" class="o-c-shop {{ currentmenu == 2 ? 'active' : ''}}">商家</view>
+    <view bindtap="choose" data-tab="0" class="o-c-menu {{ currentmenu == 0 ? 'active' : ''}}">取号</view>
+    <view bindtap="choose" data-tab="1" class="o-c-call {{ currentmenu == 1 ? 'active' : ''}}">点菜</view>
+    <view bindtap="choose" data-tab="2" class="o-c-shop {{ currentmenu == 2 ? 'active' : ''}}">服务</view>
+    <view bindtap="choose" data-tab="3" class="o-c-shop {{ currentmenu == 3 ? 'active' : ''}}">商家</view>
   </view>
   <!--导航内容0-->
   <view class="menu0" wx:if="{{ currentmenu == 0 }}">
+    <view data-desk="0" bindtap="getdesk">小桌（1-2人）</view>
+    <view data-desk="1" bindtap="getdesk">中桌（3-4人）</view>
+    <view data-desk="2" bindtap="getdesk">大桌（5人以上）</view>
+  </view>
+  <!--导航内容1-->
+  <view class="menu1" wx:if="{{ currentmenu == 1 }}">
     <!--左侧导航选项-->
     <view class="menu0-left">
       <scroll-view scroll-y="true" style="height: {{ scrollHeight }}rpx">
@@ -70,14 +77,14 @@
     </view>
     <view class="menu0-bottom"></view>
   </view>
-  <!--导航内容1-->
-  <view class="menu1" wx:if="{{ currentmenu == 1 }}">
+  <!--导航内容2-->
+  <view class="menu2" wx:if="{{ currentmenu == 2 }}">
     <view catchtap="menu1choose" data-tabmenu="{{ index }}" class="{{ item.icon }}" wx:for="{{ menu1content }}" wx:key="unique">
       {{ item.title }}
     </view>
   </view>
-  <!--导航内容2-->
-  <view class="menu2" wx:if="{{ currentmenu == 2 }}">
+  <!--导航内容3-->
+  <view class="menu3" wx:if="{{ currentmenu == 3 }}">
     <!--顶部地址和拨打电话-->
     <view class="menu2-top">
       <view class="menu2-top-left iconfont icon-icglobaltitlebar48iconfontmap">{{ restaurant.address }}</view>
@@ -113,5 +120,9 @@
         </view>
       </view>
     </scroll-view>
+  </view>
+  <!--购物车-->
+  <view class="car">
+
   </view>
 </view>

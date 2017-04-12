@@ -146,22 +146,6 @@ page {
 //优惠券
 .coupon {
   //顶部
-  .coupon-top {
-    display: flex;
-    background-color: #fff;
-  }
-  .coupon-top-item {
-    text-align: center;
-    width: 33.33%;
-    line-height: 95rpx;
-    font-size: 28rpx;
-    box-sizing: border-box;
-  }
-  .active {
-    color: #f23030;
-    font-weight: 700;
-    border-bottom: 1rpx solid #f23030;
-  }
   //未使用优惠券
   .coupon-no-use, .coupon-use, .coupon-use-finish {
     padding: 20rpx;
@@ -225,5 +209,96 @@ page {
       font-size: 24rpx;
       color: #999;
     }
+  }
+}
+.coupon-top {
+  display: flex;
+  background-color: #fff;
+}
+.coupon-top-item {
+  text-align: center;
+  width: 33.33%;
+  line-height: 95rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+}
+.active {
+  color: #f23030;
+  font-weight: 700;
+  border-bottom: 1rpx solid #f23030;
+}
+//我的订单
+.order {
+  .coupon-top-item {
+    width: 50%;
+  }
+  .go-pay, .go-finish, .cancel-pay {
+    padding: 20rpx;
+    padding-bottom: 0;
+    margin-top: 20rpx;
+    .go-pay-top {
+      display: flex;
+      align-items: center;
+      border-bottom: 1rpx solid #eee;
+      padding-bottom: 10rpx;
+      image {
+        width: 110rpx;
+        height: 110rpx;
+        border-radius: 50%;
+        border: 1rpx solid #eee;
+      }
+      .g-p-t-center {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-left: 70rpx;
+        text {
+          font-size: 24rpx;
+          color: #999;
+        }
+        text:nth-child(1) {
+          color: #333;
+          font-weight: 700;
+        }
+      }
+    }
+    .go-pay-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20rpx 0;
+      text {
+        font-size: 24rpx;
+        color: #333;
+      }
+      .go-pay-btn {
+        width: 130rpx;
+        line-height: 47rpx;
+        font-size: 24rpx;
+        color: #fff;
+        text-align: center;
+        border-radius: 30rpx;
+        background-color: #f00;
+      }
+      .act-money {
+        color: #f00;
+      }
+    }
+  }
+  .order-all, .order-pend {
+     > view {
+       background-color: #fff;
+     }
+  }
+  .icon-bhjyizhifu {
+    font-size: 120rpx;
+    padding-left:100rpx;
+    color: #b5f9d5;
+  }
+  .icon-tubiaoyiquxiao01 {
+    font-size: 80rpx;
+    padding-left:100rpx;
+    color: #d3d3d3;
+    transform: translateY(-30rpx) rotateZ(35deg);
   }
 }

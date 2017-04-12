@@ -80,6 +80,14 @@ Page({
     })
   },
   /**
+   * 提交评论信息
+   */
+  gradeBtn () {
+    wx.switchTab({
+      url: '../index/index'
+    })
+  },
+  /**
    * checkbox 选项
    * @param e
    */

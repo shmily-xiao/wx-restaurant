@@ -357,6 +357,25 @@ Page({
     })
   },
   /**
+   * 选择桌子取号
+   */
+  getdesk (e) {
+    let index = e.currentTarget.dataset.desk
+    let title = null
+    if (index == 0){
+      title = '小桌取号成功'
+    } else if (index == 1) {
+      title = '中桌取号成功'
+    } else {
+      title = '大桌取号成功'
+    }
+    wx.showToast({
+      title: title,
+      icon: 'success',
+      duration: 2000
+    })
+  },
+  /**
    * 户呼叫服务
    * @param e
    */

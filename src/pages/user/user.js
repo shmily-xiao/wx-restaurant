@@ -38,6 +38,16 @@ Page({
         icon: 'iconfont icon-fapiao',
         title: '积分兑换',
         id: 'integral'
+      },
+      {
+        icon: 'iconfont icon-fapiao',
+        title: '我的订单',
+        id: 'order'
+      },
+      {
+        icon: 'iconfont icon-fapiao',
+        title: '商家入驻',
+        id: 'merchant'
       }
     ]
   },

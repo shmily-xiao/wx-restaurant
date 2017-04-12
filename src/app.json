@@ -3,9 +3,10 @@
   // First is default to view
   // https://mp.weixin.qq.com/debug/wxadoc/dev/framework/config.html#pages
   "pages": [
+    "pages/payorder/payorder",
+    "pages/index/index",
     "pages/grade/grade",
     "pages/gratuity/gratuity",
-    "pages/index/index",
     "pages/ordering/ordering",
     "pages/detail/detail",
     "pages/user/user",

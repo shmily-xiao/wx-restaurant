@@ -98,7 +98,39 @@ Page({
         starTime: '2015.12.01',
         endTime: '2016.12.03'
       }
-    ]
+    ],
+    orderNumber: ['待支付', '全部'],
+    orderList: {
+      pay: [
+        {
+          img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+          name: '人马大饭堂',
+          code: 'No12312312',
+          time: '2017-03-26 17:26',
+          money: '238'
+        }
+      ],
+      finish: [
+        {
+          img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+          name: '人马大饭堂',
+          code: 'No12312312',
+          time: '2017-03-26 17:26',
+          money: '238',
+          delMoney: '23',
+          actMoney: '215'
+        }
+      ],
+      cancel: [
+        {
+          img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+          name: '人马大饭堂',
+          code: 'No12312312',
+          time: '2017-03-26 17:26',
+          money: '238'
+        }
+      ]
+    }
   },
   /**
    * 设置couponTab
@@ -107,6 +139,15 @@ Page({
   chooseCouponTab (e) {
     this.setData({
       currentCouponTab: e.currentTarget.dataset.tabid
+    })
+  },
+  /**
+   * 去支付
+   * @param e
+   */
+  goPay (e) {
+    wx.navigateTo({
+      url: '../payorder/payorder?id=' + e.currentTarget.dataset.id
     })
   },
   /**
@@ -126,8 +167,12 @@ Page({
       operation = '消息'
     } else if (operation === 'integral') {
       operation = '积分兑换'
+    } else if (operation === 'order') {
+      operation = '我的订单'
+    } else if (operation == 'merchant') {
+      operation = '商家入驻'
     } else {
-      operation = '优惠卷'
+      operation = '优惠券'
     }
     // 设置导航栏标题
     wx.setNavigationBarTitle({

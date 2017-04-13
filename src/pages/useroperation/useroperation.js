@@ -118,7 +118,9 @@ Page({
           time: '2017-03-26 17:26',
           money: '238',
           delMoney: '23',
-          actMoney: '215'
+          actMoney: '215',
+          restaurantId: 'No123123',
+          waiterId: 'waiter123123'
         }
       ],
       cancel: [
@@ -151,6 +153,24 @@ Page({
     })
   },
   /**
+   * 去打分或者打赏
+   * @param e
+   */
+  goGratuity (e) {
+    let restaurantId = e.currentTarget.dataset.restaurantid
+    let waiterId = e.currentTarget.dataset.waiterid
+    let kind = e.currentTarget.dataset.kind
+    let url = ''
+    if (kind === 'shop') {
+      url = '../grade/grade?restaurantId=' + restaurantId
+    } else {
+      url = '../gratuity/gratuity?waiterId=' + waiterId
+    }
+    wx.navigateTo({
+      url: url
+    })
+  },
+  /**
    * 生命周期函数--监听页面加载
    */
   onLoad (params) {
@@ -169,7 +189,7 @@ Page({
       operation = '积分兑换'
     } else if (operation === 'order') {
       operation = '我的订单'
-    } else if (operation == 'merchant') {
+    } else if (operation === 'merchant') {
       operation = '商家入驻'
     } else {
       operation = '优惠券'

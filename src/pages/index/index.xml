@@ -3,7 +3,7 @@
   <!--顶部搜索栏-->
   <view class="search">
     <!--当前位置-->
-    <view class="search-site triangle">{{ userSite }}</view>
+    <view bindtap="chooseLocation" class="search-site triangle">{{ userSite }}</view>
     <input class="search-in iconfont icon-sousuo_sousuo" placeholder="请输入餐厅、 菜系、 商圈" />
   </view>
   <!--carousel-->

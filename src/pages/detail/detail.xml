@@ -10,8 +10,11 @@
       <view class="kind">
         {{ item.kind }}
       </view>
-      <view class="desk">
+      <view class="desk" wx:if="{{ item.number }}">
         <text>{{ item.number }}</text>{{ item.desk }}
+      </view>
+      <view class="desk" wx:if="{{ !item.number }}">
+          无需等待
       </view>
       <view class="time">
         {{ item.time }}
@@ -35,4 +38,4 @@
     <view class="r-i-time iconfont icon-shijian">营业时间：{{ restaurant.time }}</view>
   </view>
 </view>
-<navigator url="../ordering/ordering?shopId={{ restaurant.id }}" hover-class="none" class="take-number">立即取号</navigator>
+<navigator open-type="redirect" url="../ordering/ordering?shopId={{ restaurant.id }}" hover-class="none" class="take-number">立即取号</navigator>

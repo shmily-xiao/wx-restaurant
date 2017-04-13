@@ -47,9 +47,24 @@ Page({
    * 支付货款
    */
   payMoney () {
-    wx.switchTab({
-      url: '../index/index'
+    wx.showActionSheet({
+      itemList: ['微信付款', '扫描二维码'],
+      success (res) {
+        console.log(res)
+        if (res.tapIndex === 0) {
+          wx.switchTab({
+            url: '../index/index'
+          })
+        } else if (res.tapIndex === 1) {
+          wx.scanCode({
+            success (res) {
+              console.log(res)
+            }
+          })
+        }
+      }
     })
+
     // wx.requestPayment({
     //   'timeStamp': '',
     //   'nonceStr': '',

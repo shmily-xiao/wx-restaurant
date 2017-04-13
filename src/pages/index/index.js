@@ -83,6 +83,22 @@ Page({
       'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
     ]
   },
+  chooseLocation () {
+    console.log(1)
+    let that = this
+    wx.chooseLocation({
+      success (res) {
+        if (res.name.length <= 0) {
+          return that.setData({
+            userSite: res.address
+          })
+        }
+        that.setData({
+          userSite: res.name
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

@@ -35,7 +35,6 @@ Page({
       {
         kind: '大桌（5人以上）',
         desk: '桌',
-        number: '1',
         time: '--分钟'
       }
     ],

@@ -11,6 +11,7 @@ Page({
     restaurant: {
       img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
       name: '人马科技大饭堂',
+      id: 'remaid',
       address: '汇德商业大厦501',
       tel: '123412341234',
       status: '满桌',
@@ -57,25 +58,28 @@ Page({
               count: '1805',
               good: '173',
               price: '23.5',
-              id: 'list1-1'
+              id: 'list1_1'
             },
             {
               name: '红烧牛肉2',
               count: '1805',
               good: '173',
-              price: '23.5'
+              price: '23.5',
+              id: 'list1_2'
             },
             {
               name: '红烧牛肉3',
               count: '1805',
               good: '173',
-              price: '23.5'
+              price: '23.5',
+              id: 'list1_3'
             },
             {
               name: '红烧牛肉4',
               count: '1805',
               good: '173',
-              price: '23.5'
+              price: '23.5',
+              id: 'list1_4'
             }
           ]
         },
@@ -88,25 +92,29 @@ Page({
               name: '红烧牛肉1',
               count: '1805',
               good: '173',
-              price: '23.5'
+              price: '23.5',
+              id: 'list2_1'
             },
             {
               name: '红烧牛肉2',
               count: '1805',
               good: '173',
-              price: '23.5'
+              price: '23.5',
+              id: 'list2_2'
             },
             {
               name: '红烧牛肉3',
               count: '1805',
               good: '173',
-              price: '23.5'
+              price: '23.5',
+              id: 'list2_3'
             },
             {
               name: '红烧牛肉4',
               count: '1805',
               good: '173',
-              price: '23.5'
+              price: '23.5',
+              id: 'list2_4'
             }
           ]
         },
@@ -267,6 +275,7 @@ Page({
         }
       ],
       coupon: {
+        id: 'code123123',
         delmoney: 10,
         condition: 100,
         time: '2017-12-12'
@@ -279,7 +288,10 @@ Page({
     // 侧边栏联动当前值
     currentmenuid: 'list1',
     // 设置scroll-view的高度
-    scrollHeight: 1000,
+    scrollHeight: 880,
+    needDistance: 0,
+    showShopCarContent: false,
+    showMask: false,
     menu1content: [
       {
         icon: 'iconfont icon-canshi',
@@ -334,7 +346,94 @@ Page({
         time: '2016-5-5',
         userComment: ['一二三四', '一', '一二三四', '一二', '一二三', '一二三四']
       }
-    ]
+    ],
+    chooseGoods: {
+      // 饭店id
+      restaurant_id: 'renmaid',
+      // 选择的商品数量
+      goods: {},
+      // 总金额
+      money: 0,
+      // 总数
+      allCount: 0
+    }
+  },
+  /**
+   * 确认订单
+   */
+  goCheckOrder () {
+    if (this.data.chooseGoods.allCount <= 0) {
+      return wx.showToast({
+        title: '您还没有点餐',
+        icon: 'success',
+        mask: true
+      })
+    }
+    // todo 提交订单信息，然后去到确认页面
+    wx.navigateTo({
+      url: '../payorder/payorder?operation=checkOrder'
+    })
+  },
+  /**
+   * 计算消费金额
+   */
+  calculateMoney () {
+    let goods = this.data.chooseGoods.goods
+    let menuList = this.data.restaurant.menuList
+    let money = 0
+    let singleMoney = 0
+    for (var goodsId in goods) {
+      // console.log(goodsId)
+      // console.log(goods[goodsId])
+      for (var lists of menuList) {
+        // console.log(lists)
+        // 具体列表内的菜单
+        let list = lists.list
+        // console.log(list)
+        for (var goodsID of list) {
+          if (goodsID.id === goodsId) {
+            // console.log(goodsID.price)
+            // console.log(goods[goodsId])
+            singleMoney = goodsID.price * goods[goodsId]
+            // console.log('success')
+          }
+          // return console.log(goodsID)
+        }
+      }
+      money += singleMoney
+    }
+    return money
+  },
+  /**
+   * 显示购物车内容
+   */
+  showContent () {
+    if (this.data.chooseGoods.money <= 0) return
+    this.setData({
+      showShopCarContent: !this.data.showShopCarContent,
+      showMask: !this.data.showMask
+    })
+  },
+  /**
+   * 获取优惠券
+   * @param e
+   */
+  getCoupon (e) {
+    wx.showToast({
+      title: '领取优惠券',
+      icon: 'success',
+      duration: 2000,
+      mask: true
+    })
+  },
+  /**
+   * 设置右侧滚动栏的位置
+   */
+  setNeedDistance () {
+    if (!this.data.restaurant.coupon.id) return
+    this.setData({
+      needDistance: 142
+    })
   },
   /**
    * 改变menu选择
@@ -362,9 +461,9 @@ Page({
   getdesk (e) {
     let index = e.currentTarget.dataset.desk
     let title = null
-    if (index == 0){
+    if (index === '0') {
       title = '小桌取号成功'
-    } else if (index == 1) {
+    } else if (index === '1') {
       title = '中桌取号成功'
     } else {
       title = '大桌取号成功'
@@ -400,6 +499,71 @@ Page({
     })
   },
   /**
+   * 添加商品
+   * @param e
+   */
+  addorder (e) {
+    let goodsId = e.currentTarget.dataset.goodsid
+    if (!goodsId) {
+      return wx.showModal({
+        title: '抱歉',
+        content: '您选的菜品暂时无法提供',
+        showCancel: false,
+        confirmText: '我知道了'
+      })
+    }
+    let chooseGoods = this.data.chooseGoods
+    let goods = chooseGoods.goods
+    let count = goods[goodsId]
+    // 已有该商品
+    if (count) {
+      goods[goodsId] = ++count
+    } else {
+      goods[goodsId] = 1
+    }
+    chooseGoods.goods = goods
+    this.setData({
+      chooseGoods: chooseGoods
+    })
+    let money = this.calculateMoney()
+    chooseGoods.money = money
+    // 增加计数
+    ++chooseGoods.allCount
+    this.setData({
+      chooseGoods: chooseGoods
+    })
+    wx.setStorageSync('chooseGoods', this.data.chooseGoods)
+  },
+  /**
+   * 删除商品
+   * @param e
+   */
+  delorder (e) {
+    let goodsId = e.currentTarget.dataset.goodsid
+    let chooseGoods = this.data.chooseGoods
+    let goods = chooseGoods.goods
+    let count = goods[goodsId]
+    goods[goodsId] = --count
+    chooseGoods.goods = goods
+    this.setData({
+      chooseGoods: chooseGoods
+    })
+    let money = this.calculateMoney()
+    chooseGoods.money = money
+    // 减少计数
+    --chooseGoods.allCount
+    if (chooseGoods.allCount <= 0) {
+      this.setData({
+        showMask: false,
+        showShopCarContent: false
+      })
+    }
+    this.setData({
+      chooseGoods: chooseGoods
+    })
+    wx.setStorageSync('chooseGoods', this.data.chooseGoods)
+  },
+  /**
    * 生命周期函数--监听页面加载
    */
   onLoad () {
@@ -413,6 +577,7 @@ Page({
    */
   onReady () {
     // TODO: onReady
+    this.setNeedDistance()
   },
 
   /**

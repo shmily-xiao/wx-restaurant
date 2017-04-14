@@ -83,11 +83,16 @@ Page({
       'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
     ]
   },
+  /**
+   * 用户选择位置
+   * @returns {boolean}
+   */
   chooseLocation () {
-    console.log(1)
+    // console.log(1)
     let that = this
     wx.chooseLocation({
       success (res) {
+        console.log(res)
         if (res.name.length <= 0) {
           return that.setData({
             userSite: res.address
@@ -97,6 +102,14 @@ Page({
           userSite: res.name
         })
       }
+    })
+  },
+  /**
+   * 用户搜索
+   */
+  goSearch () {
+    wx.navigateTo({
+      url: '../search/search'
     })
   },
   /**

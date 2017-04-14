@@ -10,7 +10,9 @@
     "pages/gratuity/gratuity",
     "pages/detail/detail",
     "pages/user/user",
-    "pages/useroperation/useroperation"
+    "pages/useroperation/useroperation",
+    "pages/search/search",
+    "pages/businessCooperation/businessCooperation"
     // Dont remove this comment
   ],
   // Window configuration

@@ -186,5 +186,7 @@
     </view>
   </view>
   <!--商家入驻-->
-  <view wx:if="{{ operation == 'order' }}" class="merhcant"></view>
+  <view wx:if="{{ operation == 'order' }}" class="merhcant">
+
+  </view>
 </view>

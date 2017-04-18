@@ -290,6 +290,7 @@ Page({
     // 设置scroll-view的高度
     scrollHeight: 880,
     needDistance: 0,
+    scrollHeight2: 815,
     showShopCarContent: false,
     showMask: false,
     menu1content: [

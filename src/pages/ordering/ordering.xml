@@ -126,6 +126,7 @@
       <view class="menu2-top-left iconfont icon-icglobaltitlebar48iconfontmap">{{ restaurant.address }}</view>
       <view class="iconfont icon-dianhua" bindtap="callPhone"></view>
     </view>
+  <scroll-view scroll-y="true" style="height: {{ scrollHeight2 }}rpx;" class="menu2-user-comment">
     <!--评分-->
     <view class="menu2-grade">
       <text class="menu2-grade-star iconfont icon-wuxing {{ restaurant.grade }}"></text>
@@ -141,7 +142,7 @@
       </view>
     </view>
     <!--用户评论-->
-    <scroll-view scroll-y="true" style="height: 262px;" class="menu2-user-comment">
+
       <view class="user-detail-comment" wx:for="{{ comment }}" wx:key="unique">
         <view class="m-u-c-top">
           <image src="{{ item.img }}"></image>

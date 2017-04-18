@@ -1,3 +1,206 @@
-.title {
-  font-size: 40rpx;
+.shop-top {
+  border-top: 20rpx solid #eee;
+  display: flex;
+  view {
+    width: 200rpx;
+    font-size: 32rpx;
+    color: #333;
+    line-height: 80rpx;
+    text-align: center;
+    font-weight: 700;
+    //background-color: #f00;
+    margin-right: 20rpx;
+  }
+  .input-txt {
+    flex: 1;
+    padding-left: 20rpx;
+    border-bottom: 1rpx solid #eee;
+    height: 80rpx;
+  }
+  .triangle::after {
+    right: 30rpx;
+  }
 }
+.shop-center {
+  margin-top: 10rpx;
+  input {
+    border-bottom: 1rpx solid #eee;
+    height: 80rpx;
+    padding-left: 20rpx;
+  }
+}
+.add-map {
+  color: #ed4d30;
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 60rpx;
+  border-bottom: 20rpx solid #eee;
+}
+//左侧文字，右侧输入的样式
+.lxr, .tel, .addpic, .name, .id-number, .license-name, .license-number, .license-site, .restaurant-license-name, .restaurant-license-number, .restaurant-license-site {
+  display: flex;
+  margin: 20rpx 0;
+  padding: 0 20rpx;
+  font-size: 32rpx;
+  input {
+    flex: 1;
+    text-align: right;
+    font-size: 24rpx;
+  }
+}
+//设置底部一像素边框
+.license-name, .license-number, .license-site, .restaurant-license-name, .restaurant-license-number, .restaurant-license-site {
+  border-bottom: 1rpx solid #eee;
+}
+.lxr {
+  padding: 0;
+  margin: 20rpx 20rpx;
+  border-bottom: 1rpx solid #eee;
+}
+.addpic text:nth-child(2) {
+  flex: 1;
+  text-align: right;
+  margin-right: 20rpx;
+  color: #999;
+}
+
+//上传店铺图片样式
+.add-shop-pic {
+  background-color: #efeff4;
+  .pic {
+    font-size: 26rpx;
+    color: #666;
+    padding: 33rpx 45rpx 22rpx 46rpx;
+  }
+}
+//上传图片处的样式
+.face, .bottom, .license-img, .restaurant-license {
+  background-color: #fff;
+  border-bottom: 30rpx solid #eee;
+  display: flex;
+  padding: 35rpx 34rpx;
+  .face-left, .face-right, .bottom-left, .bottom-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .face-left, .bottom-left {
+    margin-right: 26rpx;
+    image {
+      width: 294rpx;
+      height: 226rpx;
+    }
+  }
+  .face-right, .bottom-right {
+    text {
+      margin-top: 48rpx;
+      line-height: 40rpx;
+      font-size: 24rpx;
+      color: #999;
+    }
+    button {
+      width: 252rpx;
+      line-height: 72rpx;
+      color: #fff;
+      background-color: #ed4d30;
+    }
+  }
+}
+//填写资质信息样式
+.zizhi {
+  //border-bottom: 20rpx solid #eee;
+  .face {
+    border-bottom-width: 1rpx;
+  }
+  .text-wrap {
+    display: flex;
+    flex-direction: column;
+    text:nth-child(2) {
+      margin-top: 0rpx;
+    }
+  }
+  .name, .id-number{
+    margin: 0 20rpx;
+    line-height: 80rpx;
+    align-items: center;
+    border-bottom: 1rpx solid #eee;
+  }
+  .id-number {
+    margin: 0;
+    padding: 0 40rpx;
+    border-bottom: 20rpx solid #eee;
+  }
+  //radio选择样式
+  .license-kind, .license-time, .restaurant-license-time {
+    height: 80rpx;
+    font-size: 30rpx;
+    align-items: center;
+    display: flex;
+    margin: 0 20rpx;
+    border-bottom: 1rpx solid #eee;
+    .radio-group {
+      flex: 1;
+      text-align: right;
+    }
+  }
+  .license-img, .restaurant-license {
+    border-bottom: none;
+  }
+  .license-time, .restaurant-license-time {
+    margin: 0;
+    padding: 0 20rpx;
+    border-bottom: 20rpx solid #eee;
+  }
+}
+//信息审核样式
+.shenhe {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .iconfont {
+    position: relative;
+    margin-top: 400rpx;
+  }
+  .iconfont::before {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -300rpx);
+    font-size: 200rpx;
+    color: #999;
+  }
+}
+
+/* S 省市区 */
+.citybody {
+  position: fixed;
+  bottom: 0px;
+  z-index:3;
+  background:#fff;
+}
+
+.cityheader {
+  position: absolute;
+  top:0px;
+  width: 100%;
+  z-index: 4;
+}
+
+.city-cancel {
+  float: left;
+  margin: 20rpx;
+  color: #818181;
+}
+
+.city-true {
+  float: right;
+  margin: 20rpx;
+  color: #2FB42E
+}
+
+.section .picker {
+  background-color: #fff;
+  border-bottom: 1px #d9d9d9 solid;
+  border-top: 1px #d9d9d9 solid;
+  padding: 20rpx;
+}
+/* E 省市区 */

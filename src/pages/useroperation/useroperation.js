@@ -132,7 +132,9 @@ Page({
           money: '238'
         }
       ]
-    }
+    },
+    shopArray: ['请选择经营品类', '湘菜', '川菜', '粤菜', '沙县小吃', '徽菜', '茶点'],
+    index: 0
   },
   /**
    * 设置couponTab
@@ -168,6 +170,23 @@ Page({
     }
     wx.navigateTo({
       url: url
+    })
+  },
+  /**
+   * 选择经营品类
+   */
+  chooseShopKind (e) {
+    this.setData({
+      index: e.detail.value
+    })
+  },
+  /**
+   * 开始上传商家入驻相关信息
+   */
+  startShop () {
+    // todo 入驻信息添加到缓存中
+    wx.redirectTo({
+      url: '../businessCooperation/businessCooperation'
     })
   },
   /**

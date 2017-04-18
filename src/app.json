@@ -4,6 +4,7 @@
   // https://mp.weixin.qq.com/debug/wxadoc/dev/framework/config.html#pages
   "pages": [
     "pages/index/index",
+    "pages/businessCooperation/businessCooperation",
     "pages/ordering/ordering",
     "pages/payorder/payorder",
     "pages/grade/grade",
@@ -11,8 +12,7 @@
     "pages/detail/detail",
     "pages/user/user",
     "pages/useroperation/useroperation",
-    "pages/search/search",
-    "pages/businessCooperation/businessCooperation"
+    "pages/search/search"
     // Dont remove this comment
   ],
   // Window configuration

@@ -186,7 +186,20 @@
     </view>
   </view>
   <!--商家入驻-->
-  <view wx:if="{{ operation == 'order' }}" class="merhcant">
-
+  <view wx:if="{{ operation == 'merchant' }}" class="merchant">
+    <view class="img-wrap">
+      <image src="../../images/1.png"></image>
+    </view>
+    <view class="merchant-introduce">先简单介绍你的店铺吧</view>
+    <view class="merchant-input">
+      <input placeholder="请输入您的店铺名称"/>
+      <!--<view bindtap="chooseShopKind" class="triangle">{{ shopKind }}</view>-->
+      <picker class="triangle" bindchange="chooseShopKind" value="{{ index }}" range="{{ shopArray }}">
+        <view class="picker">
+          {{ shopArray[index] }}
+        </view>
+      </picker>
+    </view>
+    <button bindtap="startShop" class="start-shop">去开店</button>
   </view>
 </view>

@@ -1,9 +1,11 @@
 <!-- 可用组件：https://mp.weixin.qq.com/debug/wxadoc/dev/component/ -->
 <view hidden="{{ allHidden }}">
+  <!--第一页显示 店铺地址-->
   <view hidden="{{ hiddenMain }}" wx:if="{{ showMain }}" class="businessCooperation">
     <view class="shop-top">
       <view>店铺地址</view>
-      <input type="text" class="input-txt triangle" placeholder="地区信息"  placeholder-class="c-gray" value="{{province}}-{{city}}-{{county}}" focus="{{focus}}" bindfocus="open" />
+      <!--<input type="text" disabled="true" class="input-txt triangle" placeholder="地区信息"  placeholder-class="c-gray" value="{{province}}-{{city}}-{{county}}" focus="{{focus}}" bindfocus="open" />-->
+      <view bindtap="open" class="input-txt triangle">{{province}}-{{city}}-{{county}}</view>
     </view>
     <view class="shop-center">
       <input placeholder="请填写详细地址"/>
@@ -25,6 +27,7 @@
     </view>
     <button bindtap="nextStep" class="start-shop">下一步</button>
   </view>
+  <!--第二页显示 照片上传-->
   <view hidden="{{ hiddenMain }}" wx:if="{{ !showMain }}" class="add-shop-pic">
     <view class="pic">店铺照片仅用于核实您的店铺是否真实存在，不会对外展示</view>
     <view class="face">
@@ -49,6 +52,7 @@
     </view>
     <button bindtap="saveShopImg" class="start-shop">保存</button>
   </view>
+  <!--第三页显示 资质信息-->
   <view hidden="{{ !hiddenMain }}" class="zizhi">
     <view class="face">
       <view class="face-left">
@@ -148,6 +152,7 @@
     <button bindtap="nextStep2" class="start-shop">下一步</button>
   </view>
 </view>
+<!--第四页 审核-->
 <view class="shenhe" hidden="{{ !allHidden }}">
   <view class="iconfont icon-shenhe">
     资质信息已提交，审核中......

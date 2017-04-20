@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    title: 'search',
+    title: '排队取号',
     nearShop: [
       {
         img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
@@ -74,79 +74,22 @@ Page({
         status: '无需排队',
         grade: 'one-star'
       }
-    ],
-    searchText: null,
-    history: [],
-    chooseHistory: null
+    ]
   },
-  /**
-   * 改变标签选择
-   * @param e
-   */
-  choosetip (e) {
-    let index = e.currentTarget.dataset.choose
-    this.setData({
-      chooseHistory: index
-    })
-  },
-  /**
-   * 搜索返回
-   */
-  searchShop (e) {
-    let searcheText = null
-    if (e.currentTarget.dataset.type === 'btn') {
-      // 按钮搜索
-      console.log(this.data.searchText)
-      searcheText = this.data.searchText
-    } else {
-      // 打字框搜索
-      console.log(e.detail.value)
-      searcheText = e.detail.value
-    }
-    let that = this
-    // 设置缓存
-    for (var index of that.data.history) {
-      if ( index === searcheText) return
-    }
-    let history = that.data.history
-    console.log(history)
-    if (!history) {
-      history = [searcheText]
-      that.data.history = history
-    } else {
-      let count = history.unshift(searcheText)
-      if (count >= 10) {
-        that.data.history.pop()
-      }
-    }
-    wx.setStorage({
-      key: 'history',
-      data: that.data.history,
-      success () {
-        that.setData({
-          history: wx.getStorageSync('history')
-        })
-      }
-    })
-  },
-  /**
-   * 键盘输入改变搜索结果
-   */
-  searchInput (e) {
-    console.log(e.detail.value)
-    this.setData({
-      searchText: e.detail.value
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad () {
-    // 读取搜索历史
-    let history = wx.getStorageSync('history')
-    this.setData({
-      history: history
-    })
+  onLoad (e) {
+    // console.log(e)
+    if (e.type === '1') {
+      wx.setNavigationBarTitle({
+        title: '预约取号'
+      })
+      this.setData({
+        title: '预约订座'
+      })
+    }
     // TODO: onLoad
   },
 

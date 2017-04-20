@@ -10,10 +10,13 @@
       <view class="kind">
         {{ item.kind }}
       </view>
+      <view class="desk" wx:if="{{ index == 0 }}">
+        {{ item.desk }}
+      </view>
       <view class="desk" wx:if="{{ item.number }}">
         <text>{{ item.number }}</text>{{ item.desk }}
       </view>
-      <view class="desk" wx:if="{{ !item.number }}">
+      <view class="desk" wx:if="{{ !item.number && index != 0 }}">
           无需等待
       </view>
       <view class="time">

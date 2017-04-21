@@ -118,27 +118,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="businessCooperation.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="businessCooperation.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/businessCooperation/businessCooperation.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="219" column="25" lean-forward="true" selection-start-line="219" selection-start-column="25" selection-end-line="219" selection-end-column="25" />
+            <state relative-caret-position="76">
+              <caret line="60" column="16" lean-forward="true" selection-start-line="60" selection-start-column="16" selection-end-line="60" selection-end-column="16" />
               <folding>
                 <element signature="e#717#819#0" expanded="false" />
-                <element signature="e#838#925#0" expanded="false" />
-                <element signature="e#954#1041#0" expanded="false" />
-                <element signature="e#1486#2935#0" expanded="false" />
-                <element signature="e#2981#3050#0" expanded="false" />
+                <element signature="e#838#942#0" expanded="false" />
+                <element signature="e#971#1075#0" expanded="false" />
+                <element signature="e#2014#3463#0" expanded="false" />
+                <element signature="e#3509#3578#0" expanded="false" />
+                <element signature="e#6063#6109#0" expanded="false" />
+                <element signature="e#6190#6239#0" expanded="false" />
+                <element signature="e#6329#6387#0" expanded="false" />
+                <element signature="e#6405#6612#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="useroperation.less" pinned="false" current-in-tab="true">
+      <file leaf-file-name="useroperation.less" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/useroperation/useroperation.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="84" column="25" lean-forward="true" selection-start-line="84" selection-start-column="25" selection-end-line="84" selection-end-column="25" />
+            <state relative-caret-position="227">
+              <caret line="82" column="20" lean-forward="true" selection-start-line="82" selection-start-column="20" selection-end-line="82" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -169,10 +173,10 @@
       <find>shopNameInput</find>
       <find>startShop</find>
       <find>shopAddress</find>
-      <find>nextStep</find>
       <find>next</find>
       <find>m-w-top</find>
       <find>m-w-content</find>
+      <find>nextStep</find>
     </findStrings>
     <replaceStrings>
       <replace>'一', '一二', '一二三', '一二三四'</replace>
@@ -230,9 +234,9 @@
         <option value="$PROJECT_DIR$/pages/search/search.xml" />
         <option value="$PROJECT_DIR$/pages/search/search.js" />
         <option value="$PROJECT_DIR$/pages/businessCooperation/businessCooperation.xml" />
-        <option value="$PROJECT_DIR$/pages/businessCooperation/businessCooperation.js" />
         <option value="$PROJECT_DIR$/pages/useroperation/useroperation.xml" />
         <option value="$PROJECT_DIR$/pages/useroperation/useroperation.less" />
+        <option value="$PROJECT_DIR$/pages/businessCooperation/businessCooperation.js" />
       </list>
     </option>
   </component>
@@ -249,10 +253,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="361" />
-    <option name="y" value="88" />
+    <option name="x" value="320" />
+    <option name="y" value="65" />
     <option name="width" value="1756" />
-    <option name="height" value="842" />
+    <option name="height" value="537" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -517,15 +521,15 @@
       <workItem from="1492652255200" duration="13869000" />
       <workItem from="1492738018608" duration="13260000" />
       <workItem from="1492757707533" duration="347000" />
-      <workItem from="1492758073740" duration="6638000" />
+      <workItem from="1492758073740" duration="8080000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="246993000" />
+    <option name="totallyTimeSpent" value="248435000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="361" y="88" width="1756" height="842" extended-state="0" />
+    <frame x="320" y="65" width="1756" height="537" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18044238" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -574,7 +578,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="18" />
+      <option name="time" value="19" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -917,20 +921,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/businessCooperation/businessCooperation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="219" column="25" lean-forward="true" selection-start-line="219" selection-start-column="25" selection-end-line="219" selection-end-column="25" />
-          <folding>
-            <element signature="e#717#819#0" expanded="false" />
-            <element signature="e#838#925#0" expanded="false" />
-            <element signature="e#954#1041#0" expanded="false" />
-            <element signature="e#1486#2935#0" expanded="false" />
-            <element signature="e#2981#3050#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/useroperation/useroperation.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -973,9 +963,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/useroperation/useroperation.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="84" column="25" lean-forward="true" selection-start-line="84" selection-start-column="25" selection-end-line="84" selection-end-column="25" />
+        <state relative-caret-position="227">
+          <caret line="82" column="20" lean-forward="true" selection-start-line="82" selection-start-column="20" selection-end-line="82" selection-end-column="20" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/businessCooperation/businessCooperation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="60" column="16" lean-forward="true" selection-start-line="60" selection-start-column="16" selection-end-line="60" selection-end-column="16" />
+          <folding>
+            <element signature="e#717#819#0" expanded="false" />
+            <element signature="e#838#942#0" expanded="false" />
+            <element signature="e#971#1075#0" expanded="false" />
+            <element signature="e#2014#3463#0" expanded="false" />
+            <element signature="e#3509#3578#0" expanded="false" />
+            <element signature="e#6063#6109#0" expanded="false" />
+            <element signature="e#6190#6239#0" expanded="false" />
+            <element signature="e#6329#6387#0" expanded="false" />
+            <element signature="e#6405#6612#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

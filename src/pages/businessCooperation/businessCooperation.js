@@ -36,11 +36,11 @@ Page({
       {name: 'special', value: '特许证件'}
     ],
     licenseTime: [
-      {name: 'noTime', value: '长期有效'},
+      {name: 'noTime', value: '长期有效', checked: 'true'},
       {name: 'haveTime', value: '固定有效期'}
     ],
     restaurantLicenseTime: [
-      {name: 'noTime', value: '长期有效'},
+      {name: 'noTime', value: '长期有效', checked: 'true'},
       {name: 'haveTime', value: '固定有效期'}
     ]
   },
@@ -56,7 +56,16 @@ Page({
   /**
    * 执行下一步操作
    */
+  //
+  //
   nextStep2 () {
+    if (!this.data.xkzAddress || !this.data.xkzNumber || !this.data.xkzName || !this.data.zzAddress || !this.data.zzNumber || !this.data.zzName || !this.data.frIdNumber || !this.data.frName || (this.data.IdFaceImg.indexOf('wxfile') === -1) || (this.data.licenseImg.indexOf('wxfile') === -1) || (this.data.restaurantLicenseImg.indexOf('wxfile') === -1)) {
+      return wx.showModal({
+        title: '抱歉',
+        content: '请补全您的资质信息，再进行下一步操作',
+        showCancel: false
+      })
+    }
     this.setData({
       allHidden: true
     })
@@ -213,7 +222,7 @@ Page({
    * 显示资质信息
    */
   nextStep () {
-    if ((this.data.shopAddress !== '添加地图标记') (this.data.insideImg.indexOf('wxfile') === -1) || (this.data.faceImg.indexOf('wxfile') === -1) || !this.data.addressDetail || !this.data.lxrName || !this.data.lxrPhone) {
+    if ((this.data.shopAddress === '添加地图标记') || (this.data.insideImg.indexOf('wxfile') === -1) || (this.data.faceImg.indexOf('wxfile') === -1) || !this.data.addressDetail || !this.data.lxrName || !this.data.lxrPhone) {
       return wx.showModal({
         title: '抱歉',
         content: '请补全相关信息，再进行下一步操作',
@@ -227,7 +236,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad () {
+  onLoad (e) {
     // TODO: onLoad
     var that = this
     tcity.init(that)
@@ -255,6 +264,7 @@ Page({
       'county': cityData[0].sub[0].sub[0].name
     })
     // console.log('初始化完成')
+    console.log(e)
   },
 
   /**

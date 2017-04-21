@@ -16,12 +16,12 @@
   </view>
   <!--我的消息-->
   <view wx:if="{{ operation == 'message' }}" class="message">
-    <view class="message-wrap" wx:for="{{ message }}" wx:key="unique">
-      <view class="m-w-top iconfont icon-552cc4077f2ed triangle">
+    <view bindtap="chooseMessage" data-message="{{ index }}" class="message-wrap" wx:for="{{ message }}" wx:key="unique">
+      <view class="m-w-top iconfont icon-552cc4077f2ed triangle {{ showMessage === index ? 'triangle-animation' : '' }}">
         {{ item.title }}
       </view>
       <view class="m-w-content">
-        <text>{{ item.content }}</text>
+        <text class="m-w-c-text {{ showMessage !== index ? 'm-w-content-text' : '' }}">{{ item.content }}</text>
         <text>{{ item.time }}</text>
       </view>
     </view>
@@ -69,7 +69,7 @@
       </block>
     </view>
     <view class="coupon-use" hidden="{{ currentCouponTab != 1 }}">
-      <block wx:for="{{ couponNoUseList }}">
+      <block wx:for="{{ couponUseList }}">
         <view class="coupon-list">
           <view class="coupon-list-top">
             <view class="c-l-t-left">
@@ -118,7 +118,7 @@
         {{ item }}
       </view>
     </view>
-    <view class="order-pend" hidden="{{ currentCouponTab != 0 }}">
+    <view class="order-pend " hidden="{{ currentCouponTab != 0 }}">
       <view class="go-pay" wx:for="{{ orderList.pay }}">
         <view class="go-pay-top">
           <image src="{{ item.img }}"></image>
@@ -134,7 +134,7 @@
         </view>
       </view>
     </view>
-    <view class="order-all" hidden="{{ currentCouponTab != 1 }}">
+    <view class="order-all " hidden="{{ currentCouponTab != 1 }}">
       <view class="go-pay" wx:for="{{ orderList.pay }}">
         <view class="go-pay-top">
           <image src="{{ item.img }}"></image>
@@ -192,7 +192,7 @@
     </view>
     <view class="merchant-introduce">先简单介绍你的店铺吧</view>
     <view class="merchant-input">
-      <input placeholder="请输入您的店铺名称"/>
+      <input bindinput="shopNameInput" placeholder="请输入您的店铺名称"/>
       <!--<view bindtap="chooseShopKind" class="triangle">{{ shopKind }}</view>-->
       <picker class="triangle" bindchange="chooseShopKind" value="{{ index }}" range="{{ shopArray }}">
         <view class="picker">

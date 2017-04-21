@@ -77,13 +77,24 @@ Page({
     ],
     searchText: null,
     history: [],
-    chooseHistory: null
+    chooseHistory: null,
+    searchShow: true
+  },
+  /**
+   * 清空搜索记录
+   */
+  cleanHistory () {
+    this.setData({
+      history: [],
+      searchShow: false
+    })
+    wx.removeStorageSync('history')
   },
   /**
    * 改变标签选择
    * @param e
    */
-  choosetip (e) {
+  chooseTip (e) {
     let index = e.currentTarget.dataset.choose
     this.setData({
       chooseHistory: index
@@ -106,7 +117,7 @@ Page({
     let that = this
     // 设置缓存
     for (var index of that.data.history) {
-      if ( index === searcheText) return
+      if (index === searcheText) return
     }
     let history = that.data.history
     console.log(history)
@@ -119,6 +130,10 @@ Page({
         that.data.history.pop()
       }
     }
+    this.setData({
+      chooseHistory: 0,
+      searchShow: true
+    })
     wx.setStorage({
       key: 'history',
       data: that.data.history,
@@ -144,6 +159,11 @@ Page({
   onLoad () {
     // 读取搜索历史
     let history = wx.getStorageSync('history')
+    if (!history) {
+      this.setData({
+        searchShow: false
+      })
+    }
     this.setData({
       history: history
     })

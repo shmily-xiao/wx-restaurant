@@ -73,6 +73,11 @@ page {
     .triangle::after {
       color: #999;
       right: 10rpx;
+      transition: all 0.1s linear;
+    }
+    .triangle-animation::after {
+      border-color: #0094ff;
+      transform: translateY(-50%) rotateZ(135deg);
     }
     .m-w-content {
       display: flex;
@@ -80,6 +85,14 @@ page {
       line-height: 50rpx;
       font-size: 30rpx;
       color: #999;
+      .m-w-content-text {
+        display: -webkit-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-all;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+      }
     }
   }
 }

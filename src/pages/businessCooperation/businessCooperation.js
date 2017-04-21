@@ -45,7 +45,16 @@ Page({
     ]
   },
   /**
-   *
+   * 信息录入
+   * @param e
+   */
+  inputMessage (e) {
+    let obj = {}
+    obj[e.currentTarget.dataset.type] = e.detail.value
+    this.setData(obj)
+  },
+  /**
+   * 执行下一步操作
    */
   nextStep2 () {
     this.setData({
@@ -204,7 +213,13 @@ Page({
    * 显示资质信息
    */
   nextStep () {
-    // todo判断必要信息是否完整继续下一步
+    if ((this.data.shopAddress !== '添加地图标记') (this.data.insideImg.indexOf('wxfile') === -1) || (this.data.faceImg.indexOf('wxfile') === -1) || !this.data.addressDetail || !this.data.lxrName || !this.data.lxrPhone) {
+      return wx.showModal({
+        title: '抱歉',
+        content: '请补全相关信息，再进行下一步操作',
+        showCancel: false
+      })
+    }
     this.setData({
       hiddenMain: true
     })

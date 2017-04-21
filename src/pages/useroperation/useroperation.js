@@ -22,13 +22,13 @@ Page({
       {
         title: '三太子三汁',
         id: 'message1',
-        content: '阿斯顿飞那是的疯狂就拉上的了风景阿萨德来房间爱绿色饭店就卡死的李开复',
+        content: '阿斯顿飞那是的疯狂就拉上的了风景阿萨德来房间爱绿色饭店就是的疯狂就拉上的了风景阿萨德来房间爱绿色饭店就是的疯狂就拉上的了风景阿萨德来房间爱绿色饭店就是的疯狂就拉上的了风景阿萨德来房间爱绿色饭店就是的疯狂就拉上的了风景阿萨德来房间爱绿色饭店就是的疯狂就拉上的了风景阿萨德来房间爱绿色饭店就是的疯狂就拉上的了风景阿萨德来房间爱绿色饭店就卡死的李开复',
         time: '2012-12-12'
       },
       {
         title: '三太子三汁2',
         id: 'message2',
-        content: '阿斯顿飞那是的疯狂就拉上的了风景阿萨德来房间爱绿色饭店就卡死的李开复',
+        content: '阿斯顿飞那是的疯狂就拉上的了风景阿萨德是的疯狂就拉上的了风景阿萨德是的疯狂就拉上的了风景阿萨德是的疯狂就拉上的了风景阿萨德是的疯狂就拉上的了风景阿萨德是的疯狂就拉上的了风景阿萨德来房间爱绿色饭店就卡死的李开复',
         time: '2012-12-12'
       }
     ],
@@ -77,7 +77,7 @@ Page({
       {
         name: '人马科技大饭堂',
         id: 'shopId',
-        delMoney: 10,
+        delMoney: 100,
         useCondition: '消费即用',
         starTime: '2015.12.01',
         endTime: '2016.12.03'
@@ -85,15 +85,41 @@ Page({
       {
         name: '人马科技大饭堂',
         id: 'shopId',
-        delMoney: 10,
-        useCondition: '满100可用',
+        delMoney: 100,
+        useCondition: '满1000可用',
         starTime: '2015.12.01',
         endTime: '2016.12.03'
       },
       {
         name: '人马科技大饭堂',
         id: 'shopId',
-        discount: 7,
+        discount: 5,
+        useCondition: '满100可用',
+        starTime: '2015.12.01',
+        endTime: '2016.12.03'
+      }
+    ],
+    couponUseList: [
+      {
+        name: '喜鹊楼',
+        id: 'shopId',
+        delMoney: 190,
+        useCondition: '消费即用',
+        starTime: '2015.12.01',
+        endTime: '2016.12.03'
+      },
+      {
+        name: '哈哈',
+        id: 'shopId',
+        delMoney: 100,
+        useCondition: '满1000可用',
+        starTime: '2015.12.01',
+        endTime: '2016.12.03'
+      },
+      {
+        name: '人马科技大饭堂',
+        id: 'shopId',
+        discount: 5,
         useCondition: '满100可用',
         starTime: '2015.12.01',
         endTime: '2016.12.03'
@@ -134,7 +160,25 @@ Page({
       ]
     },
     shopArray: ['请选择经营品类', '湘菜', '川菜', '粤菜', '沙县小吃', '徽菜', '茶点'],
-    index: 0
+    index: 0,
+    showMessage: null
+  },
+  /**
+   * 输入店名保存
+   * @param e
+   */
+  shopNameInput (e) {
+    this.setData({
+      shopName: e.detail.value
+    })
+  },
+  /**
+   * 选择消息显示
+   */
+  chooseMessage (e) {
+    this.setData({
+      showMessage: e.currentTarget.dataset.message
+    })
   },
   /**
    * 设置couponTab
@@ -185,8 +229,15 @@ Page({
    */
   startShop () {
     // todo 入驻信息添加到缓存中
+    if (!this.data.shopName || this.data.index === 0) {
+      return wx.showModal({
+        title: '信息不完整',
+        content: '请补充信息完整',
+        showCancel: false
+      })
+    }
     wx.redirectTo({
-      url: '../businessCooperation/businessCooperation'
+      url: '../businessCooperation/businessCooperation?shopName=' + this.data.shopName + '&shopKind=' + this.data.shopArray[this.data.index]
     })
   },
   /**

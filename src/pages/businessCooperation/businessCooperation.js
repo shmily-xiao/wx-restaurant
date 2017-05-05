@@ -8,7 +8,7 @@ Page({
    */
   data: {
     title: 'businessCooperation',
-    // 地区选择相关
+    // 地区选择相关 -s
     provinces: [],
     province: '',
     citys: [],
@@ -18,11 +18,12 @@ Page({
     value: [0, 0, 0],
     values: [0, 0, 0],
     condition: false,
-    // 地区选择相关
+    // 地区选择相关 -e
     shopAddress: '添加地图标记',
     showMain: true,
     allHidden: false,
     hiddenMain: false,
+    shenheText: '资质信息已提交，审核中......',
     // 图片上传
     addPicText: '立即上传',
     faceImg: '../../images/4.png',
@@ -30,18 +31,19 @@ Page({
     IdFaceImg: '../../images/6.png',
     licenseImg: '../../images/2.png',
     restaurantLicenseImg: '../../images/3.png',
+    imgFilePath: {},
     upStatus: 0,
     license: [
-      {name: 'noraml', value: '营业执照', checked: 'true'},
-      {name: 'special', value: '特许证件'}
+      {name: '营业执照', value: '营业执照', checked: 'true'},
+      {name: '特许证件', value: '特许证件'}
     ],
     licenseTime: [
-      {name: 'noTime', value: '长期有效', checked: 'true'},
-      {name: 'haveTime', value: '固定有效期'}
+      {name: '长期有效', value: '长期有效', checked: 'true'},
+      {name: '固定有效期', value: '固定有效期'}
     ],
     restaurantLicenseTime: [
-      {name: 'noTime', value: '长期有效', checked: 'true'},
-      {name: 'haveTime', value: '固定有效期'}
+      {name: '长期有效', value: '长期有效', checked: 'true'},
+      {name: '固定有效期', value: '固定有效期'}
     ]
   },
   /**
@@ -62,10 +64,40 @@ Page({
     if (!this.data.xkzAddress || !this.data.xkzNumber || !this.data.xkzName || !this.data.zzAddress || !this.data.zzNumber || !this.data.zzName || !this.data.frIdNumber || !this.data.frName || (this.data.IdFaceImg.indexOf('wxfile') === -1) || (this.data.licenseImg.indexOf('wxfile') === -1) || (this.data.restaurantLicenseImg.indexOf('wxfile') === -1)) {
       return wx.showModal({
         title: '抱歉',
-        content: '请补全您的资质信息，再进行下一步操作',
+        content: '请补全资质信息，再进行下一步操作',
         showCancel: false
       })
     }
+    let newShopInfo = wx.getStorageSync('newShopInfo')
+    newShopInfo.frName = this.data.frName
+    newShopInfo.frIdNumber = this.data.frIdNumber
+    newShopInfo.shopLicense = this.data.shopLicense
+    newShopInfo.shopLicenseTime = this.data.shopLicenseTime
+    newShopInfo.shopServiceLicenseTime = this.data.shopServiceLicenseTime
+    newShopInfo.zzName = this.data.zzName
+    newShopInfo.zzNumber = this.data.zzNumber
+    newShopInfo.zzAddress = this.data.zzAddress
+    newShopInfo.xkzName = this.data.xkzName
+    newShopInfo.xkzNumber = this.data.xkzNumber
+    newShopInfo.xkzAddress = this.data.xkzAddress
+    wx.setStorageSync('newShopInfo', newShopInfo)
+    // todo 上传资料和图片
+    // console.log(this.data.imgFilePath)
+    // for(var item in this.data.imgFilePath) {
+      // let path = this.data.imgFilePath[item]
+      // console.log(item + ':' +path)
+      // wx.uploadFile({
+      //   url: '.......',
+      //   filePath: path,
+      //   name: item,
+      //   success () {
+      //
+      //   }
+      // })
+    // }
+    // wx.request({
+    //
+    // })
     this.setData({
       allHidden: true
     })
@@ -75,7 +107,21 @@ Page({
    * @param e
    */
   radioChange (e) {
-    console.log('radio发生change事件，携带value值为：', e.detail.value)
+    // console.log('radio发生change事件，携带value值为：', e.detail.value)
+    // console.log(e)
+    if (e.currentTarget.dataset.type === 'license') {
+      this.setData({
+        shopLicense: e.detail.value
+      })
+    } else if (e.currentTarget.dataset.type === 'licensetime') {
+      this.setData({
+        shopLicenseTime: e.detail.value
+      })
+    } else {
+      this.setData({
+        shopServiceLicenseTime: e.detail.value
+      })
+    }
   },
   /**
    * 选择地区
@@ -159,6 +205,8 @@ Page({
       success (res) {
         // console.log(res)
         that.setData({
+          latitude: res.latitude,
+          longitude: res.longitude,
           shopAddress: res.name || res.address || '添加地图标记'
         })
       }
@@ -192,24 +240,34 @@ Page({
         var tempFilePaths = res.tempFilePaths[0]
         // console.log(tempFilePaths)
         if (e.currentTarget.dataset.shop === 'faceImg') {
+          that.data.imgFilePath.faceImg = tempFilePaths
           that.setData({
-            faceImg: tempFilePaths
+            faceImg: tempFilePaths,
+            imgFilePath: that.data.imgFilePath
           })
         } else if (e.currentTarget.dataset.shop === 'insideImg') {
+          that.data.imgFilePath.insideImg = tempFilePaths
           that.setData({
-            insideImg: tempFilePaths
+            insideImg: tempFilePaths,
+            imgFilePath: that.data.imgFilePath
           })
         } else if (e.currentTarget.dataset.shop === 'IdFaceImg') {
+          that.data.imgFilePath.IdFaceImg = tempFilePaths
           that.setData({
-            IdFaceImg: tempFilePaths
+            IdFaceImg: tempFilePaths,
+            imgFilePath: that.data.imgFilePath
           })
         } else if (e.currentTarget.dataset.shop === 'licenseImg') {
+          that.data.imgFilePath.licenseImg = tempFilePaths
           that.setData({
-            licenseImg: tempFilePaths
+            licenseImg: tempFilePaths,
+            imgFilePath: that.data.imgFilePath
           })
         } else if (e.currentTarget.dataset.shop === 'restaurantLicenseImg') {
+          that.data.imgFilePath.restaurantLicenseImg = tempFilePaths
           that.setData({
-            restaurantLicenseImg: tempFilePaths
+            restaurantLicenseImg: tempFilePaths,
+            imgFilePath: that.data.imgFilePath
           })
         }
         that.setData({
@@ -229,6 +287,14 @@ Page({
         showCancel: false
       })
     }
+    let newShopInfo = wx.getStorageSync('newShopInfo')
+    newShopInfo.shopAreaAddress = this.data.province + this.data.city + this.data.county
+    newShopInfo.shopDetailAddress = this.data.addressDetail
+    newShopInfo.shopMapLatitude = this.data.latitude
+    newShopInfo.shopMapLongitude = this.data.longitude
+    newShopInfo.shopLxrName = this.data.lxrName
+    newShopInfo.shopLxrPhone = this.data.lxrPhone
+    wx.setStorageSync('newShopInfo', newShopInfo)
     this.setData({
       hiddenMain: true
     })
@@ -238,6 +304,20 @@ Page({
    */
   onLoad (e) {
     // TODO: onLoad
+    // 2 表示审核通过
+    if (e.shopStatus === '2') {
+      return this.setData({
+        allHidden: true,
+        shenheText: '恭喜您通过审核了'
+      })
+    }
+    // 1表示审核处理中
+    if (e.shopStatus === '1') {
+      return this.setData({
+        allHidden: true,
+        shenheText: '请耐心等待，您的审核正在处理中'
+      })
+    }
     var that = this
     tcity.init(that)
     var cityData = that.data.cityData

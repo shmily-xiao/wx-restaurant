@@ -136,6 +136,11 @@ page {
   position: relative;
   font-size: 26rpx;
 }
+.icon-wuxing::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
 .icon-wuxing::after {
   content: '\e646';
   color: #fbba2c;
@@ -149,13 +154,13 @@ page {
   left: -33rpx;
 }
 .three-star::after {
-  left: -66rpx;
+  left: -64rpx;
 }
 .two-star::after {
-  left: -99rpx;
+  left: -95rpx;
 }
 .one-star::after {
-  left: -132rpx;
+  left: -127rpx;
 }
 .zero-star::after {
   left: -165rpx;
@@ -201,6 +206,7 @@ page {
     color: #ccc;
     position: relative;
     overflow: hidden;
+    padding-left: 160rpx;
   }
   //.icon-wuxing::after {
   //  content: '\e646';

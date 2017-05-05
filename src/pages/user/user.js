@@ -49,7 +49,10 @@ Page({
         title: '商家入驻',
         id: 'merchant'
       }
-    ]
+    ],
+    user: {
+      shopStatus: 0
+    }
   },
 
   /**

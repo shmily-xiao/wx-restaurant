@@ -160,7 +160,7 @@ Page({
       ]
     },
     shopArray: ['请选择经营品类', '湘菜', '川菜', '粤菜', '沙县小吃', '徽菜', '茶点'],
-    index: 0,
+    index: '0',
     showMessage: null
   },
   /**
@@ -229,13 +229,17 @@ Page({
    */
   startShop () {
     // todo 入驻信息添加到缓存中
-    if (!this.data.shopName || this.data.index === 0) {
+    if (!this.data.shopName || this.data.index === '0') {
       return wx.showModal({
         title: '信息不完整',
         content: '请补充信息完整',
         showCancel: false
       })
     }
+    let newShopInfo = {}
+    newShopInfo.shopName = this.data.shopName
+    newShopInfo.shopKind = this.data.shopArray[this.data.index]
+    wx.setStorageSync('newShopInfo', newShopInfo)
     wx.redirectTo({
       url: '../businessCooperation/businessCooperation?shopName=' + this.data.shopName + '&shopKind=' + this.data.shopArray[this.data.index]
     })
@@ -250,6 +254,12 @@ Page({
     this.setData({
       operation: params.operation
     })
+    // 判断用户申请的店铺状态
+    if (params.shopStatus === '2' || params.shopStatus === '1') {
+      return wx.redirectTo({
+        url: '../businessCooperation/businessCooperation?shopStatus=' + params.shopStatus
+      })
+    }
     // 判断传入类型
     if (operation === 'number') {
       operation = '我的排单号'

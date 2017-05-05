@@ -77,7 +77,7 @@
     </view>
     <view class="license-kind">
       <view>执照类型</view>
-      <radio-group class="radio-group" bindchange="radioChange">
+      <radio-group data-type="license" class="radio-group" bindchange="radioChange">
         <label class="radio" wx:for="{{ license }}">
           <radio color="#f00" value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
         </label>
@@ -111,7 +111,7 @@
     </view>
     <view class="license-time">
       <view>执照有效期</view>
-      <radio-group class="radio-group" bindchange="radioChange">
+      <radio-group data-type="licensetime" class="radio-group" bindchange="radioChange">
         <label class="radio" wx:for="{{ licenseTime }}">
           <radio color="#f00" value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
         </label>
@@ -155,7 +155,7 @@
 <!--第四页 审核-->
 <view class="shenhe" hidden="{{ !allHidden }}">
   <view class="iconfont icon-shenhe">
-    资质信息已提交，审核中......
+    {{ shenheText }}
   </view>
 </view>
 <!-- S 选择省市区 -->

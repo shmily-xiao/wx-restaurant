@@ -32,7 +32,15 @@ Page({
         price: '128',
         kind: '中国菜',
         status: '无需排队',
-        grade: 'one-star'
+        grade: 'three-star'
+      },
+      {
+        img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+        name: '青花椒砂锅鱼',
+        price: '128',
+        kind: '中国菜',
+        status: '无需排队',
+        grade: 'two-star'
       },
       {
         img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
@@ -48,15 +56,7 @@ Page({
         price: '128',
         kind: '中国菜',
         status: '无需排队',
-        grade: 'one-star'
-      },
-      {
-        img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-        name: '青花椒砂锅鱼',
-        price: '128',
-        kind: '中国菜',
-        status: '无需排队',
-        grade: 'one-star'
+        grade: 'zero-star'
       },
       {
         img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',

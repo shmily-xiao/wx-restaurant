@@ -5,7 +5,7 @@
  * > 小程序支持以`CommonJS`规范组织代码结构
  */
 const wechat = require('./utils/wechat')
-const Promise = require('./utils/bluebird')
+// const Promise = require('./utils/bluebird')
 
 App({
   /**
@@ -31,7 +31,7 @@ App({
       wechat.login()
         .then(() => wechat.getUserInfo())
         .then(res => res.userInfo)
-        .then(info => (this.data.userInfo = info))
+        .then(info => { this.data.userInfo = info; wx.setStorageSync('userInfo', info) })
         .then(info => resolve(info))
         .catch(error => console.error('failed to get user info, error: ' + error))
     })

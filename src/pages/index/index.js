@@ -117,11 +117,25 @@ Page({
    */
   onLoad () {
     wx.getLocation({
+      type: 'gcj02',
       success (res) {
-        console.log(res)
+      //   let latitude = res.latitude
+      //   let longitude = res.longitude
+      //   let obj = {
+      //     url: myUrl,
+      //     method: 'GET',
+      //     data: {data},
+      //     success (res) {
+      //
+      //     },
+      //     fail (res) {
+      //
+      //     }
+      //   }
+      //   wx.request(obj)
       }
     })
-    console.log(' ---------- onLoad ----------')
+    // console.log(' ---------- onLoad ----------')
     // console.dir(app.data)
     app.getUserInfo()
       .then(info => this.setData({ userInfo: info }))
@@ -137,6 +151,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow () {
+    app.getUserInfo()
+      .then(info => this.setData({ userInfo: info }))
+      .catch(console.info)
     console.log(' ---------- onShow ----------')
   },
   /**

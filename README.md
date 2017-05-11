@@ -1,4 +1,6 @@
+运行环境  Node >= 4.0  请到node官网下载对应自己的版本
 编译工具：https://github.com/zce/weapp-boilerplate
+下载好编译工具后执行 cmd命令： npm install   安装必要的库
 
 1: pull 源码至本地
 

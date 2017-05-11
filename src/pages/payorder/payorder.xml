@@ -23,6 +23,13 @@
         <text>{{ item.money }}</text>
       </view>
     </view>
+    <view class="concessional-rate">
+      <picker bindchange="concessionalChange" value="{{ index }}" range="{{ order.concessional }}">
+        <view class="picker">
+          <text>选择优惠券：</text><text>{{ order.concessional[index] }}</text>
+        </view>
+      </picker>
+    </view>
     <view class="bottom">
       <text>总价</text>
       <text>{{ order.allMoney }}</text>

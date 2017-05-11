@@ -142,7 +142,6 @@
       </view>
     </view>
     <!--用户评论-->
-
       <view class="user-detail-comment" wx:for="{{ comment }}" wx:key="unique">
         <view class="m-u-c-top">
           <image src="{{ item.img }}"></image>
@@ -151,8 +150,11 @@
           <view>{{ item.time }}</view>
         </view>
         <view class="menu2-comment">
-          <view class="menu2-comment-item" wx:for="{{ item.userComment}}" wx:key="unique" wx:for-item="detailitem">
-            {{ detailitem }}
+          <view class="menu2-user-comment-item" wx:for="{{ item.userComment}}" wx:key="unique" wx:for-item="detailItem">
+            {{ detailItem }}
+          </view>
+          <view class="menu2-user-comment-item-img" >
+            <image src="{{ imgItem }}" wx:for="{{ item.commentImg}}" wx:key="unique" wx:for-item="imgItem" ></image>
           </view>
         </view>
       </view>

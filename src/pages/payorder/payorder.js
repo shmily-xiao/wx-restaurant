@@ -8,6 +8,8 @@ Page({
    */
   data: {
     title: 'payorder',
+    index: 0,
+    allMoney: 582.02,
     order: {
       restaurant: '人马大饭堂',
       count: 5,
@@ -40,8 +42,47 @@ Page({
           money: '23.00'
         }
       ],
-      allMoney: '582.00'
+      allMoney: 582.02,
+      concessional: ['不使用优惠券', '满100减20', '满100减30', '满300减10', '满500优惠5折'],
+      delMoney: [0, -20, -30, -100, 0.5]
     }
+  },
+  /**
+   * 优惠券选择
+   */
+  concessionalChange (e) {
+    // console.log(this.data.allMoney + (this.data.order.delMoney[e.detail.value]))
+    if (this.data.order.delMoney[e.detail.value] < 1 && this.data.order.delMoney[e.detail.value] > 0) {
+      this.data.order.allMoney = this.data.allMoney * this.data.order.delMoney[e.detail.value]
+    } else {
+      this.data.order.allMoney = (this.data.allMoney + (this.data.order.delMoney[e.detail.value]))
+    }
+    this.setData({
+      index: e.detail.value,
+      order: this.data.order
+    })
+  },
+  /**
+   * 小数点后两位
+   * @param floatvar
+   * @returns {*}
+   */
+  changeTwoDecimalf  (floatvar) {
+    var fx = parseFloat(floatvar)
+    if (isNaN(fx)) {
+      return false
+    }
+    fx = Math.round(fx * 10000) / 100.00
+    var sx = fx.toString()
+    var posdecimal = sx.indexOf('.')
+    if (posdecimal < 0) {
+      posdecimal = sx.length
+      sx += '.'
+    }
+    while (sx.length <= posdecimal + 2) {
+      sx += '0'
+    }
+    return sx
   },
   /**
    * 支付货款

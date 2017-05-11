@@ -469,17 +469,38 @@
       background-color: #fdf899;
       margin: 5rpx;
     }
+    .menu2-user-comment-item {
+      font-size: 24rpx;
+      margin: 5rpx;
+    }
+    .menu2-user-comment-item-img {
+      display: flex;
+      flex-wrap: nowrap;
+      //justify-content: space-around;
+      image {
+        width: 100rpx;
+        height: 100rpx;
+        margin: 5rpx 10rpx;
+      }
+    }
   }
   .m-u-c-top {
     display: flex;
     padding: 20rpx 20rpx 0 20rpx;
     align-items: center;
+    image {
+          width: 40rpx;
+          height: 40rpx;
+          border-radius: 50%;
+        }
     view:nth-child(2) {
       font-size: 24rpx;
       font-weight: 700;
       margin-left: 20rpx;
     }
     .iconfont {
+      height: 30rpx;
+      width: 170rpx;
       overflow: hidden;
       margin-left: 20rpx;
     }
@@ -494,13 +515,6 @@
       text-align: right;
       font-size: 24rpx;
       color: #969696;
-    }
-  }
-  .menu2-user-comment {
-    image {
-      width: 40rpx;
-      height: 40rpx;
-      border-radius: 50%;
     }
   }
 }

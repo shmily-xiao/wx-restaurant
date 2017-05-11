@@ -146,7 +146,7 @@
         </view>
         <view class="go-pay-bottom">
           <text>￥{{ item.money }}</text>
-          <view class="go-pay-btn">去支付</view>
+          <view class="go-pay-btn" bindtap="goPay" data-id="{{ item.code }}">去支付</view>
         </view>
       </view>
       <view class="go-finish" wx:for="{{ orderList.finish }}">

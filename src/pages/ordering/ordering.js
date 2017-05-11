@@ -317,7 +317,15 @@ Page({
         img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
         grade: 'five-star',
         time: '2016-5-5',
-        userComment: ['一二三四', '一', '一二三四', '一二', '一二三', '一二三四']
+        userComment: ['味道不错挺好的的呀呀呀味道不错挺好的的呀呀呀味道不错挺好的的呀呀呀'],
+        commentImg: [
+          'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+          'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+          'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+          'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+          'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+          'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'
+        ]
       },
       {
         username: '186****1234',

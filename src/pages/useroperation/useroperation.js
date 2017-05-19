@@ -1,6 +1,6 @@
 // 获取全局应用程序实例对象
-// const app = getApp()
-
+const app = getApp()
+const useUrl = require('../../utils/service')
 // 创建页面实例对象
 Page({
   /**
@@ -127,37 +127,37 @@ Page({
     ],
     orderNumber: ['待支付', '全部'],
     orderList: {
-      pay: [
-        {
-          img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-          name: '人马大饭堂',
-          code: 'No12312312',
-          time: '2017-03-26 17:26',
-          money: '238'
-        }
-      ],
-      finish: [
-        {
-          img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-          name: '人马大饭堂',
-          code: 'No12312312',
-          time: '2017-03-26 17:26',
-          money: '238',
-          delMoney: '23',
-          actMoney: '215',
-          restaurantId: 'No123123',
-          waiterId: 'waiter123123'
-        }
-      ],
-      cancel: [
-        {
-          img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-          name: '人马大饭堂',
-          code: 'No12312312',
-          time: '2017-03-26 17:26',
-          money: '238'
-        }
-      ]
+      // pay: [
+      //   {
+      //     img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+      //     name: '人马大饭堂',
+      //     code: 'No12312312',
+      //     time: '2017-03-26 17:26',
+      //     money: '238'
+      //   }
+      // ],
+      // finish: [
+      //   {
+      //     img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+      //     name: '人马大饭堂',
+      //     code: 'No12312312',
+      //     time: '2017-03-26 17:26',
+      //     money: '238',
+      //     delMoney: '23',
+      //     actMoney: '215',
+      //     restaurantId: 'No123123',
+      //     waiterId: 'waiter123123'
+      //   }
+      // ],
+      // cancel: [
+      //   {
+      //     img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+      //     name: '人马大饭堂',
+      //     code: 'No12312312',
+      //     time: '2017-03-26 17:26',
+      //     money: '238'
+      //   }
+      // ]
     },
     shopArray: ['请选择经营品类', '湘菜', '川菜', '粤菜', '沙县小吃', '徽菜', '茶点'],
     index: '0',
@@ -195,7 +195,7 @@ Page({
    */
   goPay (e) {
     wx.navigateTo({
-      url: '../payorder/payorder?id=' + e.currentTarget.dataset.id
+      url: '../payorder/payorder?o_id=' + e.currentTarget.dataset.id + '&s_id=' + e.currentTarget.dataset.shop
     })
   },
   /**
@@ -244,6 +244,45 @@ Page({
       url: '../businessCooperation/businessCooperation?shopName=' + this.data.shopName + '&shopKind=' + this.data.shopArray[this.data.index]
     })
   },
+  // 获取用户的订单
+  getOrder () {
+    let that = this
+    let obj = {
+      url: useUrl.serviceUrl.order,
+      data: {
+        session_key: wx.getStorageSync('session_key')
+      },
+      success (res) {
+        if (res.data.data.order_suoyou.length === 0) return
+        // console.log(res)
+        let data = res.data.data
+        let orderList = {}
+        orderList.pay = data.order_weifu || []
+        let finish = []
+        let cancel = []
+        for (var item of data.order_suoyou) {
+          if (item.status === '2') {
+            finish.push(item)
+          }
+          if (item.status === '8' || item.status === '9') {
+            cancel.push(item)
+          }
+        }
+        orderList.finish = finish
+        orderList.cancel = cancel
+        that.setData({
+          orderList: orderList
+        })
+      }
+    }
+    app.requestInfo(obj)
+  },
+  /**
+   * 获取用户的排单信息
+   */
+  getWaitInfo () {
+
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -263,12 +302,14 @@ Page({
     // 判断传入类型
     if (operation === 'number') {
       operation = '我的排单号'
+      // this.getWaitInfo()
     } else if (operation === 'message') {
       operation = '消息'
     } else if (operation === 'integral') {
       operation = '积分兑换'
     } else if (operation === 'order') {
       operation = '我的订单'
+      this.getOrder()
     } else if (operation === 'merchant') {
       operation = '商家入驻'
     } else {

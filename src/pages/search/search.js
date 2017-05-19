@@ -1,6 +1,6 @@
 // 获取全局应用程序实例对象
-// const app = getApp()
-
+const app = getApp()
+const useUrl = require('../../utils/service')
 // 创建页面实例对象
 Page({
   /**
@@ -9,76 +9,77 @@ Page({
   data: {
     title: 'search',
     nearShop: [
-      {
-        img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-        name: '青花椒砂锅鱼',
-        price: '30',
-        kind: '中国菜',
-        distance: '8.6km',
-        status: '无需排队',
-        grade: 'five-star'
-      },
-      {
-        img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-        name: '青花椒砂锅鱼',
-        price: '30',
-        kind: '中国菜',
-        status: '无需排队',
-        grade: 'four-star'
-      },
-      {
-        img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-        name: '青花椒砂锅鱼',
-        price: '128',
-        kind: '中国菜',
-        status: '无需排队',
-        grade: 'one-star'
-      },
-      {
-        img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-        name: '青花椒砂锅鱼',
-        price: '128',
-        kind: '中国菜',
-        status: '无需排队',
-        grade: 'one-star'
-      },
-      {
-        img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-        name: '青花椒砂锅鱼',
-        price: '128',
-        kind: '中国菜',
-        status: '无需排队',
-        grade: 'one-star'
-      },
-      {
-        img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-        name: '青花椒砂锅鱼',
-        price: '128',
-        kind: '中国菜',
-        status: '无需排队',
-        grade: 'one-star'
-      },
-      {
-        img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-        name: '青花椒砂锅鱼',
-        price: '128',
-        kind: '中国菜',
-        status: '无需排队',
-        grade: 'one-star'
-      },
-      {
-        img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-        name: '青花椒砂锅鱼',
-        price: '128',
-        kind: '中国菜',
-        status: '无需排队',
-        grade: 'one-star'
-      }
+      // {
+      //   img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+      //   name: '青花椒砂锅鱼',
+      //   price: '30',
+      //   kind: '中国菜',
+      //   distance: '8.6km',
+      //   status: '无需排队',
+      //   grade: 'five-star'
+      // },
+      // {
+      //   img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+      //   name: '青花椒砂锅鱼',
+      //   price: '30',
+      //   kind: '中国菜',
+      //   status: '无需排队',
+      //   grade: 'four-star'
+      // },
+      // {
+      //   img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+      //   name: '青花椒砂锅鱼',
+      //   price: '128',
+      //   kind: '中国菜',
+      //   status: '无需排队',
+      //   grade: 'one-star'
+      // },
+      // {
+      //   img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+      //   name: '青花椒砂锅鱼',
+      //   price: '128',
+      //   kind: '中国菜',
+      //   status: '无需排队',
+      //   grade: 'one-star'
+      // },
+      // {
+      //   img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+      //   name: '青花椒砂锅鱼',
+      //   price: '128',
+      //   kind: '中国菜',
+      //   status: '无需排队',
+      //   grade: 'one-star'
+      // },
+      // {
+      //   img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+      //   name: '青花椒砂锅鱼',
+      //   price: '128',
+      //   kind: '中国菜',
+      //   status: '无需排队',
+      //   grade: 'one-star'
+      // },
+      // {
+      //   img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+      //   name: '青花椒砂锅鱼',
+      //   price: '128',
+      //   kind: '中国菜',
+      //   status: '无需排队',
+      //   grade: 'one-star'
+      // },
+      // {
+      //   img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+      //   name: '青花椒砂锅鱼',
+      //   price: '128',
+      //   kind: '中国菜',
+      //   status: '无需排队',
+      //   grade: 'one-star'
+      // }
     ],
     searchText: null,
     history: [],
     chooseHistory: null,
-    searchShow: true
+    searchShow: true,
+    star: ['zero-star', 'one-star', 'two-star', 'three-star', 'four-star', 'five-star']
   },
   /**
    * 清空搜索记录
@@ -99,6 +100,7 @@ Page({
     this.setData({
       chooseHistory: index
     })
+    this.search(this.data.history[index])
   },
   /**
    * 搜索返回
@@ -107,20 +109,52 @@ Page({
     let searcheText = null
     if (e.currentTarget.dataset.type === 'btn') {
       // 按钮搜索
-      console.log(this.data.searchText)
+      // console.log(this.data.searchText)
       searcheText = this.data.searchText
     } else {
       // 打字框搜索
-      console.log(e.detail.value)
+      // console.log(e.detail.value)
       searcheText = e.detail.value
+    }
+    if (!searcheText) {
+      wx.showModal({
+        title: '饭店搜索',
+        content: '请输入你要搜索的饭店名称',
+        showCancel: false
+      })
+      this.setData({
+        searchText: ''
+      })
+      return
+    }
+    searcheText = searcheText.replace(/\s+/g, '')
+    // console.log(searcheText.length)
+    if (!searcheText.length) {
+      wx.showModal({
+        title: '饭店搜索',
+        content: '请输入你要搜索的饭店名称',
+        showCancel: false
+      })
+      this.setData({
+        searchText: ''
+      })
+      return
     }
     let that = this
     // 设置缓存
-    for (var index of that.data.history) {
-      if (index === searcheText) return
+    for (var index in that.data.history) {
+      // 搜索项已经存在
+      if (that.data.history[index] === searcheText) {
+        // console.log(index)
+        that.setData({
+          chooseHistory: index
+        })
+        that.search(that.data.history[index])
+        return
+      }
     }
     let history = that.data.history
-    console.log(history)
+    // console.log(history)
     if (!history) {
       history = [searcheText]
       that.data.history = history
@@ -134,6 +168,7 @@ Page({
       chooseHistory: 0,
       searchShow: true
     })
+    this.search(searcheText)
     wx.setStorage({
       key: 'history',
       data: that.data.history,
@@ -148,10 +183,30 @@ Page({
    * 键盘输入改变搜索结果
    */
   searchInput (e) {
-    console.log(e.detail.value)
+    // console.log(e.detail.value)
     this.setData({
       searchText: e.detail.value
     })
+  },
+  /**
+   * 搜索操作
+   */
+  search (keyword) {
+    let that = this
+    let obj = {
+      url: useUrl.serviceUrl.search,
+      data: {
+        session_key: wx.getStorageSync('session_key'),
+        keyword: keyword
+      },
+      success (res) {
+        console.log(res)
+        that.setData({
+          nearShop: res.data.data
+        })
+      }
+    }
+    app.requestInfo(obj)
   },
   /**
    * 生命周期函数--监听页面加载

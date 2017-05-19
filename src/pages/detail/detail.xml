@@ -34,11 +34,11 @@
         <text class="top-center-name">{{ restaurant.name }}</text>
         <text class="restaurant-grade {{ restaurant.grade }} iconfont icon-wuxing"></text>
       </view>
-      <view class="distance">距离{{ restaurant.distance }}m</view>
+      <!--<view class="distance">距离{{ restaurant.distance }}m</view>-->
     </view>
-    <view class="r-i-address iconfont icon-icglobaltitlebar48iconfontmap">{{ restaurant.address }}</view>
-    <view bindtap="callPhone" class="r-i-tel iconfont icon-dianhua triangle">{{ restaurant.tel }}</view>
-    <view class="r-i-time iconfont icon-shijian">营业时间：{{ restaurant.time }}</view>
+    <view class="r-i-address iconfont icon-icglobaltitlebar48iconfontmap">{{ restaurant.area }}</view>
+    <view bindtap="callPhone" class="r-i-tel iconfont icon-dianhua triangle">{{ restaurant.photo }}</view>
+    <view class="r-i-time iconfont icon-shijian">营业时间：{{ restaurant.start_time }}-{{ restaurant.end_time }}</view>
   </view>
 </view>
-<navigator open-type="redirect" url="../ordering/ordering?shopId={{ restaurant.id }}" hover-class="none" class="take-number">立即取号</navigator>
+<navigator open-type="redirect" url="../ordering/ordering?s_id={{ restaurant.id }}" hover-class="none" class="take-number">立即取号</navigator>

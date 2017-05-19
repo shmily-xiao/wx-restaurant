@@ -119,18 +119,19 @@
       </view>
     </view>
     <view class="order-pend " hidden="{{ currentCouponTab != 0 }}">
-      <view class="go-pay" wx:for="{{ orderList.pay }}">
+      <view wx:if="{{ orderList.pay.length === 0 }}">亲爱的，您没有未支付的订单咯</view>
+      <view wx:if="{{ orderList.pay.length !== 0 }}" class="go-pay" wx:for="{{ orderList.pay }}">
         <view class="go-pay-top">
           <image src="{{ item.img }}"></image>
           <view class="g-p-t-center">
             <text>{{ item.name }}</text>
-            <text>{{ item.code }}</text>
-            <text>{{ item.time }}</text>
+            <text>{{ item.order_no }}</text>
+            <text>{{ item.addtime }}</text>
           </view>
         </view>
         <view class="go-pay-bottom">
-          <text>￥{{ item.money }}</text>
-          <view class="go-pay-btn" bindtap="goPay" data-id="{{ item.code }}">去支付</view>
+          <text>￥{{ item.order_price }}</text>
+          <view class="go-pay-btn" bindtap="goPay" data-shop="{{ item.shop_id }}" data-id="{{ item.id }}">去支付</view>
         </view>
       </view>
     </view>
@@ -140,13 +141,13 @@
           <image src="{{ item.img }}"></image>
           <view class="g-p-t-center">
             <text>{{ item.name }}</text>
-            <text>{{ item.code }}</text>
-            <text>{{ item.time }}</text>
+            <text>{{ item.order_no }}</text>
+            <text>{{ item.addtime }}</text>
           </view>
         </view>
         <view class="go-pay-bottom">
-          <text>￥{{ item.money }}</text>
-          <view class="go-pay-btn" bindtap="goPay" data-id="{{ item.code }}">去支付</view>
+          <text>￥{{ item.order_price }}</text>
+          <view class="go-pay-btn" bindtap="goPay" data-shop="{{ item.shop_id }}" data-id="{{ item.id }}">去支付</view>
         </view>
       </view>
       <view class="go-finish" wx:for="{{ orderList.finish }}">
@@ -154,18 +155,18 @@
           <image src="{{ item.img }}"></image>
           <view class="g-p-t-center">
             <text>{{ item.name }}</text>
-            <text>{{ item.code }}</text>
-            <text>{{ item.time }}</text>
+            <text>{{ item.order_no }}</text>
+            <text>{{ item.addtime }}</text>
           </view>
           <view class="iconfont icon-bhjyizhifu"></view>
         </view>
         <view class="go-pay-bottom">
-          <text>消费￥{{ item.money }}</text>
-          <text>优惠￥{{ item.delMoney }}</text>
-          <text>实付<text class="act-money">￥{{ item.actMoney }}</text></text>
+          <text>消费￥{{ item.order_price }}</text>
+          <text>优惠￥{{ item.coupons_price }}</text>
+          <text>实付<text class="act-money">￥{{ item.order_price - item.coupons_price }}</text></text>
         </view>
         <view class="show-btn">
-          <view data-restaurantid="{{ orderList.finish.restaurantId }}" data-kind="shop" bindtap="goGratuity">给店家打分</view>
+          <view data-restaurantid="{{ orderList.finish.shop_id }}" data-kind="shop" bindtap="goGratuity">给店家打分</view>
           <view data-waiterid="{{ orderList.finish.waiterId }}" data-kind="worker" bindtap="goGratuity">给服务员打赏</view>
         </view>
       </view>

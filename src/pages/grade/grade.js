@@ -11,7 +11,20 @@ Page({
     text_ph: '菜品口味如何，服务如何？环境如何？',
     upPhotoList: [],
     currentStar: 4,
+    comment: ['服务态度好', '分量足', '热情周到', '味道赞', '长得帅有食欲', '人很nice'],
+    chooseArr: [],
     checkStatus: false
+  },
+  /**
+   * 改变标签选择
+   * @param e
+   */
+  choosetip (e) {
+    let index = e.currentTarget.dataset.choose
+    this.data.chooseArr[index] = !this.data.chooseArr[index]
+    this.setData({
+      chooseArr: this.data.chooseArr
+    })
   },
   /**
    * 星星打分

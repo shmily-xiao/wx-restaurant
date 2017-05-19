@@ -4,6 +4,13 @@
     打分：
     <text bindtap="chooseStar" data-star="{{ index }}" wx:for="12345" class="iconfont icon-star {{ currentStar >= index ? 'active' : '' }}"></text>
   </view>
+  <view class="tip">
+    <view class="menu2-comment">
+      <view bindtap="choosetip" data-choose="{{ index }}" class="menu2-comment-item {{ chooseArr[index] ?  'active' : '' }}" wx:for="{{ comment }}" wx:key="unique">
+        {{ item }}
+      </view>
+    </view>
+  </view>
   <textarea class="text-input" placeholder="{{ text_ph }}" value=""> </textarea>
   <view class="up-photo">
     <view class="photos-wrap" wx:for="{{ upPhotoList }}">

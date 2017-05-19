@@ -1,5 +1,5 @@
 /*eslint-disable*/
-let baseUrl = 'https://diancan.j8j0.com/api'
+let baseUrl = 'http://diancan.j8j0.com/api'
 let serviceUrl = {
   // 用户登陆 get
   login: baseUrl + '/user/login',

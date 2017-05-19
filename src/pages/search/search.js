@@ -75,6 +75,7 @@ Page({
       //   grade: 'one-star'
       // }
     ],
+    search: false,
     searchText: null,
     history: [],
     chooseHistory: null,
@@ -197,10 +198,16 @@ Page({
       url: useUrl.serviceUrl.search,
       data: {
         session_key: wx.getStorageSync('session_key'),
-        keyword: keyword
+        keyword: keyword,
+        longitude: wx.getStorageSync('userSite').longitude,
+        latitude: wx.getStorageSync('userSite').latitude
       },
       success (res) {
-        console.log(res)
+        // console.log(res)
+        that.setData({
+          search: true
+        })
+        if (res.data.data.length === 0) return
         that.setData({
           nearShop: res.data.data
         })

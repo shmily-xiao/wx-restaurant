@@ -20,7 +20,9 @@
     </view>
   </view>
   <!--商店结果展示-->
-  <view class="near-shop">
+  <view class="no-shop" wx:if="{{ nearShop.length == 0 && !search }}">搜一搜您想要去的地方吧</view>
+  <view class="no-shop" wx:if="{{ nearShop.length == 0 && search }}">没有搜索到相关的商店，换个词试试</view>
+  <view wx:if="{{ nearShop.length != 0 }}" class="near-shop">
     <view class="slide ">搜索结果</view>
     <!--<view class="near-shop-wrap">-->
       <!--<navigator url="../ordering/ordering?shopId={{ item.id }}" hover-class="none" class="near-shop-content" wx:for="{{ nearShop }}" wx:key="unique">-->

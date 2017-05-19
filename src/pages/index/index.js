@@ -203,6 +203,7 @@ Page({
       success (res) {
         // console.log(res)
         // return
+        if (res.data.data.length === 0) return
         that.setData({
           nearShop: res.data.data
         })

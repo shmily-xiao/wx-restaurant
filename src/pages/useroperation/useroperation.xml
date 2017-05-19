@@ -166,8 +166,8 @@
           <text>实付<text class="act-money">￥{{ item.order_price - item.coupons_price }}</text></text>
         </view>
         <view class="show-btn">
-          <view data-restaurantid="{{ orderList.finish.shop_id }}" data-kind="shop" bindtap="goGratuity">给店家打分</view>
-          <view data-waiterid="{{ orderList.finish.waiterId }}" data-kind="worker" bindtap="goGratuity">给服务员打赏</view>
+          <view data-oid="{{ item.id }}" data-restaurantid="{{ item.shop_id }}" data-kind="shop" bindtap="goGratuity">给店家打分</view>
+          <!--<view data-waiterid="{{ orderList.finish.waiterId }}" data-kind="worker" bindtap="goGratuity">给服务员打赏</view>-->
         </view>
       </view>
       <view class="cancel-pay" wx:for="{{ orderList.cancel }}">

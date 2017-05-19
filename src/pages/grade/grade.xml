@@ -11,7 +11,7 @@
       </view>
     </view>
   </view>
-  <textarea class="text-input" placeholder="{{ text_ph }}" value=""> </textarea>
+  <textarea bindblur="textBlur" class="text-input" placeholder="{{ text_ph }}" value=""> </textarea>
   <view class="up-photo">
     <view class="photos-wrap" wx:for="{{ upPhotoList }}">
       <image data-imgsrc="{{ item }}" bindtap="showImage" class="photos"  src="{{ item }}"></image>
@@ -19,7 +19,7 @@
     </view>
   </view>
   <view bindtap="upPhoto" class="up-photo-icon iconfont icon-touxiangmorenicon">添加图片展示</view>
-  <view class="in-money"><view>　人均　￥</view><input bindblur="setMoney" type="number" placeholder='请输入您的消费金额' /></view>
+  <!--<view class="in-money"><view>　人均　￥</view><input bindblur="setMoney" type="number" placeholder='请输入您的消费金额' /></view>-->
   <checkbox class="no-name" bindtap="changbox" checked="{{ checkStatus }}">匿名提交</checkbox>
   <view class="grade-text">评论一下还有积分哟</view>
   <view bindtap="gradeBtn" class="grade-btn">提交</view>

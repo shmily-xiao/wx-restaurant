@@ -203,15 +203,18 @@ Page({
    * @param e
    */
   goGratuity (e) {
-    let restaurantId = e.currentTarget.dataset.restaurantid
-    let waiterId = e.currentTarget.dataset.waiterid
-    let kind = e.currentTarget.dataset.kind
-    let url = ''
-    if (kind === 'shop') {
-      url = '../grade/grade?restaurantId=' + restaurantId
-    } else {
-      url = '../gratuity/gratuity?waiterId=' + waiterId
-    }
+    // todo 释放
+    // let sid = e.currentTarget.dataset.restaurantid
+    let oid = e.currentTarget.dataset.oid
+    // let waiterId = e.currentTarget.dataset.waiterid
+    // let kind = e.currentTarget.dataset.kind
+    // let url = ''
+    // if (kind === 'shop') {
+      // url = '../grade/grade?restaurantId=' + restaurantId
+    let url = '../grade/grade?s_id=' + 9 + '&o_id=' + oid
+    // } else {
+    //   url = '../gratuity/gratuity?waiterId=' + waiterId
+    // }
     wx.navigateTo({
       url: url
     })

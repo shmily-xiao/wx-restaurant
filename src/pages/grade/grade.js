@@ -1,6 +1,6 @@
 // 获取全局应用程序实例对象
-// const app = getApp()
-
+const app = getApp()
+const useUrl = require('../../utils/service')
 // 创建页面实例对象
 Page({
   /**
@@ -96,9 +96,27 @@ Page({
    * 提交评论信息
    */
   gradeBtn () {
-    wx.switchTab({
-      url: '../index/index'
-    })
+    // let that = this
+    // let obj = {
+    //   url: useUrl.serviceUrl.post_comment,
+    //   data: {
+    //     session_key: wx.getStorageSync('session_key'),
+    //     s_id: that.data.sId,
+    //     level: that.data.currentStar * 1 + 1,
+    //     o_id: that.data.oId,
+    //     desc:
+    //   }
+    // }
+    // wx.switchTab({
+    //   url: '../index/index'
+    // })
+  },
+  /**
+   * 输入文字
+   * @param e
+   */
+  textBlur (e) {
+    console.log(e)
   },
   /**
    * checkbox 选项
@@ -110,9 +128,32 @@ Page({
     })
   },
   /**
+   * 获取评论标签
+   * @param params
+   */
+  getTips (params) {
+    // let that = this
+    let obj = {
+      url: useUrl.serviceUrl.user_flow_comment,
+      data: {
+        session_key: wx.getStorageSync('session_key'),
+        s_id: params.s_id
+      },
+      success (res) {
+        console.log(res)
+      }
+    }
+    app.requestInfo(obj)
+  },
+  /**
    * 生命周期函数--监听页面加载
    */
-  onLoad () {
+  onLoad (params) {
+    this.getTips(params)
+    this.setData({
+      sId: params.s_id,
+      oId: params.o_id
+    })
     // TODO: onLoad
   },
 

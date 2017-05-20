@@ -8,7 +8,7 @@ let serviceUrl = {
   // 获取用户信息 post {session_key}
   getUserInfo: baseUrl + '/user/getUserinfo',
   // 用户地理位置 post {session_key, latitude, longitude}
-  getUserSite: baseUrl + '/user/weizhi',
+  weizhi: baseUrl + '/user/weizhi',
   // 获取热门商店 post {session_key}
   hot_shop: baseUrl + '/shop/hot_shop',
   // 获取附近商家 post {session_key, longitude, latitude}
@@ -46,7 +46,9 @@ let serviceUrl = {
   // 首页轮播图 post {session_key}
   ad: baseUrl + '/ad/ad',
   // 店铺轮播图 post {session_key, s_id}
-  shop_ad: baseUrl + '/ad/shop_ad'
+  shop_ad: baseUrl + '/ad/shop_ad',
+  // 上传图片
+  upPhoto: baseUrl + '/photo'
 }
 module.exports = {
   serviceUrl

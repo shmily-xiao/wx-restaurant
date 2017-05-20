@@ -45,6 +45,7 @@ App({
     let loginFail = obj.success || function () { console.log('未传入fail回调函数') }
     wx.login({
       success (res) {
+        // console.log(res.code)
         loginSuccess(res)
       },
       fail (res) {
@@ -120,18 +121,22 @@ App({
   mainLogin (_this, callback, callback2, callback3) {
     let that = this
     let loginObj = {
-      success: function (res) {
+      success: function (params) {
         // 获取用户登陆code
         // console.log(res)
         // 获取用户的session_key
+        // console.log('mainLogin' + res.code)
         let obj = {
-          url: useUrl.serviceUrl.login,
+          url: useUrl.serviceUrl.login + '?code=' + params.code,
           method: 'GET',
-          data: {
-            code: res.code
-          },
+          // data: {
+          //   code: res.code
+          // },
           header: 'application/json',
           success (res) {
+            // console.log(useUrl.serviceUrl.login + '?code=' + params.code)
+            // console.log(res)
+            // console.log(res.data.data.session_key)
             // session_key 存储
             that.data.session_key = res.data.data.session_key
             wx.setStorageSync('session_key', res.data.data.session_key)
@@ -144,6 +149,9 @@ App({
             if (callback3) {
               callback3()
             }
+          },
+          fail (res) {
+            console.log(res)
           }
         }
         that.getSessionKey(obj)

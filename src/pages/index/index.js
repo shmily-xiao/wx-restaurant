@@ -133,7 +133,7 @@ Page({
         })
         wx.setStorageSync('userSite', {longitude: res.longitude, latitude: res.latitude})
         let obj = {
-          url: useUrl.serviceUrl.getUserSite,
+          url: useUrl.serviceUrl.weizhi,
           data: {
             session_key: wx.getStorageSync('session_key'),
             latitude: res.latitude,

@@ -204,14 +204,14 @@ Page({
    */
   goGratuity (e) {
     // todo 释放
-    // let sid = e.currentTarget.dataset.restaurantid
+    let sid = e.currentTarget.dataset.restaurantid
     let oid = e.currentTarget.dataset.oid
     // let waiterId = e.currentTarget.dataset.waiterid
     // let kind = e.currentTarget.dataset.kind
     // let url = ''
     // if (kind === 'shop') {
       // url = '../grade/grade?restaurantId=' + restaurantId
-    let url = '../grade/grade?s_id=' + 9 + '&o_id=' + oid
+    let url = '../grade/grade?s_id=' + sid + '&o_id=' + oid
     // } else {
     //   url = '../gratuity/gratuity?waiterId=' + waiterId
     // }
@@ -264,7 +264,7 @@ Page({
         let finish = []
         let cancel = []
         for (var item of data.order_suoyou) {
-          if (item.status === '2') {
+          if (item.status === '2' || item.status === '3' || item.status === '4') {
             finish.push(item)
           }
           if (item.status === '8' || item.status === '9') {
@@ -284,7 +284,34 @@ Page({
    * 获取用户的排单信息
    */
   getWaitInfo () {
-
+    // let obj = {
+    //   url: useUrl.serviceUrl.queue,
+    //   data: {
+    //     session_key: wx.getStorageSync('session_key'),
+    //   }
+    // }
+  },
+  /**
+   * 获取用户的优惠券
+   */
+  getCoupon () {
+    let that = this
+    let obj = {
+      url: useUrl.serviceUrl.coupons_num,
+      data: {
+        session_key: wx.getStorageSync('session_key')
+      },
+      success (res) {
+        console.log(res)
+        that.setData({
+          couponsCount: res.data.data.count,
+          couponNoUseList: res.data.data.status_a,
+          couponUseList: res.data.data.status_b,
+          couponOutList: res.data.data.status_c
+        })
+      }
+    }
+    app.requestInfo(obj)
   },
   /**
    * 生命周期函数--监听页面加载
@@ -305,7 +332,7 @@ Page({
     // 判断传入类型
     if (operation === 'number') {
       operation = '我的排单号'
-      // this.getWaitInfo()
+      this.getWaitInfo()
     } else if (operation === 'message') {
       operation = '消息'
     } else if (operation === 'integral') {
@@ -317,6 +344,7 @@ Page({
       operation = '商家入驻'
     } else {
       operation = '优惠券'
+      this.getCoupon()
     }
     // 设置导航栏标题
     wx.setNavigationBarTitle({

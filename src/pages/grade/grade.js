@@ -11,7 +11,8 @@ Page({
     text_ph: '菜品口味如何，服务如何？环境如何？',
     upPhotoList: [],
     currentStar: 4,
-    comment: ['服务态度好', '分量足', '热情周到', '味道赞', '长得帅有食欲', '人很nice'],
+    // comment: ['服务态度好', '分量足', '热情周到', '味道赞', '长得帅有食欲', '人很nice'],
+    comment: [],
     chooseArr: [],
     checkStatus: false
   },
@@ -96,27 +97,89 @@ Page({
    * 提交评论信息
    */
   gradeBtn () {
-    // let that = this
-    // let obj = {
-    //   url: useUrl.serviceUrl.post_comment,
-    //   data: {
-    //     session_key: wx.getStorageSync('session_key'),
-    //     s_id: that.data.sId,
-    //     level: that.data.currentStar * 1 + 1,
-    //     o_id: that.data.oId,
-    //     desc:
-    //   }
-    // }
+    let that = this
+    if (!that.data.userCommentText) {
+      return wx.showModal({
+        title: '评论无效',
+        content: '请输入有效的评论',
+        showCancel: false,
+        confirmText: '我知道了'
+      })
+    }
+    let obj = {
+      url: useUrl.serviceUrl.post_comment,
+      data: {
+        session_key: wx.getStorageSync('session_key'),
+        s_id: that.data.sId,
+        level: that.data.currentStar * 1 + 1,
+        o_id: that.data.oId,
+        desc: that.data.userCommentText
+      },
+      success () {
+        // console.log(res)
+        wx.showModal({
+          title: '评论商家',
+          content: '评论成功',
+          showCancel: false,
+          complete () {
+            wx.switchTab({
+              url: '../index/index'
+            })
+          }
+        })
+      }
+    }
+    app.requestInfo(obj)
+    if (that.data.chooseArr.length === 0) return
+    let lid = []
+    for (var item in that.data.chooseArr) {
+      if (that.data.chooseArr[item]) {
+        lid.push(that.data.comment[item].id)
+      }
+    }
+    if (lid.length === 0) return
+    let obj2 = {
+      url: useUrl.serviceUrl.post_label_comment,
+      data: {
+        session_key: wx.getStorageSync('session_key'),
+        s_id: that.data.sId,
+        level: that.data.currentStar * 1 + 1,
+        l_id: lid
+      },
+      success (res) {
+        console.log(res)
+      }
+    }
+    app.requestInfo(obj2)
     // wx.switchTab({
     //   url: '../index/index'
     // })
+  },
+  /**
+   * 上传图片
+   */
+  sendPhoto () {
+    wx.uploadFile({
+      url: ''
+    })
   },
   /**
    * 输入文字
    * @param e
    */
   textBlur (e) {
-    console.log(e)
+    // console.log(e)
+    let text = e.detail.value.replace(/\s+/g, '')
+    // if (text === '') {
+    //   return wx.showModal({
+    //     title: '评论',
+    //     content: '请输入有效的评论',
+    //     showCancel: false
+    //   })
+    // }
+    this.setData({
+      userCommentText: text
+    })
   },
   /**
    * checkbox 选项
@@ -132,7 +195,7 @@ Page({
    * @param params
    */
   getTips (params) {
-    // let that = this
+    let that = this
     let obj = {
       url: useUrl.serviceUrl.user_flow_comment,
       data: {
@@ -140,7 +203,10 @@ Page({
         s_id: params.s_id
       },
       success (res) {
-        console.log(res)
+        that.setData({
+          comment: res.data.data
+        })
+        // console.log(res)
       }
     }
     app.requestInfo(obj)

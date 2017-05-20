@@ -7,7 +7,7 @@
   <view class="tip">
     <view class="menu2-comment">
       <view bindtap="choosetip" data-choose="{{ index }}" class="menu2-comment-item {{ chooseArr[index] ?  'active' : '' }}" wx:for="{{ comment }}" wx:key="unique">
-        {{ item }}
+        {{ item.title }}({{ item.count }})
       </view>
     </view>
   </view>
@@ -20,7 +20,7 @@
   </view>
   <view bindtap="upPhoto" class="up-photo-icon iconfont icon-touxiangmorenicon">添加图片展示</view>
   <!--<view class="in-money"><view>　人均　￥</view><input bindblur="setMoney" type="number" placeholder='请输入您的消费金额' /></view>-->
-  <checkbox class="no-name" bindtap="changbox" checked="{{ checkStatus }}">匿名提交</checkbox>
+  <!--<checkbox class="no-name" bindtap="changbox" checked="{{ checkStatus }}">匿名提交</checkbox>-->
   <view class="grade-text">评论一下还有积分哟</view>
   <view bindtap="gradeBtn" class="grade-btn">提交</view>
 </view>

@@ -61,68 +61,13 @@ Page({
     currentCouponTab: 0,
     couponNumber: [
       {
-        title: '未使用',
-        count: 6
+        title: '未使用'
       },
       {
-        title: '使用记录',
-        count: 0
+        title: '使用记录'
       },
       {
-        title: '已过期',
-        count: 0
-      }
-    ],
-    couponNoUseList: [
-      {
-        name: '人马科技大饭堂',
-        id: 'shopId',
-        delMoney: 100,
-        useCondition: '消费即用',
-        starTime: '2015.12.01',
-        endTime: '2016.12.03'
-      },
-      {
-        name: '人马科技大饭堂',
-        id: 'shopId',
-        delMoney: 100,
-        useCondition: '满1000可用',
-        starTime: '2015.12.01',
-        endTime: '2016.12.03'
-      },
-      {
-        name: '人马科技大饭堂',
-        id: 'shopId',
-        discount: 5,
-        useCondition: '满100可用',
-        starTime: '2015.12.01',
-        endTime: '2016.12.03'
-      }
-    ],
-    couponUseList: [
-      {
-        name: '喜鹊楼',
-        id: 'shopId',
-        delMoney: 190,
-        useCondition: '消费即用',
-        starTime: '2015.12.01',
-        endTime: '2016.12.03'
-      },
-      {
-        name: '哈哈',
-        id: 'shopId',
-        delMoney: 100,
-        useCondition: '满1000可用',
-        starTime: '2015.12.01',
-        endTime: '2016.12.03'
-      },
-      {
-        name: '人马科技大饭堂',
-        id: 'shopId',
-        discount: 5,
-        useCondition: '满100可用',
-        starTime: '2015.12.01',
-        endTime: '2016.12.03'
+        title: '已过期'
       }
     ],
     orderNumber: ['待支付', '全部'],

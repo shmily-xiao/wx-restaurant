@@ -48,7 +48,8 @@
         </view>
     </view>
     <view class="coupon-no-use" hidden="{{ currentCouponTab != 0 }}">
-      <block wx:for="{{ couponNoUseList }}">
+      <view class="no-coupon" wx:if="{{ couponNoUseList.length == 0 }}">没有相关的优惠券哦，快去领取吧</view>
+      <block wx:if="{{ couponNoUseList.length !== 0 }}" wx:for="{{ couponNoUseList }}">
         <navigator class="coupon-list" url="../detail/detail?kind={{ item.id }}">
             <view class="coupon-list-top">
               <view class="c-l-t-left">
@@ -69,7 +70,8 @@
       </block>
     </view>
     <view class="coupon-use" hidden="{{ currentCouponTab != 1 }}">
-      <block wx:for="{{ couponUseList }}">
+      <view class="no-coupon" wx:if="{{ couponUseList.length == 0 }}">没有相关的优惠券哦，快去领取吧</view>
+      <block wx:if="{{ couponUseList.length !== 0 }}" wx:for="{{ couponUseList }}">
         <view class="coupon-list">
           <view class="coupon-list-top">
             <view class="c-l-t-left">
@@ -90,7 +92,8 @@
       </block>
     </view>
     <view class="coupon-use-finish" hidden="{{ currentCouponTab != 2 }}">
-      <block wx:for="{{ couponNoUseList }}">
+      <view class="no-coupon" wx:if="{{ couponOutList.length == 0 }}">没有相关的优惠券哦，快去领取吧</view>
+      <block wx:if="{{ couponOutList.length !== 0 }}" wx:for="{{ couponOutList }}">
         <view class="coupon-list">
           <view class="coupon-list-top">
             <view class="c-l-t-left">
@@ -119,7 +122,7 @@
       </view>
     </view>
     <view class="order-pend " hidden="{{ currentCouponTab != 0 }}">
-      <view wx:if="{{ orderList.pay.length === 0 }}">亲爱的，您没有未支付的订单咯</view>
+      <view class="no-order" wx:if="{{ !orderList.pay }}">亲爱的，您没有未支付的订单咯</view>
       <view wx:if="{{ orderList.pay.length !== 0 }}" class="go-pay" wx:for="{{ orderList.pay }}">
         <view class="go-pay-top">
           <image src="{{ item.img }}"></image>
@@ -136,6 +139,7 @@
       </view>
     </view>
     <view class="order-all " hidden="{{ currentCouponTab != 1 }}">
+      <view class="no-order" wx:if="{{ !(orderList.pay && orderList.finish && orderList.cancel) }}">亲爱的，您还没有消费过哦</view>
       <view class="go-pay" wx:for="{{ orderList.pay }}">
         <view class="go-pay-top">
           <image src="{{ item.img }}"></image>

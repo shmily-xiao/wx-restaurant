@@ -25,6 +25,8 @@ let serviceUrl = {
   quhao: baseUrl + '/shop/quhao',
   // 商家排队信息 post {session_key, s_id}
   xiangqing: baseUrl + '/shop/xiangqing',
+  //商家服务
+  fuwu: baseUrl + '/shop/fuwu',
   // 获取用户排队信息 post {session_key, s_id}
   queue: baseUrl + '/queue/queue',
   // 取消排队 post {session_key, s_id, id}

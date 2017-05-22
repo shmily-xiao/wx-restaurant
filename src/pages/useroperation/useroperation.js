@@ -201,7 +201,7 @@ Page({
         session_key: wx.getStorageSync('session_key')
       },
       success (res) {
-        if (res.data.data.order_suoyou.length === 0) return
+        if (!res.data.data.order_suoyou) return
         // console.log(res)
         let data = res.data.data
         let orderList = {}
@@ -247,7 +247,7 @@ Page({
         session_key: wx.getStorageSync('session_key')
       },
       success (res) {
-        console.log(res)
+        // console.log(res)
         that.setData({
           couponsCount: res.data.data.count,
           couponNoUseList: res.data.data.status_a,

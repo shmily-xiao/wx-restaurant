@@ -369,6 +369,21 @@ Page({
     }
   },
   /**
+   * 发送formId
+   */
+  deskNotice (e) {
+    console.log(e.detail.formId)
+    // todo 发送formId
+    // let obj = {
+    //   url: useUrl.serviceUrl.formId,
+    //   data: {
+    //     session_key: wx.getStorageSync('session_key'),
+    //     formId: e.detail.formId
+    //   }
+    // }
+    // app.requestInfo(obj)
+  },
+  /**
    * 确认订单
    */
   goCheckOrder () {
@@ -470,8 +485,8 @@ Page({
         s_id: this.data.s_id,
         cou_id: this.data.coupon[0].id
       },
-      success (res) {
-        console.log(res)
+      success () {
+        // console.log(res)
         wx.showToast({
           title: '领取优惠券成功',
           icon: 'success',
@@ -533,7 +548,7 @@ Page({
         size: index * 1 + 1
       },
       success (res) {
-        console.log(res)
+        // console.log(res)
         let title = res.data.data
         if (res.data.code === 200) {
           that.setData({
@@ -614,6 +629,24 @@ Page({
    */
   menu1choose (e) {
     console.log(e.currentTarget.dataset.tabmenu)
+    let that = this
+    let obj = {
+      url: useUrl.serviceUrl.fuwu,
+      data: {
+        session_key: wx.getStorageSync('session_key'),
+        type: e.currentTarget.dataset.tabmenu * 1 + 1,
+        s_id: that.data.s_id
+      },
+      success (res) {
+        // console.log(res)
+        wx.showModal({
+          title: '呼叫服务',
+          content: res.data.data,
+          showCancel: false
+        })
+      }
+    }
+    app.requestInfo(obj)
   },
   /**
    * 拨打电话

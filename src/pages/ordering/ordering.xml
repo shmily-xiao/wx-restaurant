@@ -18,9 +18,11 @@
   </view>
   <!--导航内容0-->
   <view class="menu0" wx:if="{{ currentmenu == 0 }}">
-    <view data-desk="0" bindtap="getdesk">小桌（1-2人）</view>
-    <view data-desk="1" bindtap="getdesk">中桌（3-4人）</view>
-    <view data-desk="2" bindtap="getdesk">大桌（5人以上）</view>
+    <form bindsubmit="deskNotice" report-submit="true">
+      <button formType="submit" data-desk="0" bindtap="getdesk">小桌（1-2人）</button>
+      <button formType="submit" data-desk="1" bindtap="getdesk">中桌（3-4人）</button>
+      <button formType="submit" data-desk="2" bindtap="getdesk">大桌（5人以上）</button>
+    </form>
   </view>
   <!--导航内容1-->
   <view  wx:if="{{ currentmenu == 1 }}">
@@ -37,6 +39,7 @@
       <view class="menu0-right">
         <!--优惠卷-->
         <view wx:if="{{ coupon[0].id && (coupon[0].coupons_status == 2) }}" class="shop-coupon posr">
+        <!--<view class="shop-coupon posr">-->
         <!--<view wx:if="{{ coupon[0].id }}" class="shop-coupon posr">-->
           <view class="circle-wrap posa">
             <view class="circle" wx:for="0123456789"></view>
@@ -48,7 +51,8 @@
             </view>
             <view class="coupon-right">
               <view>{{ coupon[0].cou_name }}</view>
-              <view>{{ coupon[0].start_time }}-{{ coupon[0].end_time }}</view>
+              <view>{{ coupon[0].start_time }}</view>
+              <view>{{ coupon[0].end_time }}</view>
             </view>
             <!--<view bindtap="getCoupon" class="get-coupon" data-couponid="{{ coupon[0].id }}">点击领取</view>-->
             <view bindtap="getCoupon" class="get-coupon">点击领取</view>

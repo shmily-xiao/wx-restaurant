@@ -1,6 +1,6 @@
 // 获取全局应用程序实例对象
-// const app = getApp()
-
+const app = getApp()
+const useUrl = require('../../utils/service')
 // 创建页面实例对象
 Page({
   /**
@@ -54,7 +54,28 @@ Page({
       shopStatus: 0
     }
   },
+  /**
+   * 优惠券
+   */
+  getCoupon () {
+    let that = this
 
+    let obj = {
+      url: useUrl.serviceUrl.coupons_num,
+      data: {
+        session_key: wx.getStorageSync('session_key')
+      },
+      success (res) {
+        // console.log(res)
+        that.data.userDetail[1].number = res.data.data.count[0]
+        that.setData({
+          // couponsCount: res.data.data.count,
+          userDetail: that.data.userDetail
+        })
+      }
+    }
+    app.requestInfo(obj)
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -62,6 +83,7 @@ Page({
     this.setData({
       userInfo: wx.getStorageSync('userInfo')
     })
+    this.getCoupon()
     // TODO: onLoad
   },
 

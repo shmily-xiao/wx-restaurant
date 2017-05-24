@@ -2,10 +2,15 @@ page {
   background-color: #eee;
 }
 //我的排单
+.numberlistwrap {
+  padding: 35rpx 20rpx 27rpx 20rpx;
+  border-bottom: 10rpx solid #eee;
+}
 .number {
   background-color: #fff;
-  padding: 35rpx 20rpx 27rpx 20rpx;
+
   .number-top {
+    //margin-top: 10rpx;
     display: flex;
     border-bottom: 1rpx solid #eee;
     padding-bottom: 27rpx;
@@ -85,6 +90,10 @@ page {
       line-height: 50rpx;
       font-size: 30rpx;
       color: #999;
+      .m-w-c-text {
+        transition: all 1s;
+        height: inherit;
+      }
       .m-w-content-text {
         display: -webkit-box;
         overflow: hidden;
@@ -92,6 +101,23 @@ page {
         word-break: break-all;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 2;
+        height: 100rpx;
+        transition: all 1s;
+      }
+      .timetitle {
+        //position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .go-shop {
+          display: inline-block;
+          border: 1rpx solid #fff;
+          border-radius: 20rpx;
+          font-size: 22rpx;
+          //padding: 2rpx;
+          background: #f00;
+          color: #fff;
+        }
       }
     }
   }

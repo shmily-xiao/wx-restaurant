@@ -9,6 +9,10 @@ let serviceUrl = {
   getUserInfo: baseUrl + '/user/getUserinfo',
   // 用户地理位置 post {session_key, latitude, longitude}
   weizhi: baseUrl + '/user/weizhi',
+  // 消息
+  mation: baseUrl + '/user/mation',
+  // 用户积分信息
+  jifen: baseUrl + '/user/jifen',
   // 获取热门商店 post {session_key}
   hot_shop: baseUrl + '/shop/hot_shop',
   // 获取附近商家 post {session_key, longitude, latitude}
@@ -31,6 +35,8 @@ let serviceUrl = {
   queue: baseUrl + '/queue/queue',
   // 取消排队 post {session_key, s_id, id}
   quxiao_queue: baseUrl + '/queue/quxiao_queue',
+  // 获取用户的全部排队号
+  queue_num: baseUrl + '/queue/queue_num',
   // 订单提交 post {session_key, s_id, order_price, u_desc, dishes}
   post_order: baseUrl + '/order/post_order',
   // 全部订单 post {session_key}

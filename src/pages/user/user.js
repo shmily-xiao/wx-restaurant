@@ -12,7 +12,7 @@ Page({
     userDetail: [
       {
         title: '正在排队',
-        number: 1
+        number: 0
       },
       {
         title: '优惠券',
@@ -20,7 +20,7 @@ Page({
       },
       {
         title: '积分',
-        number: 20
+        number: 0
       }
     ],
     userList: [
@@ -77,13 +77,61 @@ Page({
     app.requestInfo(obj)
   },
   /**
+   * 获取用户积分信息
+   */
+  getjifen () {
+    let that = this
+    let obj = {
+      url: useUrl.serviceUrl.jifen,
+      method: 'GET',
+      header: {
+        'content-type': 'application/json'
+      },
+      data: {
+        session_key: wx.getStorageSync('session_key')
+      },
+      success (res) {
+        if (!res.data.data) return
+        let userDetail = that.data.userDetail
+        userDetail[2].number = res.data.data.score
+        that.setData({
+          userDetail: userDetail
+        })
+      }
+    }
+    app.requestInfo(obj)
+  },
+  /**
+   * 获取用户的全部排队号
+   */
+  getpaidui () {
+    let that = this
+    let userSite = wx.getStorageSync('userSite')
+    let obj = {
+      url: useUrl.serviceUrl.queue_num,
+      data: {
+        session_key: wx.getStorageSync('session_key'),
+        latitude: userSite.latitude,
+        longitude: userSite.longitude
+      },
+      success (res) {
+        if (!res.data.data) return
+        let userDetail = that.data.userDetail
+        userDetail[0].number = res.data.data.length
+        that.setData({
+          userDetail: userDetail
+        })
+      }
+    }
+    app.requestInfo(obj)
+  },
+  /**
    * 生命周期函数--监听页面加载
    */
   onLoad () {
     this.setData({
       userInfo: wx.getStorageSync('userInfo')
     })
-    this.getCoupon()
     // TODO: onLoad
   },
 
@@ -98,6 +146,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow () {
+    this.getCoupon()
+    this.getjifen()
+    this.getpaidui()
     // TODO: onShow
   },
 

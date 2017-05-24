@@ -1,29 +1,38 @@
 <!-- 可用组件：https://mp.weixin.qq.com/debug/wxadoc/dev/component/ -->
+<import src="../../utils/wxParse/wxParse"></import>
 <view class="user-opertaion">
   <!--我的排单-->
   <view wx:if="{{ operation == 'number' }}" class="number">
-    <view class="number-top">
-      <image src="{{ numberList.img }}"></image>
-      <view class="n-t-center">
-        <text>{{ numberList.name }}</text>
-        <text>{{ numberList.kind }}|人均{{ numberList.average }}元|<text class="iconfont icon-icglobaltitlebar48iconfontmap">{{ numberList.distance }}</text>m</text>
+    <view wx:if="{{ numberList.length == 0 }}">您还没有取号排队哟</view>
+    <view class="numberlistwrap" wx:if="{{ numberList.length != 0 }}" wx:for="{{ numberList }}">
+      <view data-id="{{ item.s_id }}" bindtap="goshop" class="number-top">
+        <image src="{{ item.img }}"></image>
+        <view class="n-t-center">
+          <text>{{ item.name }}</text>
+          <text>{{ item.cat_name }}|人均{{ item.price }}元|<text class="iconfont icon-icglobaltitlebar48iconfontmap">{{ item.km }}</text>km</text>
+        </view>
       </view>
-    </view>
-    <view class="number-bottom">
-      <text class="iconfont icon-danren03"><text>{{ numberList.desk }}</text>等待{{ numberList.wait }}桌</text>
-      <text>请听到叫号立即到收银台</text>
+      <view class="number-bottom">
+        <text class="iconfont icon-danren03"><text>{{ item.numname }}</text>等待{{ item.count }}桌</text>
+        <text>请听到叫号立即到收银台</text>
+      </view>
     </view>
   </view>
   <!--我的消息-->
   <view wx:if="{{ operation == 'message' }}" class="message">
     <view bindtap="chooseMessage" data-message="{{ index }}" class="message-wrap" wx:for="{{ message }}" wx:key="unique">
       <view class="m-w-top iconfont icon-552cc4077f2ed triangle {{ showMessage === index ? 'triangle-animation' : '' }}">
-        {{ item.title }}
+        {{ item.name }}
       </view>
       <view class="m-w-content">
-        <text class="m-w-c-text {{ showMessage !== index ? 'm-w-content-text' : '' }}">{{ item.content }}</text>
-        <text>{{ item.time }}</text>
-      </view>
+        <view class="m-w-c-text {{ showMessage !== index ? 'm-w-content-text' : '' }}">
+          <template is="wxParse" data="{{ wxParseData:messageTemArr[index] }}"></template>
+        </view>
+        <view class="timetitle">{{ item.time }}<view data-id="{{ item.s_id }}" catchtap="goshop" class="go-shop">去这家看看</view></view>
+
+      <!--<text class="m-w-c-text {{ showMessage !== index ? 'm-w-content-text' : '' }}">{{ item.content }}</text>-->
+      <!--<text>{{ item.time }}</text>-->
+    </view>
     </view>
   </view>
   <!--我的积分-->

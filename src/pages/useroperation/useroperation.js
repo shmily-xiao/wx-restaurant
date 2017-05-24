@@ -1,6 +1,7 @@
 // 获取全局应用程序实例对象
 const app = getApp()
 const useUrl = require('../../utils/service')
+const WxParse = require('../../utils/wxParse/wxParse')
 // 创建页面实例对象
 Page({
   /**
@@ -9,29 +10,8 @@ Page({
   data: {
     title: 'useroperation',
     operation: null,
-    numberList: {
-      img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      name: '人马大饭堂',
-      kind: '湘菜',
-      average: 88,
-      distance: 453,
-      desk: 'C2',
-      wait: 5
-    },
-    message: [
-      {
-        title: '三太子三汁',
-        id: 'message1',
-        content: '阿斯顿飞那是的疯狂就拉上的了风景阿萨德来房间爱绿色饭店就是的疯狂就拉上的了风景阿萨德来房间爱绿色饭店就是的疯狂就拉上的了风景阿萨德来房间爱绿色饭店就是的疯狂就拉上的了风景阿萨德来房间爱绿色饭店就是的疯狂就拉上的了风景阿萨德来房间爱绿色饭店就是的疯狂就拉上的了风景阿萨德来房间爱绿色饭店就是的疯狂就拉上的了风景阿萨德来房间爱绿色饭店就卡死的李开复',
-        time: '2012-12-12'
-      },
-      {
-        title: '三太子三汁2',
-        id: 'message2',
-        content: '阿斯顿飞那是的疯狂就拉上的了风景阿萨德是的疯狂就拉上的了风景阿萨德是的疯狂就拉上的了风景阿萨德是的疯狂就拉上的了风景阿萨德是的疯狂就拉上的了风景阿萨德是的疯狂就拉上的了风景阿萨德来房间爱绿色饭店就卡死的李开复',
-        time: '2012-12-12'
-      }
-    ],
+    numberList: [],
+    message: [],
     integral: [
       {
         img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
@@ -259,6 +239,69 @@ Page({
     app.requestInfo(obj)
   },
   /**
+   * 获取消息
+   */
+  getMation () {
+    let that = this
+    let obj = {
+      url: useUrl.serviceUrl.mation,
+      data: {
+        session_key: wx.getStorageSync('session_key')
+      },
+      success (res) {
+        // console.log(res)
+        let message = res.data.data
+        that.setData({
+          message: message
+        })
+        let messageArr = []
+        for (var item of message) {
+          // console.log(item)
+          messageArr.push(item.content)
+        }
+        console.log(messageArr)
+        for (let i = 0; i < messageArr.length; i++) {
+          WxParse.wxParse('message' + i, 'html', messageArr[i], that)
+          if (i === messageArr.length - 1) {
+            WxParse.wxParseTemArray('messageTemArr', 'message', messageArr.length, that)
+          }
+        }
+      }
+    }
+    app.requestInfo(obj)
+  },
+  /**
+   * 从消息去到对应的商店
+   */
+  goshop (e) {
+    console.log(e)
+    wx.redirectTo({
+      url: '../ordering/ordering?s_id=' + e.currentTarget.dataset.id
+    })
+  },
+  /**
+   * 获取用户的全部排单号
+   */
+  getpaidui () {
+    let that = this
+    let userSite = wx.getStorageSync('userSite')
+    let obj = {
+      url: useUrl.serviceUrl.queue_num,
+      data: {
+        session_key: wx.getStorageSync('session_key'),
+        latitude: userSite.latitude,
+        longitude: userSite.longitude
+      },
+      success (res) {
+        if (!res.data.data) return
+        that.setData({
+          numberList: res.data.data
+        })
+      }
+    }
+    app.requestInfo(obj)
+  },
+  /**
    * 生命周期函数--监听页面加载
    */
   onLoad (params) {
@@ -277,9 +320,10 @@ Page({
     // 判断传入类型
     if (operation === 'number') {
       operation = '我的排单号'
-      this.getWaitInfo()
+      this.getpaidui()
     } else if (operation === 'message') {
       operation = '消息'
+      this.getMation()
     } else if (operation === 'integral') {
       operation = '积分兑换'
     } else if (operation === 'order') {

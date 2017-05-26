@@ -3,7 +3,7 @@
 <view class="user-opertaion">
   <!--我的排单-->
   <view wx:if="{{ operation == 'number' }}" class="number">
-    <view wx:if="{{ numberList.length == 0 }}">您还没有取号排队哟</view>
+    <view class="no-number" wx:if="{{ numberList.length == 0 }}">您还没有取号排队哟</view>
     <view class="numberlistwrap" wx:if="{{ numberList.length != 0 }}" wx:for="{{ numberList }}">
       <view data-id="{{ item.s_id }}" bindtap="goshop" class="number-top">
         <image src="{{ item.img }}"></image>
@@ -40,12 +40,12 @@
     <view class="integral-wrap" wx:for="{{ integral }}" wx:key="unique">
       <image src="{{ item.img }}"></image>
       <view class="i-w-center">
-        <text>{{ item.name }}{{ item.delMoney }}元优惠券</text>
-        <text>满{{ item.useMoney }}元使用</text>
-        <text>{{ item.needIntegral }}积分兑换</text>
-        <text>节假日不限</text>
+        <text>{{ item.name }}{{ item.amount }}元优惠券</text>
+        <text>满{{ item.use_price }}元使用</text>
+        <text>{{ item.convert_jifen }}积分兑换</text>
+        <text>{{ item.start_time }}-{{ item.end_time }}</text>
       </view>
-      <view class="integral-change" data-integralid="{{ item.integralid }}">立即兑换</view>
+      <view bindtap="getCoupon" class="integral-change" data-shop="{{ item.shop_id }}" data-integralid="{{ item.id }}">立即兑换</view>
     </view>
   </view>
   <!--我的优惠券-->
@@ -59,13 +59,15 @@
     <view class="coupon-no-use" hidden="{{ currentCouponTab != 0 }}">
       <view class="no-coupon" wx:if="{{ couponNoUseList.length == 0 }}">没有相关的优惠券哦，快去领取吧</view>
       <block wx:if="{{ couponNoUseList.length !== 0 }}" wx:for="{{ couponNoUseList }}">
-        <navigator class="coupon-list" url="../detail/detail?kind={{ item.id }}">
+        <!--todo jump need?-->
+        <navigator class="coupon-list" >
+        <!--<navigator class="coupon-list" url="../detail/detail?s_id={{ item.id }}">-->
             <view class="coupon-list-top">
               <view class="c-l-t-left">
                 <text class="c-l-t-left-one" hidden="{{ !item.amount  }}"><text>￥</text>{{ item.amount }}</text>
                 <text class="c-l-t-left-one" hidden="{{ !item.discount  }}">{{ item.discount }} <text>折</text></text>
               </view>
-              <view class="c-l-t-center">{{ item.cou_name }}</view>
+              <view class="c-l-t-center">满{{ item.use_price }}元使用</view>
               <view class="c-l-t-right iconfont icon-youhuiquan">{{ item.name }}</view>
             </view>
             <!--圆圈-->

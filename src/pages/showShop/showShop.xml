@@ -3,6 +3,7 @@
 <view class="show-shop">
   <view class="near-shop">
     <view class="slide ">{{ title }}</view>
-      <template is="shopList" data="{{ nearShop }}"></template>
+      <view wx:if="{{ nearShop.length == 0 }}" class="noshop">很抱歉，暂时没有合适您的商家</view>
+      <template is="shopList" data="{{ nearShops: nearShop, stars: star }}"></template>
   </view>
 </view>

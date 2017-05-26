@@ -55,7 +55,7 @@ Page({
     if (this.data.order.delMoney[e.detail.value] < 1 && this.data.order.delMoney[e.detail.value] > 0) {
       this.data.order.allMoney = this.data.allMoney * this.data.order.delMoney[e.detail.value]
     } else {
-      this.data.order.allMoney = (this.data.allMoney + (this.data.order.delMoney[e.detail.value]))
+      this.data.order.allMoney = (parseInt(this.data.allMoney) + (this.data.order.delMoney[e.detail.value]))
     }
     this.setData({
       index: e.detail.value,
@@ -128,9 +128,28 @@ Page({
         o_id: params.o_id
       },
       success (res) {
-        console.log(res)
+        // console.log(res)
+        let order = res.data.data
+        if (order.coupons) {
+          order.concessional = order.coupons
+          let delMoney = []
+          let coupons = []
+          for (var item of order.coupons) {
+            delMoney.push(parseInt(item.amount) * -1)
+            coupons.push('满' + item.use_price + '减' + item.amount + '元')
+          }
+          order.delMoney = delMoney
+          order.allMoney = parseInt(order.order.order_price) + delMoney[0]
+          order.coupons = coupons
+          return that.setData({
+            order: order,
+            allMoney: order.order.order_price
+          })
+        }
+        order.allMoney = order.order.order_price
         that.setData({
-          order: res.data.data
+          order: order,
+          allMoney: order.order.order_price
         })
       }
     }

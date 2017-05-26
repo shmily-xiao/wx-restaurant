@@ -8,7 +8,12 @@ page {
 }
 .number {
   background-color: #fff;
-
+  .no-number {
+    text-align: center;
+    font-size: 24rpx;
+    background-color: #eee;
+    margin-top: 10rpx;
+  }
   .number-top {
     //margin-top: 10rpx;
     display: flex;
@@ -202,6 +207,7 @@ page {
       background-image: linear-gradient(#fd9251, #fc7308);
       display: flex;
       color: #fff;
+      overflow: hidden;
       .c-l-t-left {
         font-size: 45rpx;
         .c-l-t-left-one {
@@ -223,6 +229,8 @@ page {
       font-weight: 700;
       font-size: 34rpx;
       position: relative;
+      overflow: hidden;
+      white-space: nowrap;
     }
     .icon-youhuiquan::before {
       font-size: 80rpx;

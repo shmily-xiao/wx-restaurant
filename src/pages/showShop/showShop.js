@@ -1,6 +1,6 @@
 // 获取全局应用程序实例对象
-// const app = getApp()
-
+const app = getApp()
+const useUrl = require('../../utils/service')
 // 创建页面实例对象
 Page({
   /**
@@ -8,75 +8,32 @@ Page({
    */
   data: {
     title: '排队取号',
-    nearShop: [
-      {
-        img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-        name: '青花椒砂锅鱼',
-        price: '30',
-        kind: '中国菜',
-        distance: '8.6km',
-        status: '无需排队',
-        grade: 'five-star'
-      },
-      {
-        img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-        name: '青花椒砂锅鱼',
-        price: '30',
-        kind: '中国菜',
-        status: '无需排队',
-        grade: 'four-star'
-      },
-      {
-        img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-        name: '青花椒砂锅鱼',
-        price: '128',
-        kind: '中国菜',
-        status: '无需排队',
-        grade: 'three-star'
-      },
-      {
-        img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-        name: '青花椒砂锅鱼',
-        price: '128',
-        kind: '中国菜',
-        status: '无需排队',
-        grade: 'two-star'
-      },
-      {
-        img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-        name: '青花椒砂锅鱼',
-        price: '128',
-        kind: '中国菜',
-        status: '无需排队',
-        grade: 'one-star'
-      },
-      {
-        img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-        name: '青花椒砂锅鱼',
-        price: '128',
-        kind: '中国菜',
-        status: '无需排队',
-        grade: 'zero-star'
-      },
-      {
-        img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-        name: '青花椒砂锅鱼',
-        price: '128',
-        kind: '中国菜',
-        status: '无需排队',
-        grade: 'one-star'
-      },
-      {
-        img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-        name: '青花椒砂锅鱼',
-        price: '128',
-        kind: '中国菜',
-        status: '无需排队',
-        grade: 'one-star'
-      }
-    ]
+    nearShop: [],
+    star: ['zero-star', 'one-star', 'two-star', 'three-star', 'four-star', 'five-star']
   },
-
+  /**
+   * 排队、预约取号
+   */
+  getpaidui (param) {
+    let that = this
+    let userSite = wx.getStorageSync('userSite')
+    let url = useUrl.serviceUrl[param]
+    let obj = {
+      url: url,
+      data: {
+        session_key: wx.getStorageSync('session_key'),
+        latitude: userSite.latitude,
+        longitude: userSite.longitude
+      },
+      success (res) {
+        if (!res.data.data) return
+        that.setData({
+          nearShop: res.data.data
+        })
+      }
+    }
+    app.requestInfo(obj)
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -89,6 +46,9 @@ Page({
       this.setData({
         title: '预约订座'
       })
+      this.getpaidui('yuding_shop')
+    } else {
+      this.getpaidui('paidui_shop')
     }
     // TODO: onLoad
   },

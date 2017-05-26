@@ -219,7 +219,7 @@ Page({
   /**
    * 获取用户的优惠券
    */
-  getCoupon () {
+  getCoupons () {
     let that = this
     let obj = {
       url: useUrl.serviceUrl.coupons_num,
@@ -302,6 +302,48 @@ Page({
     app.requestInfo(obj)
   },
   /**
+   * 获取所有的优惠券信息
+   */
+  getAllCoupons () {
+    let that = this
+    let obj = {
+      url: useUrl.serviceUrl.getCouDetail,
+      data: {
+        session_key: wx.getStorageSync('session_key')
+      },
+      success (res) {
+        if (!res.data.data) return
+        that.setData({
+          integral: res.data.data
+        })
+      }
+    }
+    app.requestInfo(obj)
+  },
+  /**
+   * 兑换优惠券
+   */
+  getCoupon (e) {
+    // console.log(e)
+    let obj = {
+      url: useUrl.serviceUrl.cou_convert,
+      data: {
+        session_key: wx.getStorageSync('session_key'),
+        shop_id: e.currentTarget.dataset.shop,
+        cou_id: e.currentTarget.dataset.integralid
+      },
+      success (res) {
+        // console.log(res)
+        wx.showModal({
+          title: '领取优惠券',
+          content: res.data.data,
+          showCancel: false
+        })
+      }
+    }
+    app.requestInfo(obj)
+  },
+  /**
    * 生命周期函数--监听页面加载
    */
   onLoad (params) {
@@ -326,6 +368,7 @@ Page({
       this.getMation()
     } else if (operation === 'integral') {
       operation = '积分兑换'
+      this.getAllCoupons()
     } else if (operation === 'order') {
       operation = '我的订单'
       this.getOrder()
@@ -333,7 +376,7 @@ Page({
       operation = '商家入驻'
     } else {
       operation = '优惠券'
-      this.getCoupon()
+      this.getCoupons()
     }
     // 设置导航栏标题
     wx.setNavigationBarTitle({

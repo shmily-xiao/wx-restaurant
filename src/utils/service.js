@@ -31,6 +31,10 @@ let serviceUrl = {
   xiangqing: baseUrl + '/shop/xiangqing',
   //商家服务
   fuwu: baseUrl + '/shop/fuwu',
+  // 排队接口
+  paidui_shop: baseUrl + '/shop/paidui_shop',
+  // 预定接口
+  yuding_shop: baseUrl + '/shop/yuding_shop',
   // 获取用户排队信息 post {session_key, s_id}
   queue: baseUrl + '/queue/queue',
   // 取消排队 post {session_key, s_id, id}
@@ -45,6 +49,10 @@ let serviceUrl = {
   order_info: baseUrl + '/order/order_info',
   // 获取用户已有优惠券 post {seesion_key, status}
   coupons_num: baseUrl + '/coupons/coupons_num',
+  // 获取所有优惠券
+  getCouDetail: baseUrl + '/coupons/getCouDetail',
+  // 兑换优惠券
+  cou_convert: baseUrl + '/coupons/cou_convert',
   // 用户点击标签评论 post {session_key, s_id, userid, level, l_id}
   post_label_comment: baseUrl + '/comment/post_label_comment',
   // 用户标签评论统计 post {session_key, s_id}

@@ -43,11 +43,6 @@ Page({
         icon: 'iconfont icon-dingdan',
         title: '我的订单',
         id: 'order'
-      },
-      {
-        icon: 'iconfont icon-iconfontruzhu-copy',
-        title: '商家入驻',
-        id: 'merchant'
       }
     ],
     user: {

@@ -78,11 +78,52 @@ Page({
       // }
     ],
     imgUrls: [
-      // 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      // 'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-      // 'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
+      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
+      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
+    ],
+    hotList: [
+      {
+        img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+        text: '喜欢干锅菜，总觉得他有阿斯顿发觉是；老地方叫阿斯顿飞机阿斯顿发斯蒂芬绝对是'
+      },
+      {
+        img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+        text: '喜欢干锅菜，总觉得他有阿斯顿发觉是；老地方叫阿斯顿飞机阿斯顿发斯蒂芬绝对是'
+      },
+      {
+        img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+        text: '喜欢干锅菜，总觉得他有阿斯顿发觉是；老地方叫阿斯顿飞机阿斯顿发斯蒂芬绝对是'
+      }
+    ],
+    tuijian: [
+      {
+        img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+        text: '小米辣椒秘制葱香牛肉',
+        money: '22.00'
+      },
+      {
+        img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+        text: '小米辣椒秘制葱香牛肉',
+        money: '22.00'
+      },
+      {
+        img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+        text: '小米辣椒秘制葱香牛肉',
+        money: '22.00'
+      },
+      {
+        img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+        text: '小米辣椒秘制葱香牛肉',
+        money: '22.00'
+      }
     ],
     star: ['zero-star', 'one-star', 'two-star', 'three-star', 'four-star', 'five-star']
+  },
+  gocaidetail () {
+    wx.navigateTo({
+      url: '../caidetail/caidetail'
+    })
   },
   /**
    * 用户选择位置

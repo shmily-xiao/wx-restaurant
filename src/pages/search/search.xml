@@ -4,7 +4,7 @@
   <!--顶部搜索-->
   <view class="search">
     <!--当前位置-->
-    <input bindinput="searchInput" confirm-type="search" bindconfirm="searchShop" focus="true" class="search-in iconfont icon-sousuo_sousuo" value="{{ searchText }}" placeholder="请输入餐厅、 菜系、 商圈" />
+    <input bindinput="searchInput" confirm-type="search" bindconfirm="searchShop" focus="true" class="search-in iconfont icon-sousuo_sousuo" value="{{ searchText }}" placeholder="请输入菜系或者菜名" />
     <view data-type="btn" bindtap="searchShop" class="search-btn">搜索</view>
   </view>
   <!--搜索历史-->
@@ -20,8 +20,8 @@
     </view>
   </view>
   <!--商店结果展示-->
-  <view class="no-shop" wx:if="{{ nearShop.length == 0 && !search }}">搜一搜您想要去的地方吧</view>
-  <view class="no-shop" wx:if="{{ nearShop.length == 0 && search }}">没有搜索到相关的商店，换个词试试</view>
+  <view class="no-shop" wx:if="{{ nearShop.length == 0 && !search }}">搜一搜您想要品尝的美食吧</view>
+  <view class="no-shop" wx:if="{{ nearShop.length == 0 && search }}">哎呀，本店还没有这道菜，我们的大厨会加紧增添菜品哒~</view>
   <view wx:if="{{ nearShop.length != 0 }}" class="near-shop">
     <view class="slide ">搜索结果</view>
     <!--<view class="near-shop-wrap">-->

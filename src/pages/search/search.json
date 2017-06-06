@@ -1,5 +1,5 @@
 // Window configuration
 // https://mp.weixin.qq.com/debug/wxadoc/dev/framework/config.html#window
 {
-  "navigationBarTitleText": "搜索店铺"
+  "navigationBarTitleText": "搜索菜品"
 }

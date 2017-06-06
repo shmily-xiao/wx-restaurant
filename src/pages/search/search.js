@@ -132,8 +132,8 @@ Page({
     // console.log(searcheText.length)
     if (!searcheText.length) {
       wx.showModal({
-        title: '饭店搜索',
-        content: '请输入你要搜索的饭店名称',
+        title: '菜品搜索',
+        content: '请输入你要搜索菜品名称',
         showCancel: false
       })
       this.setData({

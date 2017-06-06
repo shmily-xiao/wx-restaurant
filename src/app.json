@@ -4,6 +4,7 @@
   // https://mp.weixin.qq.com/debug/wxadoc/dev/framework/config.html#pages
   "pages": [
     "pages/index/index",
+    "pages/caidetail/caidetail",
     "pages/businessCooperation/businessCooperation",
     "pages/ordering/ordering",
     "pages/payorder/payorder",
@@ -50,6 +51,12 @@
       {
         "text": "首页",
         "pagePath": "pages/index/index",
+        "iconPath": "images/icon_component.png",
+        "selectedIconPath": "images/icon_component_HL.png"
+      },
+      {
+        "text": "点餐",
+        "pagePath": "pages/ordering/ordering",
         "iconPath": "images/icon_component.png",
         "selectedIconPath": "images/icon_component_HL.png"
       },

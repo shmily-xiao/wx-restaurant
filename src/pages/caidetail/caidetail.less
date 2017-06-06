@@ -1,0 +1,87 @@
+//商品
+.product {
+  font-size: 24rpx;
+  font-weight: 700;
+  padding: 20rpx;
+  margin-top: 20rpx;
+}
+//价格
+.price {
+  padding: 20rpx;
+  color: #f00;
+  font-size: 26rpx;
+  text {
+    font-size: 28rpx;
+    font-weight: 600;
+  }
+}
+//规格
+.standard {
+  padding-left: 20rpx;
+  display: flex;
+  font-size: 24rpx;
+  color: #666;
+  border: 1rpx solid #eee;
+  height: 65rpx;
+  align-items: center;
+  .standard-wrap {
+    display: flex;
+    .content {
+      margin-left: 20rpx;
+      width: 70rpx;
+      line-height: 34rpx;
+      text-align: center;
+      //box-sizing: border-box;
+      border: 1rpx solid transparent;
+    }
+    .cur {
+      border: 1rpx solid #f00;
+      color: #f00;
+      border-radius: 10rpx;
+      //text-align: center;
+    }
+  }
+}
+//介绍
+.introduce {
+  border-top: 20rpx solid #eee;
+  padding: 20rpx;
+  font-size: 30rpx;
+  color: #333;
+  line-height: 50rpx;
+}
+//加入购物车按钮
+.addbtn {
+  width: 90%;
+  line-height: 88rpx;
+  background-color: #ed4d30;
+  border-radius: 20rpx;
+  color: #fff;
+  font-size: 30rpx;
+}
+// 数量
+.count {
+  display: flex;
+  padding-left: 20rpx;
+  color: #333;
+  line-height: 90rpx;
+  align-items: center;
+  font-size: 24rpx;
+  .order-btn {
+    display: flex;
+    padding-left: 10rpx;
+    //transform: translate(10rpx, 70rpx);
+    view {
+      width: 60rpx;
+      height: 60rpx;
+      text-align: center;
+      line-height: 60rpx;
+      font-size: 30rpx;
+      font-weight: 700;
+      color: #fff;
+      background-color: #0094ff;
+      border-radius: 50%;
+      margin-left: 5rpx;
+    }
+  }
+}

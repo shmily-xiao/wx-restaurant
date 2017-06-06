@@ -434,21 +434,12 @@ Page({
     let money = 0
     let singleMoney = 0
     for (var goodsId in goods) {
-      // console.log(goodsId)
-      // console.log(goods[goodsId])
       for (var lists of menuList) {
-        // console.log(lists)
-        // 具体列表内的菜单
         let list = lists.list
-        // console.log(list)
         for (var goodsID of list) {
           if (goodsID.id === goodsId) {
-            // console.log(goodsID.price)
-            // console.log(goods[goodsId])
             singleMoney = goodsID.cai_price * goods[goodsId]
-            // console.log('success')
           }
-          // return console.log(goodsID)
         }
       }
       money += singleMoney
@@ -531,15 +522,7 @@ Page({
    */
   getdesk (e) {
     let index = e.currentTarget.dataset.desk
-    // let title = null
     let that = this
-    // if (index === '0') {
-    //   title = '小桌取号'
-    // } else if (index === '1') {
-    //   title = '中桌取号'
-    // } else {
-    //   title = '大桌取号'
-    // }
     let obj = {
       url: useUrl.serviceUrl.quhao,
       data: {
@@ -561,21 +544,6 @@ Page({
           })
           // 获取取号信息
           that.getQueue()
-          // let obj2 = {
-          //   url: useUrl.serviceUrl.queue,
-          //   data: {
-          //     session_key: wx.getStorageSync('session_key'),
-          //     s_id: e.s_id
-          //   },
-          //   success (res) {
-          //     console.log(res)
-          //     let quxiaoId = res.data.data.await.id
-          //     that.setData({
-          //       quxiaoId: quxiaoId
-          //     })
-          //   }
-          // }
-          // app.requestInfo(obj2)
         } else {
           wx.showToast({
             title: title,
@@ -759,7 +727,10 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad (e) {
+  onLoad () {
+    let e = {
+      s_id: 9
+    }
     // TODO: onLoad
     let that = this
     // 获取商家信息

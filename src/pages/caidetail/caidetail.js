@@ -1,5 +1,5 @@
 // 获取全局应用程序实例对象
-// const app = getApp()
+const app = getApp()
 
 // 创建页面实例对象
 Page({
@@ -18,19 +18,62 @@ Page({
     kinds: [
       {
         i: '大份',
-        p: '78.0'
+        p: '3',
+        id: 8
       },
       {
         i: '中份',
-        p: '58.0'
-      },
-      {
-        i: '小份',
-        p: '48.0'
+        p: '10',
+        id: 9
       }
+      // ,
+      // {
+      //   i: '小份',
+      //   p: '48.0',
+      //   id: 7
+      // }
     ],
     count: 1,
     introduce: '小米椒秘制葱香牛肉小米椒秘制葱香牛肉小米椒秘制葱香牛肉小米椒秘制葱香牛肉小米椒秘制葱香牛肉小米椒秘制葱香牛肉小米椒秘制葱香牛肉小米椒秘制葱香牛肉小米椒秘制葱香牛肉小米椒秘制葱香牛肉小米椒秘制葱香牛肉小米椒秘制葱香牛肉小米椒秘制葱香牛肉小米椒秘制葱香牛肉小米椒秘制葱香牛肉小米椒秘制葱香牛肉小米椒秘制葱香牛肉'
+  },
+  // 添加到购物车
+  addcar () {
+    let that = this
+    let choosegoods = wx.getStorageSync('chooseGoods')
+    // console.log(choosegoods)
+    let current = that.data.current
+    let goodsId = that.data.kinds[current].id
+    // todo 菜的信息相关计算
+    var goods, money, allCount
+    if (choosegoods) {
+      goods = choosegoods['goods']
+      money = choosegoods['money'] * 1
+      // console.log(money)
+      allCount = choosegoods['allCount'] * 1
+      if (goods[goodsId]) {
+        goods[goodsId] += that.data.count
+      } else {
+        goods[goodsId] = that.data.count
+      }
+      money += (that.data.kinds[current]['p'] * 1) * (that.data.count * 1)
+      // console.log('second' + money)
+      allCount += (that.data.count * 1)
+    } else {
+      goods = {}
+      goods[goodsId] = that.data.count
+      money = (that.data.kinds[current]['p'] * 1) * (that.data.count * 1)
+      allCount = (that.data.count * 1)
+    }
+    choosegoods = {
+      goods: goods,
+      money: money,
+      allCount: allCount,
+      s_id: app.data.s_id
+    }
+    wx.setStorageSync('chooseGoods', choosegoods)
+    wx.switchTab({
+      url: '../ordering/ordering',
+    })
   },
   // 增加数量
   addorder () {

@@ -29,4 +29,4 @@
   {{introduce}}
 </view>
 <!--加入购物-->
-<button  class="addbtn">加入购物车</button>
+<button catchtap="addcar" class="addbtn">加入购物车</button>

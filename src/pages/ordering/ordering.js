@@ -284,7 +284,7 @@ Page({
       // }
     },
     // 当前的tab
-    currentmenu: 0,
+    currentmenu: 1,
     // 当前的left栏
     currentleftmenu: 0,
     // 侧边栏联动当前值
@@ -418,6 +418,12 @@ Page({
       success (res) {
         // console.log(res)
         // todo 返回订单id
+        let kong = {
+          goods: {},
+          money: 0,
+          allCount: 0
+        }
+        wx.setStorageSync('chooseGoods', kong)
         wx.navigateTo({
           url: '../payorder/payorder?o_id=' + res.data.data.id + '&s_id=' + that.data.s_id
         })
@@ -677,12 +683,14 @@ Page({
    * @param e
    */
   delorder (e) {
+    let sid = this.data.s_id
     let goodsId = e.currentTarget.dataset.goodsid
     let chooseGoods = this.data.chooseGoods
     let goods = chooseGoods.goods
     let count = goods[goodsId]
     goods[goodsId] = --count
     chooseGoods.goods = goods
+    chooseGoods.s_id = sid
     this.setData({
       chooseGoods: chooseGoods
     })
@@ -753,22 +761,6 @@ Page({
         that.setNavigatorText()
         // 获取取号信息
         that.getQueue()
-        // let obj2 = {
-        //   url: useUrl.serviceUrl.queue,
-        //   data: {
-        //     session_key: wx.getStorageSync('session_key'),
-        //     s_id: e.s_id
-        //   },
-        //   success (res) {
-        //     console.log(res)
-        //     let quxiaoId = res.data.data.await.id
-        //     that.setData({
-        //       quxiaoId: quxiaoId
-        //     })
-        //   }
-        // }
-        // app.requestInfo(obj2)
-        // console.log(res)
       }
     }
     app.requestInfo(obj)
@@ -803,6 +795,10 @@ Page({
    */
   onShow () {
     // TODO: onShow
+    let chooseGoods = wx.getStorageSync('chooseGoods')
+    this.setData({
+      chooseGoods: chooseGoods
+    })
   },
 
   /**

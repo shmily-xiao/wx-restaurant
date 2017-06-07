@@ -16,7 +16,8 @@ App({
   data: {
     name: 'WeApp Boilerplate',
     version: '0.1.0',
-    userInfo: null
+    userInfo: null,
+    s_id: 9
   },
 
   // 不是只能定义`data`，别的也可以

@@ -17,7 +17,7 @@ App({
     name: 'WeApp Boilerplate',
     version: '0.1.0',
     userInfo: null,
-    s_id: 9
+    s_id: 6
   },
 
   // 不是只能定义`data`，别的也可以
@@ -119,7 +119,7 @@ App({
   /**
    * 主登陆函数
    */
-  mainLogin (_this, callback, callback2, callback3) {
+  mainLogin (_this, callback, callback2, callback3, callback4) {
     let that = this
     let loginObj = {
       success: function (params) {
@@ -149,6 +149,9 @@ App({
             }
             if (callback3) {
               callback3()
+            }
+            if (callback4) {
+              callback4()
             }
           },
           fail (res) {

@@ -35,6 +35,12 @@ let serviceUrl = {
   paidui_shop: baseUrl + '/shop/paidui_shop',
   // 预定接口
   yuding_shop: baseUrl + '/shop/yuding_shop',
+  // 热门菜系
+  hot_dishes: baseUrl + '/shop/hot_dishes',
+  // 推荐菜系
+  tuijian_dishes: baseUrl + '/shop/tuijian_dishes',
+  // 菜的详情
+  dishes_info: baseUrl + '/shop/dishes_info',
   // 获取用户排队信息 post {session_key, s_id}
   queue: baseUrl + '/queue/queue',
   // 取消排队 post {session_key, s_id, id}

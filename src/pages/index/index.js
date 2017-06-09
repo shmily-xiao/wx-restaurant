@@ -120,9 +120,10 @@ Page({
     ],
     star: ['zero-star', 'one-star', 'two-star', 'three-star', 'four-star', 'five-star']
   },
-  gocaidetail () {
+  gocaidetail (e) {
+    let id = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: '../caidetail/caidetail'
+      url: '../caidetail/caidetail?id=' + id
     })
   },
   /**
@@ -188,7 +189,7 @@ Page({
           }
         }
         app.requestInfo(obj)
-        that.getNearShop(res.longitude, res.latitude)
+        // that.getNearShop(res.longitude, res.latitude)
         // 获取用户当前位置地名
         return
         // todo delete return
@@ -278,6 +279,42 @@ Page({
     app.requestInfo(obj)
   },
   /**
+   * 获取热门菜系
+   */
+  gethotDishes () {
+    let that = this
+    let obj = {
+      url: useUrl.serviceUrl.hot_dishes,
+      data: {
+        session_key: wx.getStorageSync('session_key')
+      },
+      success (res) {
+        that.setData({
+          hotList: res.data.data
+        })
+      }
+    }
+    app.requestInfo(obj)
+  },
+  /**
+   * 获取推荐菜系
+   */
+  gettuijianDishes () {
+    let that = this
+    let obj = {
+      url: useUrl.serviceUrl.tuijian_dishes,
+      data: {
+        session_key: wx.getStorageSync('session_key')
+      },
+      success (res) {
+        that.setData({
+          tuijian: res.data.data
+        })
+      }
+    }
+    app.requestInfo(obj)
+  },
+  /**
    * 生命周期函数--监听页面加载
    */
   onLoad () {
@@ -287,29 +324,21 @@ Page({
       // 有sessionKey
       // 获取用户位置信息
       that.getLocation()
-      // 获取人们商家
-      that.getHotShop()
+      // 获取热门商家
+      // that.getHotShop()
+      // 获取热门菜系
+      that.gethotDishes()
+      // 获取推荐菜系
+      that.gettuijianDishes()
       // 获取首页轮播图
       that.getAd()
       // 获取用户信息
       that.setData({
         userInfo: wx.getStorageSync('userInfo')
       })
-      // let obj = {
-      //   // withCredentials: true,
-      //   success (res) {
-      //     // console.log(res)
-      //     that.setData({
-      //       userInfo: res.userInfo
-      //     })
-      //     // that.data.userInfo = res.userInfo
-      //   }
-      // }
-      // app.getUserInfo(obj)
-      // that.getNearshop()
     } else {
       // 没有sessionKey
-      app.mainLogin(that, that.getLocation, that.getHotShop, that.getAd)
+      app.mainLogin(that, that.getLocation, that.gethotDishes, that.gettuijianDishes, that.getAd)
     }
     // 获取地理位置
 

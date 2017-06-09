@@ -11,19 +11,19 @@
   <view class="hot slide">热门推荐</view>
   <view class="hot-content">
     <block wx:for="{{hotList}}" wx:key="unique" wx:for-item="item">
-      <view bindtap="gocaidetail" class="hot-wrap">
+      <view data-id="{{ item.p_id }}" bindtap="gocaidetail" class="hot-wrap">
         <image class="hot-img" src="{{ item.img }}"></image>
-        <view class="hot-text">{{ item.text }}</view>
+        <view class="hot-text">{{ item.content }}</view>
       </view>
     </block>
   </view>
   <view class="recommened hot slide">菜品推荐</view>
   <view class="tuijian">
     <block wx:for="{{ tuijian }}" wx:for-item="item">
-      <view bindtap="gocaidetail" class="tuijian-wrap">
+      <view data-id="{{ item.p_id }}" bindtap="gocaidetail" class="tuijian-wrap">
         <image src="{{ item.img }}"></image>
-        <view class="tuijian-text">{{ item.text }}</view>
-        <view class="tuijian-money">￥{{ item.money }}</view>
+        <view class="tuijian-text">{{ item.content }}</view>
+        <view class="tuijian-money">￥{{ item.cai_price }}</view>
       </view>
     </block>
   </view>

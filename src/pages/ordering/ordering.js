@@ -290,7 +290,7 @@ Page({
     // 侧边栏联动当前值
     currentmenuid: 0,
     // 设置scroll-view的高度
-    scrollHeight: 880,
+    scrollHeight: 760,
     needDistance: 0,
     scrollHeight2: 815,
     showShopCarContent: false,
@@ -313,51 +313,6 @@ Page({
         title: '加酒水'
       }
     ],
-    // comment: [
-      // {
-      //   username: '186****1234',
-      //   img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      //   grade: 'five-star',
-      //   time: '2016-5-5',
-      //   userComment: ['味道不错挺好的的呀呀呀味道不错挺好的的呀呀呀味道不错挺好的的呀呀呀'],
-      //   commentImg: [
-      //     'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      //     'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      //     'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      //     'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      //     'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      //     'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'
-      //   ]
-      // },
-      // {
-      //   username: '186****1234',
-      //   img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      //   grade: 'one-star',
-      //   time: '2016-5-5',
-      //   userComment: ['一', '一二', '一二三', '一二三四']
-      // },
-      // {
-      //   username: '186****1234',
-      //   img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      //   grade: 'two-star',
-      //   time: '2016-5-5',
-      //   userComment: ['一', '一二', '一二三', '一二三四']
-      // },
-      // {
-      //   username: '186****1234',
-      //   img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      //   grade: 'four-star',
-      //   time: '2016-5-5',
-      //   userComment: ['一二三四', '一', '一二三四', '一二', '一二三', '一二三四']
-      // },
-      // {
-      //   username: '186****1234',
-      //   img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      //   grade: 'three-star',
-      //   time: '2016-5-5',
-      //   userComment: ['一二三四', '一', '一二三四', '一二', '一二三', '一二三四']
-      // }
-    // ],
     chooseGoods: {
       // 饭店id 选择后添加
       // 选择的商品数量
@@ -656,8 +611,11 @@ Page({
       })
     }
     let chooseGoods = this.data.chooseGoods
+    // console.log(chooseGoods)
     let goods = chooseGoods.goods
+    // console.log(goods)
     let count = goods[goodsId]
+    // console.log(count)
     chooseGoods.s_id = sid
     // 已有该商品
     if (count) {
@@ -737,7 +695,7 @@ Page({
    */
   onLoad () {
     let e = {
-      s_id: 9
+      s_id: 6
     }
     // TODO: onLoad
     let that = this
@@ -796,6 +754,14 @@ Page({
   onShow () {
     // TODO: onShow
     let chooseGoods = wx.getStorageSync('chooseGoods')
+    // console.log(chooseGoods)
+    if (!chooseGoods) {
+      chooseGoods = {
+        goods: {},
+        money: 0,
+        allCount: 0
+      }
+    }
     this.setData({
       chooseGoods: chooseGoods
     })

@@ -13,30 +13,30 @@ Page({
     numberList: [],
     message: [],
     integral: [
-      {
-        img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-        integralid: 'renma1',
-        name: '人马大饭堂',
-        delMoney: 20,
-        useMoney: 100,
-        needIntegral: 200
-      },
-      {
-        img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-        integralid: 'renma2',
-        name: '人马大饭堂',
-        delMoney: 20,
-        useMoney: 100,
-        needIntegral: 200
-      },
-      {
-        img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-        name: '人马大饭堂',
-        integralid: 'renma3',
-        delMoney: 20,
-        useMoney: 100,
-        needIntegral: 200
-      }
+      // {
+      //   img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+      //   integralid: 'renma1',
+      //   name: '人马大饭堂',
+      //   delMoney: 20,
+      //   useMoney: 100,
+      //   needIntegral: 200
+      // },
+      // {
+      //   img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+      //   integralid: 'renma2',
+      //   name: '人马大饭堂',
+      //   delMoney: 20,
+      //   useMoney: 100,
+      //   needIntegral: 200
+      // },
+      // {
+      //   img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+      //   name: '人马大饭堂',
+      //   integralid: 'renma3',
+      //   delMoney: 20,
+      //   useMoney: 100,
+      //   needIntegral: 200
+      // }
     ],
     currentCouponTab: 0,
     couponNumber: [

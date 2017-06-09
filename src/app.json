@@ -4,9 +4,9 @@
   // https://mp.weixin.qq.com/debug/wxadoc/dev/framework/config.html#pages
   "pages": [
     "pages/index/index",
-    "pages/caidetail/caidetail",
-    "pages/businessCooperation/businessCooperation",
     "pages/ordering/ordering",
+    "pages/caidetail/caidetail",
+//    "pages/businessCooperation/businessCooperation",
     "pages/payorder/payorder",
     "pages/grade/grade",
     "pages/gratuity/gratuity",

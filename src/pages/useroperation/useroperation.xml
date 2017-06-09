@@ -9,7 +9,7 @@
         <image src="{{ item.img }}"></image>
         <view class="n-t-center">
           <text>{{ item.name }}</text>
-          <text>{{ item.cat_name }}|人均{{ item.price }}元|<text class="iconfont icon-icglobaltitlebar48iconfontmap">{{ item.km }}</text>km</text>
+          <text>{{ item.cat_name }}|人均{{ item.price }}元</text>
         </view>
       </view>
       <view class="number-bottom">
@@ -29,7 +29,7 @@
         <view class="m-w-c-text {{ showMessage !== index ? 'm-w-content-text' : '' }}">
           <template is="wxParse" data="{{ wxParseData:messageTemArr[index] }}"></template>
         </view>
-        <view class="timetitle">{{ item.time }}<view data-id="{{ item.s_id }}" catchtap="goshop" class="go-shop">去这家看看</view></view>
+        <!--<view class="timetitle">{{ item.time }}<view data-id="{{ item.s_id }}" catchtap="goshop" class="go-shop">去这家看看</view></view>-->
       <!--<text class="m-w-c-text {{ showMessage !== index ? 'm-w-content-text' : '' }}">{{ item.content }}</text>-->
       <!--<text>{{ item.time }}</text>-->
     </view>
@@ -37,6 +37,7 @@
   </view>
   <!--我的积分-->
   <view wx:if="{{ operation == 'integral' }}" class="integral">
+    <view wx:if="{{ integral.length == 0 }}" class="no-integral">十分抱歉，暂无可兑换的商品~</view>
     <view class="integral-wrap" wx:for="{{ integral }}" wx:key="unique">
       <image src="{{ item.img }}"></image>
       <view class="i-w-center">

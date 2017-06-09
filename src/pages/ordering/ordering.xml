@@ -68,7 +68,7 @@
             <view class="menu0-r-goods" data-menus="{{ index }}" wx:for="{{ menu0List.list }}" wx:key="unique">
               <image src="{{ item.img }}"></image>
               <view class="menu0-r-g">
-                <view>{{ item.cai_name }}</view>
+                <view>{{ item.cai_name }}{{ item.type == 1 ? '(小份)' : item.type == 2 ? '(中份)' : item.type == 3 ? '(大份)' : ''}}</view>
                 <view>月售 {{ item.sale }} 好评 {{ item.like }}</view>
                 <view class="menu0-r-price">
                   ￥ {{ item.cai_price }} 元
@@ -96,7 +96,7 @@
             <view wx:if="{{ chooseGoods.goods[item.id] > 0 }}" class="menu0-r-goods" data-menus="{{ index }}" wx:for="{{ menu0List.list }}" wx:key="unique">
               <image src="{{ item.img }}"></image>
               <view class="menu0-r-g">
-                <view>{{ item.cai_name }}</view>
+                <view>{{ item.cai_name }}{{ item.type == 1 ? '(小份)' : item.type == 2 ? '(中份)' : item.type == 3 ? '(大份)' : ''}}</view>
                 <!--<view>月售 {{ item.count }} 好评 {{ item.good }}</view>-->
                 <view class="menu0-r-price">
                   ￥ {{ item.cai_price }} 元
